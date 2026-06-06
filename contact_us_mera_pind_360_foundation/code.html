@@ -150,6 +150,7 @@
 .mp360-mega-foot-btn:hover{background:#1e4a02;}
 @media(max-width:900px){.mp360-mega-panel{width:min(92vw,920px);left:50%;top:72px;transform:translateX(-50%) translateY(8px);}.mp360-mega-wrap.open .mp360-mega-panel{transform:translateX(-50%) translateY(0);}}
 @media(min-width:769px){[data-burger]{display:none!important;}#mp360-nav{display:flex!important;}}
+@media(max-width:768px){#mp360-nav{display:none!important;}[data-burger]{display:flex!important;}.mp360-getinvolved-btn,.mp360-donate-btn{display:none!important;}}
 /* mp360-donate-btn removed — informational site only */
 
 </style>
@@ -868,35 +869,128 @@ select:focus-visible,
       });
     });
 
-    /* ── Mobile overlay ── */
-    var menuBtn = document.querySelector('[data-burger]');
-    if (!menuBtn) return;
-    var overlay = document.createElement('div');
-    overlay.id = 'mobile-nav-overlay';
-    overlay.style.cssText = 'display:none;position:fixed;inset:0;z-index:100;background:rgba(252,249,244,0.97);flex-direction:column;align-items:center;justify-content:center;gap:2rem;';
-    var mobileLinks = [
-      { label: 'About',     href: '../about_us_mera_pind_360_foundation/code.html' },
-      { label: 'Impact',    href: '../impact_mera_pind_360_foundation/code.html' },
-      { label: 'Programs',  href: '../our_programs_mera_pind_360_foundation/code.html' },
-      { label: 'News',      href: '../news_updates_mera_pind_360_foundation/code.html' },
-      { label: 'Volunteer', href: '../join_us_mera_pind_360_foundation/code.html' }
-    ];
-    mobileLinks.forEach(function(item) {
-      var el = document.createElement('a');
-      el.href = item.href;
-      el.textContent = item.label;
-      el.style.cssText = 'font-family:"Lato",sans-serif;font-size:1.25rem;font-weight:600;color:#173901;text-decoration:none;transition:color 0.2s;';
-      el.onmouseover = function() { el.style.color = '#845400'; };
-      el.onmouseout  = function() { el.style.color = '#173901'; };
-      overlay.appendChild(el);
-    });
-    var closeBtn = document.createElement('button');
-    closeBtn.innerHTML = '<span class="material-symbols-outlined" style="font-size:2.5rem;color:#173901;">close</span>';
-    closeBtn.style.cssText = 'position:absolute;top:1.5rem;right:2.5rem;background:none;border:none;cursor:pointer;';
-    closeBtn.onclick = function() { overlay.style.display = 'none'; };
-    overlay.appendChild(closeBtn);
-    document.body.appendChild(overlay);
-    menuBtn.onclick = function() { overlay.style.display = 'flex'; };
+    /* ── Mobile slide-in drawer ── */
+    (function(){
+      var menuBtn = document.querySelector('[data-burger]');
+      if (!menuBtn) return;
+
+      /* Backdrop */
+      var backdrop = document.createElement('div');
+      backdrop.style.cssText = 'position:fixed;inset:0;z-index:3999;background:rgba(0,0,0,0.45);transition:opacity 0.3s;opacity:0;display:none;';
+      document.body.appendChild(backdrop);
+
+      /* Drawer panel */
+      var drawer = document.createElement('div');
+      drawer.id = 'mp360-mobile-drawer';
+      drawer.setAttribute('role','dialog');
+      drawer.setAttribute('aria-modal','true');
+      drawer.setAttribute('aria-label','Navigation menu');
+      drawer.style.cssText = 'position:fixed;top:0;right:0;bottom:0;z-index:4000;width:min(320px,90vw);background:#fcf9f4;box-shadow:-4px 0 32px rgba(23,57,1,0.15);display:flex;flex-direction:column;transform:translateX(100%);transition:transform 0.32s cubic-bezier(0.4,0,0.2,1);overflow-y:auto;';
+
+      /* Drawer header */
+      var dhdr = document.createElement('div');
+      dhdr.style.cssText = 'display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(23,57,1,0.08);flex-shrink:0;';
+      var dlogo = document.createElement('img');
+      dlogo.src = '../logo.avif';
+      dlogo.alt = 'Mera Pind 360 Foundation';
+      dlogo.style.cssText = 'height:2rem;width:auto;';
+      var closeX = document.createElement('button');
+      closeX.setAttribute('aria-label','Close menu');
+      closeX.style.cssText = 'background:none;border:none;cursor:pointer;padding:8px;display:flex;align-items:center;justify-content:center;border-radius:8px;';
+      closeX.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#173901" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+      dhdr.appendChild(dlogo);
+      dhdr.appendChild(closeX);
+      drawer.appendChild(dhdr);
+
+      /* Nav body */
+      var nbody = document.createElement('div');
+      nbody.style.cssText = 'flex:1;overflow-y:auto;';
+
+      function navLink(label, href) {
+        var a = document.createElement('a');
+        a.href = href; a.textContent = label;
+        a.style.cssText = 'display:block;padding:14px 24px;font-family:"Lato",sans-serif;font-size:1rem;font-weight:600;color:#173901;text-decoration:none;border-bottom:1px solid rgba(23,57,1,0.05);transition:background 0.15s;';
+        a.addEventListener('mouseenter',function(){ a.style.background='rgba(23,57,1,0.04)'; });
+        a.addEventListener('mouseleave',function(){ a.style.background=''; });
+        return a;
+      }
+
+      /* Programs accordion */
+      var progWrap = document.createElement('div');
+      progWrap.style.cssText = 'border-bottom:1px solid rgba(23,57,1,0.05);';
+      var progBtn = document.createElement('button');
+      progBtn.style.cssText = 'width:100%;display:flex;align-items:center;justify-content:space-between;padding:14px 24px;font-family:"Lato",sans-serif;font-size:1rem;font-weight:600;color:#173901;background:none;border:none;cursor:pointer;transition:background 0.15s;';
+      progBtn.innerHTML = '<span>Programs</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#173901" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transition:transform 0.25s;"><path d="M6 9l6 6 6-6"/></svg>';
+      var progChev = progBtn.querySelector('svg');
+      var progSub = document.createElement('div');
+      progSub.style.cssText = 'display:none;background:rgba(23,57,1,0.025);padding:4px 0;';
+      [
+        ['All Programmes',           '../our_programs_mera_pind_360_foundation/code.html'],
+        ['Library & Digital Literacy','../village_library_tools_mera_pind_360_program/code.html'],
+        ['Community Health',          '../telehealth_center_mera_pind_360_program/code.html'],
+        ['CSC / Rural Governance',    '../common_services_centre_mera_pind_360_program/code.html'],
+        ['Non-Technical Skills',      '../non_technical_skills_mera_pind_360_program/code.html'],
+        ['Supporting Poor Families',  '../supporting_poor_families_mera_pind_360_program/code.html'],
+        ['Technical IT Lab',          '../technical_it_lab_mera_pind_360_program/code.html']
+      ].forEach(function(pair){
+        var a = document.createElement('a');
+        a.href = pair[1]; a.textContent = pair[0];
+        a.style.cssText = 'display:block;padding:11px 24px 11px 40px;font-family:"Lato",sans-serif;font-size:0.9rem;font-weight:500;color:#43493d;text-decoration:none;transition:background 0.15s;';
+        a.addEventListener('mouseenter',function(){ a.style.background='rgba(23,57,1,0.07)'; });
+        a.addEventListener('mouseleave',function(){ a.style.background=''; });
+        progSub.appendChild(a);
+      });
+      var progOpen = false;
+      progBtn.addEventListener('click',function(){
+        progOpen = !progOpen;
+        progSub.style.display = progOpen ? 'block' : 'none';
+        progChev.style.transform = progOpen ? 'rotate(180deg)' : '';
+      });
+      progWrap.appendChild(progBtn);
+      progWrap.appendChild(progSub);
+      nbody.appendChild(progWrap);
+
+      nbody.appendChild(navLink('Impact',    '../impact_mera_pind_360_foundation/code.html'));
+      nbody.appendChild(navLink('About',     '../about_us_mera_pind_360_foundation/code.html'));
+      nbody.appendChild(navLink('News',      '../news_updates_mera_pind_360_foundation/code.html'));
+      nbody.appendChild(navLink('Volunteer', '../join_us_mera_pind_360_foundation/code.html'));
+      nbody.appendChild(navLink('Diaspora',  '../diaspora_programme_mera_pind_360_foundation/code.html'));
+      nbody.appendChild(navLink('Contact',   '../contact_us_mera_pind_360_foundation/code.html'));
+      drawer.appendChild(nbody);
+
+      /* CTA footer */
+      var cfoot = document.createElement('div');
+      cfoot.style.cssText = 'padding:16px 20px;border-top:1px solid rgba(23,57,1,0.08);display:flex;flex-direction:column;gap:10px;flex-shrink:0;';
+      var dBtn = document.createElement('a');
+      dBtn.href = '../support_our_cause_mera_pind_360_foundation/code.html';
+      dBtn.textContent = 'Donate';
+      dBtn.style.cssText = 'display:block;text-align:center;padding:13px 20px;background:#845400;color:#fff;font-family:"Lato",sans-serif;font-size:0.95rem;font-weight:700;text-decoration:none;border-radius:999px;';
+      var gBtn = document.createElement('a');
+      gBtn.href = '../join_us_mera_pind_360_foundation/code.html';
+      gBtn.textContent = 'Get Involved';
+      gBtn.style.cssText = 'display:block;text-align:center;padding:13px 20px;background:transparent;color:#173901;border:1.5px solid rgba(23,57,1,0.25);font-family:"Lato",sans-serif;font-size:0.95rem;font-weight:600;text-decoration:none;border-radius:999px;';
+      cfoot.appendChild(dBtn);
+      cfoot.appendChild(gBtn);
+      drawer.appendChild(cfoot);
+      document.body.appendChild(drawer);
+
+      function openDrawer(){
+        backdrop.style.display='block';
+        setTimeout(function(){ backdrop.style.opacity='1'; drawer.style.transform='translateX(0)'; },10);
+        document.body.style.overflow='hidden';
+      }
+      function closeDrawer(){
+        backdrop.style.opacity='0';
+        drawer.style.transform='translateX(100%)';
+        setTimeout(function(){ backdrop.style.display='none'; },320);
+        document.body.style.overflow='';
+      }
+
+      menuBtn.addEventListener('click', openDrawer);
+      closeX.addEventListener('click', closeDrawer);
+      backdrop.addEventListener('click', closeDrawer);
+      document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeDrawer(); });
+    })();
   });
 })();
 (function(){
