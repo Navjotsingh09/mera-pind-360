@@ -1,0 +1,13 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/homepage_mera_pind_360_foundation/code.html" },
+    { "source": "/home", "destination": "/homepage_mera_pind_360_foundation/code.html" },
+    { "source": "/about", "destination": "/about_us_mera_pind_360_foundation/code.html" },
+    { "source": "/programs", "destination": "/our_programs_mera_pind_360_foundation/code.html" },
+    { "source": "/impact", "destination": "/impact_mera_pind_360_foundation/code.html" },
+    { "source": "/news", "destination": "/news_updates_mera_pind_360_foundation/code.html" },
+    { "source": "/join", "destination": "/join_us_mera_pind_360_foundation/code.html" },
+    { "source": "/contact", "destination": "/contact_us_mera_pind_360_foundation/code.html" },
+    { "source": "/support", "destination": "/support_our_cause_mera_pind_360_foundation/code.html" }
+  ]
+}

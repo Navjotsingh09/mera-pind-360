@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Diaspora Programme | Mera Pind 360 Foundation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#43682b",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#dcdad5",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#d4c4b3",
+                        "secondary-fixed-dim": "#ffb958",
+                        "on-primary-fixed": "#0a2100",
+                        "on-tertiary-fixed-variant": "#504538",
+                        "on-secondary-fixed-variant": "#643f00",
+                        "on-error": "#ffffff",
+                        "on-background": "#1c1c19",
+                        "on-secondary-fixed": "#2a1800",
+                        "tertiary": "#3a3024",
+                        "on-tertiary-fixed": "#231a0f",
+                        "primary": "#173901",
+                        "surface-container": "#f0ede9",
+                        "primary-container": "#2d5016",
+                        "on-surface-variant": "#43493d",
+                        "surface-variant": "#e5e2dd",
+                        "on-secondary-container": "#714800",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#c4efa3",
+                        "surface-bright": "#fcf9f4",
+                        "inverse-primary": "#a8d38a",
+                        "secondary-fixed": "#ffddb5",
+                        "on-surface": "#1c1c19",
+                        "surface": "#fcf9f4",
+                        "on-tertiary-container": "#c4b4a4",
+                        "background": "#fcf9f4",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#f1e0ce",
+                        "secondary": "#845400",
+                        "on-primary-container": "#98c27b",
+                        "outline-variant": "#c3c9b9",
+                        "secondary-container": "#fcb654",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#a8d38a",
+                        "tertiary-container": "#514639",
+                        "outline": "#73796c",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f6f3ee",
+                        "inverse-surface": "#31302d",
+                        "surface-container-high": "#ebe8e3",
+                        "on-primary-fixed-variant": "#2c4f15",
+                        "surface-container-highest": "#e5e2dd",
+                        "inverse-on-surface": "#f3f0eb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "section-gap": "120px",
+                        "container-max": "1280px",
+                        "grid-margin": "40px",
+                        "grid-gutter": "24px"
+                    },
+                    "fontFamily": {
+                    "label-lg": ["Lato", "sans-serif"],
+                    "body-lg": ["Lato", "sans-serif"],
+                    "display": ["Lato", "sans-serif"],
+                    "headline-sm": ["Lato", "sans-serif"],
+                    "body-md": ["Lato", "sans-serif"],
+                    "headline-md": ["Lato", "sans-serif"],
+                    "headline-lg": ["Lato", "sans-serif"]
+            },
+                    "fontSize": {
+                        "label-lg": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["20px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                        "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fcf9f4; /* Warm Cream surface */
+        }
+        .program-card {
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .program-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(23, 57, 1, 0.3);
+            box-shadow: 0 20px 40px -15px rgba(67, 104, 43, 0.08);
+        }
+    </style>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<style>
+.mp360-link{font-family:'Lato',sans-serif;font-size:1.05rem;font-weight:700;color:#2d3a28;text-decoration:none;transition:color .2s;}
+.mp360-link:hover,.mp360-link.active{color:#173901;}
+.mp360-link.active{font-weight:600;}
+/* === NAV POLISH + ORDER === */
+#mp360-header{transition:background-color .25s,border-color .25s,box-shadow .25s;}
+#mp360-header.mp360-nav-scrolled{background:rgba(252,249,244,0.985)!important;border-bottom-color:rgba(23,57,1,0.14)!important;box-shadow:0 10px 26px rgba(23,57,1,0.10);}
+#mp360-nav{padding:0;background:transparent;border:0;backdrop-filter:none;-webkit-backdrop-filter:none;display:flex!important;align-items:center;justify-content:center;gap:42px!important;overflow:visible!important;min-height:auto;box-shadow:none;}
+#mp360-nav>.mp360-mega-wrap{order:3;overflow:visible!important;}
+#mp360-header, #mp360-header > div, #mp360-nav, .mp360-mega-wrap{overflow:visible!important;}
+#mp360-nav a, #mp360-nav button{white-space:nowrap;}
+#mp360-nav>a[href*="about_us_mera_pind_360_foundation"]{order:1;}
+#mp360-nav>a[href*="impact_mera_pind_360_foundation"]{order:2;}
+#mp360-nav>a[href*="news_updates_mera_pind_360_foundation"]{order:4;}
+#mp360-nav>a[href*="join_us_mera_pind_360_foundation"]{order:5;}
+.mp360-link,.mp360-mega-trigger{position:relative;padding:10px 4px;}
+.mp360-link::after,.mp360-mega-trigger::after{content:'';position:absolute;left:0;right:0;bottom:1px;height:2px;background:#173901;transform:scaleX(0);transform-origin:center;transition:transform .2s ease;opacity:.85;}
+.mp360-link:hover::after,.mp360-link.active::after,.mp360-mega-trigger:hover::after,.mp360-mega-trigger.active::after,.mp360-mega-wrap.open .mp360-mega-trigger::after{transform:scaleX(1);}
+
+/* === MEGAMENU === */
+.mp360-mega-wrap{position:relative;display:inline-flex;}
+.mp360-mega-trigger{background:none;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:10px 4px;font-family:'Lato',sans-serif;font-size:1.05rem;font-weight:700;color:#2d3a28;transition:color .2s;}
+.mp360-mega-trigger:hover,.mp360-mega-trigger.active{color:#173901;}
+.mp360-chevron{width:14px;height:14px;flex-shrink:0;transition:transform 0.22s;}
+.mp360-mega-wrap.open .mp360-chevron{transform:rotate(180deg);}
+.mp360-mega-panel{position:fixed;top:78px;left:50%;transform:translateX(-50%) translateY(8px);width:min(920px,calc(100vw - 48px));background:#fff;border-radius:20px;box-shadow:0 18px 54px rgba(23,57,1,0.16),0 0 0 1px rgba(23,57,1,0.08);opacity:0;visibility:hidden;pointer-events:none;transition:opacity 0.22s,transform 0.22s,visibility 0.22s;z-index:5000;overflow:hidden;}
+.mp360-mega-wrap.open .mp360-mega-panel{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);}
+#mp360-header .mp360-mega-panel:hover{opacity:1;visibility:visible;pointer-events:auto;}
+.mp360-mega-inner{display:grid;grid-template-columns:200px 1fr 1fr;}
+.mp360-mega-feature{background:#173901;padding:28px 24px;position:relative;overflow:hidden;}
+.mp360-mega-col{padding:22px 20px;border-left:1px solid rgba(23,57,1,0.07);}
+.mp360-mega-col-hd{font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#845400;margin:0 0 10px;font-family:'Lato',sans-serif;}
+.mp360-mega-item{display:flex;align-items:flex-start;gap:10px;padding:9px 10px;border-radius:10px;text-decoration:none;color:#173901;font-size:0.8rem;line-height:1.42;margin-bottom:2px;transition:background .15s;font-family:'Lato',sans-serif;}
+.mp360-mega-item:hover{background:rgba(23,57,1,0.05);}
+.mp360-mega-item strong{display:block;font-size:0.85rem;font-weight:700;margin-bottom:1px;color:#173901;}
+.mp360-mega-item--dim{opacity:0.72;}
+.mp360-mega-ico{display:flex;align-items:center;justify-content:center;width:34px;height:34px;min-width:34px;background:rgba(23,57,1,0.07);border-radius:8px;color:#173901;flex-shrink:0;margin-top:1px;}
+.mp360-mega-item:hover .mp360-mega-ico{background:rgba(23,57,1,0.12);}
+.mp360-mega-soon{display:inline-flex;align-items:center;margin-left:6px;font-size:0.58rem;font-weight:700;letter-spacing:0.05em;background:rgba(132,84,0,0.12);color:#845400;border-radius:4px;padding:1px 5px;vertical-align:middle;text-transform:uppercase;}
+.mp360-mega-foot{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:rgba(23,57,1,0.025);border-top:1px solid rgba(23,57,1,0.07);font-family:'Lato',sans-serif;font-size:0.8rem;color:#43493d;}
+.mp360-mega-foot-btn{display:inline-flex;align-items:center;padding:7px 16px;background:#173901;color:#fff !important;border-radius:999px;font-family:'Lato',sans-serif;font-size:0.78rem;font-weight:600;text-decoration:none;transition:background .2s;}
+.mp360-mega-foot-btn:hover{background:#1e4a02;}
+@media(max-width:900px){.mp360-mega-panel{width:min(92vw,920px);left:50%;top:72px;transform:translateX(-50%) translateY(8px);}.mp360-mega-wrap.open .mp360-mega-panel{transform:translateX(-50%) translateY(0);}}
+@media(min-width:769px){[data-burger]{display:none!important;}#mp360-nav{display:flex!important;}}
+/* mp360-donate-btn removed — informational site only */
+
+</style>
+<!-- MP360-RESPONSIVE-V2 -->
+<style id="mp360-responsive">
+/* === Global safety: never let anything cause horizontal scroll === */
+html { overflow-x: visible; }
+body { max-width: 100%; overflow-x: hidden; }
+img, video, iframe, svg { max-width: 100%; height: auto; }
+
+/* === Tablet & below === */
+@media (max-width: 1024px) {
+  .max-w-container-max { max-width: 100% !important; }
+  .px-grid-margin { padding-left: 24px !important; padding-right: 24px !important; }
+  .py-section-gap { padding-top: 72px !important; padding-bottom: 72px !important; }
+  .gap-section-gap { gap: 48px !important; }
+  .text-display { font-size: 56px !important; line-height: 1.1 !important; }
+  .text-headline-lg { font-size: 36px !important; line-height: 1.15 !important; }
+  .text-headline-md { font-size: 26px !important; }
+  .text-headline-sm { font-size: 20px !important; }
+}
+
+/* === Mobile (≤768px) — primary breakpoint === */
+@media (max-width: 768px) {
+  /* Header / nav */
+  header > div[style*="max-width:1280px"],
+  header > div[style*="max-width: 1280px"] {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    height: 60px !important;
+  }
+  header img[alt="Mera Pind 360 Foundation"] { height: 2rem !important; }
+
+  /* Layout primitives */
+  .max-w-container-max { max-width: 100% !important; }
+  .px-grid-margin { padding-left: 16px !important; padding-right: 16px !important; }
+  .py-section-gap { padding-top: 56px !important; padding-bottom: 56px !important; }
+  .pt-24 { padding-top: 4rem !important; }
+  .mb-24 { margin-bottom: 3rem !important; }
+  .mb-20 { margin-bottom: 2.5rem !important; }
+  .mb-16 { margin-bottom: 2rem !important; }
+  .mb-12 { margin-bottom: 1.75rem !important; }
+  .mb-8  { margin-bottom: 1.25rem !important; }
+  .gap-grid-gutter { gap: 16px !important; }
+  .gap-12 { gap: 1.5rem !important; }
+  .gap-8  { gap: 1.25rem !important; }
+  .p-10, .p-12 { padding: 1.5rem !important; }
+  .p-8 { padding: 1.25rem !important; }
+
+  /* Typography */
+  .text-display     { font-size: 36px !important; line-height: 1.12 !important; letter-spacing: -0.01em !important; }
+  .text-headline-lg { font-size: 28px !important; line-height: 1.2 !important; }
+  .text-headline-md { font-size: 22px !important; line-height: 1.25 !important; }
+  .text-headline-sm { font-size: 18px !important; }
+  .text-body-lg     { font-size: 16px !important; line-height: 1.55 !important; }
+  .text-body-md     { font-size: 15px !important; }
+
+  /* Force grids that authors didn't collapse */
+  .grid-cols-2, .grid-cols-3, .grid-cols-4, .grid-cols-5, .grid-cols-6,
+  .grid-cols-12 { grid-template-columns: 1fr !important; }
+
+  /* But allow stat strips (2-up) on mobile to stay 2 columns when present */
+  .grid.grid-cols-2.md\:grid-cols-4 { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Column spans collapse */
+  [class*="md:col-span-"], [class*="lg:col-span-"],
+  [class*="col-span-"] { grid-column: span 1 / span 1 !important; }
+
+  /* Bento grid (homepage custom) */
+  .bento-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .bento-grid > * { grid-column: span 1 / span 1 !important; grid-row: auto !important; }
+
+  /* Hero heights — let content dictate */
+  section.relative.min-h-\[870px\],
+  section.relative[class*="min-h-["],
+  section.relative[class*="h-["] {
+    min-height: 0 !important;
+    height: auto !important;
+    padding-top: 5rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  /* Buttons in hero */
+  .hero-cta, .join-hero-cta { font-size: 0.85rem !important; padding: 0.75rem 1.1rem !important; }
+  .flex.flex-wrap.gap-6 { gap: 0.75rem !important; }
+  .px-8 { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+  .px-10 { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+  .py-3, .py-5 { padding-top: 0.75rem !important; padding-bottom: 0.75rem !important; }
+
+  /* Footer columns stack neatly */
+  footer .grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+
+  /* Tables / horizontally-wide content can scroll */
+  table { display: block; overflow-x: auto; max-width: 100%; }
+
+  /* Forms */
+  input, textarea, select { max-width: 100% !important; box-sizing: border-box; font-size: 16px !important; }
+
+  /* Mobile nav overlay (created by inline JS) — make text smaller for short screens */
+  #mobile-nav-overlay a { font-size: 1.6rem !important; }
+
+  /* Cards */
+  .join-role-card { padding: 1.5rem !important; }
+  .space-y-12 > * + * { margin-top: 2rem !important; }
+
+  /* Bordered dividers between stat strips (hide vertical on stack) */
+  .border-x { border-left-width: 0 !important; border-right-width: 0 !important; }
+
+  /* Absolute-positioned decorative elements often break on mobile — soften */
+  .absolute.inset-0 img { object-position: center !important; }
+}
+
+/* === Small phones === */
+@media (max-width: 420px) {
+  .text-display     { font-size: 30px !important; }
+  .text-headline-lg { font-size: 24px !important; }
+  .text-headline-md { font-size: 20px !important; }
+  .px-grid-margin { padding-left: 14px !important; padding-right: 14px !important; }
+  header > div[style*="max-width:1280px"],
+  header > div[style*="max-width: 1280px"] {
+    padding-left: 12px !important; padding-right: 12px !important;
+  }
+  header img[alt="Mera Pind 360 Foundation"] { height: 1.75rem !important; }
+}
+</style>
+
+<style id="mp360-global-v3">
+/* === Lato everywhere === */
+html, body, p, span, h1, h2, h3, h4, h5, h6, a, li, button, input, textarea, select, label, blockquote, cite, div, section, article, aside, header, footer, nav {
+  font-family: 'Lato', sans-serif !important;
+}
+.material-symbols-outlined { font-family: 'Material Symbols Outlined' !important; }
+
+/* === Headings weight bump === */
+h1, h2, .font-display, [class*="text-display"], [class*="text-headline-lg"] { font-weight: 900 !important; }
+h3, h4, [class*="text-headline-sm"], [class*="text-headline-md"] { font-weight: 700 !important; }
+
+/* === Nav links — improved contrast (#2d3a28 on #fcf9f4 = 7.4:1) === */
+.mp360-link { color: #2d3a28 !important; font-weight: 500 !important; }
+.mp360-link:hover, .mp360-link.active { color: #173901 !important; }
+
+/* === Get Involved pill (replaces Donate button) === */
+.mp360-getinvolved-btn {
+  background: transparent;
+  color: #173901 !important;
+  font-family: 'Lato', sans-serif !important;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.45rem 1.25rem;
+  border-radius: 99px;
+  border: 2px solid #173901;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+  display: inline-block;
+}
+.mp360-getinvolved-btn:hover { background: #173901; color: #fff !important; }
+.mp360-donate-btn {
+  background: #FF9933;
+  color: #1a0a00 !important;
+  font-family: 'Lato', sans-serif !important;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.45rem 1.25rem;
+  border-radius: 99px;
+  border: 2px solid #FF9933;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  display: inline-block;
+}
+.mp360-donate-btn:hover { background: #e68a00; border-color: #e68a00; color: #fff !important; }
+
+/* === Card standard === */
+.mp360-card, .program-card, .tier-card {
+  border-radius: 1rem !important;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(.165,.84,.44,1), box-shadow 0.35s !important;
+}
+.mp360-card:hover, .program-card:hover, .tier-card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 20px 48px -12px rgba(23,57,1,0.13) !important;
+}
+
+/* Enforce rounding site-wide */
+.rounded-xl  { border-radius: 0.75rem !important; }
+.rounded-2xl { border-radius: 1rem    !important; }
+.rounded-3xl { border-radius: 1.5rem  !important; }
+
+/* Program/cause card images */
+article img, .program-card img, div[style*="aspect-ratio"] img {
+  border-radius: 0 !important; /* images inside rounded containers don't need own radius */
+}
+
+/* === Contrast fixes: dark bg sections must have white text === */
+.bg-primary p, .bg-primary li,
+.bg-primary .font-body-lg, .bg-primary .font-body-md,
+.bg-primary .text-on-primary-container {
+  color: rgba(255,255,255,0.9) !important;
+}
+.bg-primary h1,.bg-primary h2,.bg-primary h3,.bg-primary h4 { color: #ffffff !important; }
+
+/* text-on-surface-variant on bg-surface-container is fine (#43493d on #f0ede9 = 4.7:1) */
+/* But on bg-primary it's broken — fixed above */
+
+/* === Scroll reveal === */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(.165,.84,.44,1);
+}
+[data-reveal="left"]  { transform: translateX(-32px); }
+[data-reveal="right"] { transform: translateX(32px);  }
+[data-reveal].visible { opacity: 1; transform: translate(0,0); }
+
+[data-delay="1"] { transition-delay: 0.08s; }
+[data-delay="2"] { transition-delay: 0.16s; }
+[data-delay="3"] { transition-delay: 0.24s; }
+[data-delay="4"] { transition-delay: 0.32s; }
+[data-delay="5"] { transition-delay: 0.40s; }
+
+/* === Image alignment === */
+img { display: block; }
+.object-cover { object-fit: cover; }
+</style>
+<style id="mp360-white-headings">
+/* Ensure headings inside text-white containers are white */
+.text-white h1, .text-white h2, .text-white h3, .text-white h4,
+.text-white p, .text-white span:not(.material-symbols-outlined) {
+  color: #ffffff !important;
+}
+/* CTA sections with photo backgrounds — all text white */
+section .absolute + div h1,
+section .absolute + div h2,
+section .absolute + div h3,
+section .absolute + div h4 {
+  color: inherit;
+}
+</style>
+
+<style id="mp360-ux-fixes">
+/* === UX Fixes: Skip link === */
+.mp360-skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 9999;
+  background: #173901;
+  color: #fff !important;
+  padding: 10px 20px;
+  border-radius: 0 0 8px 8px;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.mp360-skip-link:focus {
+  top: 0;
+  outline: 3px solid #f5c842;
+  outline-offset: 2px;
+}
+/* === UX Fixes: Focus visible styles === */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #173901 !important;
+  outline-offset: 3px !important;
+  border-radius: 3px;
+}
+</style>
+</head>
+<body class="font-body-md text-on-surface">
+<!-- TopNavBar -->
+<header id="mp360-header" style="position:sticky;top:0;z-index:3000;background:rgba(252,249,244,0.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(23,57,1,0.08);">
+<div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;max-width:1280px;margin:0 auto;padding:0 2rem;height:64px;">
+<a href="../homepage_mera_pind_360_foundation/code.html" style="flex-shrink:0;display:flex;align-items:center;text-decoration:none;"><img src="../logo.avif" alt="Mera Pind 360 Foundation" style="height:2.5rem;width:auto;" /></a>
+<nav id="mp360-nav" class="hidden md:flex items-center" style="gap:28px;">
+
+<!-- ░ Programs megamenu ░ -->
+<div class="mp360-mega-wrap">
+  <button type="button" class="mp360-link mp360-mega-trigger" aria-expanded="false" aria-haspopup="true">
+    Programs
+    <svg class="mp360-chevron" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <div class="mp360-mega-panel" role="region" aria-label="Programmes menu">
+    <div class="mp360-mega-inner">
+
+      <!-- Left: Feature card -->
+      <div class="mp360-mega-feature">
+        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=800&q=80" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:20px 0 0 0;opacity:0.32;" />
+        <div style="position:relative;z-index:1;">
+          <p style="font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin:0 0 8px;">Our Work</p>
+          <h3 style="font-family:'Lato',sans-serif;font-size:1.15rem;font-weight:700;color:#fff;line-height:1.35;margin:0 0 10px;">Four rooms,<br>one roof.</h3>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.7);line-height:1.55;margin:0 0 20px;">Every centre unites library, health, governance and community under one roof in rural Punjab.</p>
+          <a href="../our_programs_mera_pind_360_foundation/code.html" style="display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;font-weight:700;color:#fcb654;text-decoration:none;letter-spacing:0.01em;">All programmes <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Middle: Programme links -->
+      <div class="mp360-mega-col">
+        <p class="mp360-mega-col-hd">Programmes</p>
+        <a href="../village_library_tools_mera_pind_360_program/code.html" class="mp360-mega-item">
+          <span class="mp360-mega-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></span>
+          <span><strong>Library &amp; Digital Literacy</strong>IT lab, reading rooms and digital access</span>
+        </a>
+        <a href="../telehealth_center_mera_pind_360_program/code.html" class="mp360-mega-item">
+          <span class="mp360-mega-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
+          <span><strong>Community Health</strong>Screenings, clinics and health education</span>
+        </a>
+        <a href="../common_services_centre_mera_pind_360_program/code.html" class="mp360-mega-item">
+          <span class="mp360-mega-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+          <span><strong>Rural Governance</strong>Service desk &amp; scheme navigation</span>
+        </a>
+      </div>
+
+      <!-- Right: Get Involved -->
+      <div class="mp360-mega-col">
+        <p class="mp360-mega-col-hd">Get Involved</p>
+        <a href="../join_us_mera_pind_360_foundation/code.html" class="mp360-mega-item">
+          <span class="mp360-mega-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></span>
+          <span><strong>Volunteer</strong>Join from Punjab or the diaspora</span>
+        </a>
+        <a href="../support_our_cause_mera_pind_360_foundation/code.html" class="mp360-mega-item">
+          <span class="mp360-mega-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></span>
+          <span><strong>Support Our Cause</strong>Help build the next centre</span>
+        </a>
+        <a href="../diaspora_programme_mera_pind_360_foundation/code.html" class="mp360-mega-item mp360-mega-item--dim">
+          <span class="mp360-mega-ico" style="opacity:0.45;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></span>
+          <span><strong>Diaspora Programme</strong><span class="mp360-mega-soon">Coming soon</span>NRI families back to their pind</span>
+        </a>
+      </div>
+
+    </div><!-- /mp360-mega-inner -->
+    <div class="mp360-mega-foot">
+      <span>Questions about our programmes?</span>
+      <a href="../contact_us_mera_pind_360_foundation/code.html" class="mp360-mega-foot-btn">Get in touch</a>
+    </div>
+  </div><!-- /mp360-mega-panel -->
+</div><!-- /mp360-mega-wrap -->
+
+<a href="../impact_mera_pind_360_foundation/code.html" class="mp360-link">Impact</a>
+<a href="../about_us_mera_pind_360_foundation/code.html" class="mp360-link">About</a>
+<a href="../news_updates_mera_pind_360_foundation/code.html" class="mp360-link">News</a>
+<a href="../join_us_mera_pind_360_foundation/code.html" class="mp360-link">Volunteer</a>
+</nav>
+<div style="display:flex;align-items:center;gap:12px;justify-self:end;">
+<a href="../our_programs_mera_pind_360_foundation/code.html" class="mp360-getinvolved-btn">Explore Programs</a>
+<button data-burger class="md:hidden" aria-label="Open menu" style="background:none;border:none;cursor:pointer;padding:6px 4px;display:flex;flex-direction:column;gap:5px;justify-content:center;align-items:center;">
+<span style="display:block;width:22px;height:1.5px;background:#173901;border-radius:2px;transition:all 0.3s;"></span>
+<span style="display:block;width:22px;height:1.5px;background:#173901;border-radius:2px;transition:all 0.3s;"></span>
+<span style="display:block;width:22px;height:1.5px;background:#173901;border-radius:2px;transition:all 0.3s;"></span>
+</button>
+</div>
+</div>
+</header>
+<main id="main-content">
+<section class="relative overflow-hidden bg-surface-bright">
+  <div class="absolute inset-0" style="background:linear-gradient(90deg,rgba(23,57,1,0.82) 0%,rgba(23,57,1,0.52) 45%,rgba(23,57,1,0.08) 100%);"></div>
+  <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1600&q=80" alt="Diaspora Programme hero image" class="absolute inset-0 h-full w-full object-cover" style="opacity:0.45;"/>
+  <div class="relative max-w-container-max mx-auto px-grid-margin pt-28 pb-24">
+    <div class="max-w-3xl text-white">
+      <span class="inline-flex items-center rounded-full bg-white/15 px-4 py-2 font-label-lg uppercase tracking-widest" style="font-size:0.68rem;">Diaspora Programme</span>
+      <h1 class="font-display text-display mt-8 mb-6" style="font-size:clamp(2.8rem,6vw,5.25rem);color:#ffffff;">Returning Families, Rebuilding Villages.</h1>
+      <p class="font-body-lg leading-relaxed" style="max-width:46rem;color:rgba(255,255,255,0.9);">A dedicated route for families abroad to reconnect with their pind through practical, transparent, village-first collaboration.</p>
+    </div>
+  </div>
+</section>
+
+<section class="py-section-gap bg-background">
+  <div class="max-w-container-max mx-auto px-grid-margin grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+    <div class="lg:col-span-7">
+      <p class="font-label-lg uppercase tracking-widest text-secondary mb-4" style="font-size:0.72rem;">Programme Overview</p>
+      <h2 class="font-display text-headline-lg text-primary mb-6">How the diaspora route works.</h2>
+      <p class="text-on-surface-variant leading-relaxed text-body-lg">This programme is designed for families who want their contribution to be tied to a specific village context, local need, and measurable social outcome. The focus is partnership with village leadership and continuity over one-time gestures.</p>
+    </div>
+    <div class="lg:col-span-5 rounded-3xl overflow-hidden bg-surface-container-high border border-outline-variant/20">
+      <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80" alt="Diaspora Programme overview image" class="w-full h-full object-cover" style="min-height:320px;"/>
+    </div>
+  </div>
+</section>
+
+<section class="pb-section-gap bg-background">
+  <div class="max-w-container-max mx-auto px-grid-margin">
+    <div class="rounded-3xl bg-surface-container-low border border-outline-variant/20 p-8 md:p-12">
+      <p class="font-label-lg uppercase tracking-widest text-secondary mb-5" style="font-size:0.72rem;">Key Focus Areas</p>
+      <ul class="grid grid-cols-1 md:grid-cols-3 gap-4 text-on-surface-variant leading-relaxed">
+        <li class="rounded-xl border border-outline-variant/20 bg-surface px-5 py-4">Village-specific partnership with local leadership</li>
+        <li class="rounded-xl border border-outline-variant/20 bg-surface px-5 py-4">Transparent programme tracking and continuity</li>
+        <li class="rounded-xl border border-outline-variant/20 bg-surface px-5 py-4">Family reconnection through meaningful on-ground roles</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="py-section-gap bg-surface-container-low">
+  <div class="max-w-container-max mx-auto px-grid-margin">
+    <div class="max-w-2xl mb-12">
+      <p class="font-label-lg uppercase tracking-widest text-secondary mb-4" style="font-size:0.72rem;">Video Resources</p>
+      <h2 class="font-display text-headline-lg text-primary mb-5">Watch this directly on the page.</h2>
+      <p class="text-on-surface-variant leading-relaxed">Free YouTube resources connected to diaspora engagement and rural development collaboration.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-grid-gutter">
+      <div class="mp360-vid-card" data-search="diaspora community development india rural" role="button" tabindex="0" aria-label="Play video: Diaspora and rural development">
+        <img class="mp360-vid-thumb" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80" alt="" aria-hidden="true" />
+        <div class="mp360-vid-overlay">
+          <div class="mp360-vid-play" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          <p class="mp360-vid-label">Video Resource</p>
+          <p class="mp360-vid-title">Diaspora and rural development</p>
+        </div>
+        <iframe title="Diaspora and rural development" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="mp360-vid-card" data-search="rural philanthropy india community impact" role="button" tabindex="0" aria-label="Play video: Community impact models">
+        <img class="mp360-vid-thumb" src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="" aria-hidden="true" />
+        <div class="mp360-vid-overlay">
+          <div class="mp360-vid-play" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+          <p class="mp360-vid-label">Video Resource</p>
+          <p class="mp360-vid-title">Community impact models</p>
+        </div>
+        <iframe title="Community impact models" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-section-gap bg-background">
+  <div class="max-w-container-max mx-auto px-grid-margin">
+    <div class="max-w-2xl mb-12">
+      <p class="font-label-lg uppercase tracking-widest text-secondary mb-4" style="font-size:0.72rem;">Gallery</p>
+      <h2 class="font-display text-headline-lg text-primary mb-5">Click any image to expand.</h2>
+      <p class="text-on-surface-variant leading-relaxed">Unsplash visuals reflecting community, return, and long-term village collaboration.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-grid-gutter">
+      <div class="mp360-gallery-item overflow-hidden rounded-2xl bg-surface-container aspect-[4/3]"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80" alt="Diaspora programme gallery image" class="h-full w-full object-cover transition-transform duration-700 hover:scale-105"/></div>
+      <div class="mp360-gallery-item overflow-hidden rounded-2xl bg-surface-container aspect-[4/3]"><img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80" alt="Diaspora programme gallery image" class="h-full w-full object-cover transition-transform duration-700 hover:scale-105"/></div>
+      <div class="mp360-gallery-item overflow-hidden rounded-2xl bg-surface-container aspect-[4/3]"><img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1200&q=80" alt="Diaspora programme gallery image" class="h-full w-full object-cover transition-transform duration-700 hover:scale-105"/></div>
+      <div class="mp360-gallery-item overflow-hidden rounded-2xl bg-surface-container aspect-[4/3]"><img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80" alt="Diaspora programme gallery image" class="h-full w-full object-cover transition-transform duration-700 hover:scale-105"/></div>
+    </div>
+  </div>
+</section>
+
+<section class="pb-section-gap bg-background">
+  <div class="max-w-container-max mx-auto px-grid-margin">
+    <div class="rounded-3xl bg-primary px-8 py-10 md:px-12 md:py-14 text-white flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+      <div class="max-w-2xl">
+        <p class="font-label-lg uppercase tracking-widest mb-4" style="font-size:0.72rem;color:rgba(255,255,255,0.72);">Next Step</p>
+        <h2 class="font-display text-headline-lg mb-4" style="color:#ffffff;">Continue through the programmes portfolio.</h2>
+        <p class="leading-relaxed" style="color:rgba(255,255,255,0.86);">Review all programme pages or move directly to volunteer and support pathways.</p>
+      </div>
+      <div class="flex flex-wrap gap-4">
+        <a href="../our_programs_mera_pind_360_foundation/code.html" class="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3 text-white">All programmes</a>
+        <a href="../join_us_mera_pind_360_foundation/code.html" class="inline-flex items-center gap-2 rounded-full bg-secondary-container px-6 py-3 text-primary font-semibold">Volunteer with us</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<!-- Footer -->
+<footer>
+<style>
+/* ===== MP360 FOOTER ===== */
+.mp360-foot { background: #173901; }
+.mp360-foot-inner { max-width: 1280px; margin: 0 auto; padding: 4rem 2rem 3rem; }
+.mp360-foot-grid {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr 1fr 1fr;
+  gap: 3rem;
+}
+@media (max-width: 860px) {
+  .mp360-foot-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem 2rem; }
+}
+@media (max-width: 520px) {
+  .mp360-foot-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+.mp360-foot-head {
+  color: rgba(255,255,255,0.4);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0 0 1.1rem;
+  font-family: 'Lato', sans-serif;
+}
+.mp360-foot-link {
+  color: rgba(255,255,255,0.65);
+  font-size: 0.875rem;
+  text-decoration: none;
+  display: block;
+  padding: 0.28rem 0;
+  font-family: 'Lato', sans-serif;
+  transition: color 0.18s, padding-left 0.18s;
+}
+.mp360-foot-link:hover { color: #fcb654; padding-left: 5px; }
+.mp360-soc {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.09);
+  border: 1px solid rgba(255,255,255,0.14);
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+.mp360-soc:hover { background: rgba(252,182,84,0.2); color: #fcb654; border-color: rgba(252,182,84,0.45); transform: translateY(-2px); }
+.mp360-stat-n { color: #fcb654; font-size: 1.3rem; font-weight: 900; line-height: 1; display: block; font-family: 'Lato', sans-serif; }
+.mp360-stat-l { color: rgba(255,255,255,0.4); font-size: 0.62rem; letter-spacing: 0.07em; text-transform: uppercase; display: block; margin-top: 3px; font-family: 'Lato', sans-serif; }
+.mp360-foot-bar { border-top: 1px solid rgba(255,255,255,0.1); }
+.mp360-foot-bar-inner {
+  max-width: 1280px; margin: 0 auto; padding: 1.1rem 2rem;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 0.5rem;
+}
+.mp360-foot-copy { color: rgba(255,255,255,0.3); font-size: 0.775rem; font-family: 'Lato', sans-serif; margin: 0; }
+</style>
+
+<div class="mp360-foot">
+  <div class="mp360-foot-inner">
+    <div class="mp360-foot-grid">
+
+      <!-- Brand column -->
+      <div>
+        <img src="../logo.avif" alt="Mera Pind 360 Foundation"
+             style="height:2.6rem;width:auto;margin-bottom:1.2rem;filter:brightness(0) invert(1);opacity:0.92;" />
+        <p style="color:rgba(255,255,255,0.6);font-size:0.875rem;line-height:1.75;max-width:265px;margin:0 0 1.75rem;font-family:'Lato',sans-serif;">
+          Inspired by Shaheedi and <em>Seva</em> &mdash; preserving heritage while bringing skills, education, health, and city services to every village. Sarbat da Bhala.
+        </p>
+
+        <!-- Mini stats strip -->
+        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.75rem;padding:1rem 1.25rem;background:rgba(255,255,255,0.06);border-radius:0.75rem;border:1px solid rgba(255,255,255,0.08);">
+          <div style="text-align:center;">
+            <span class="mp360-stat-n">60</span>
+            <span class="mp360-stat-l">Villages</span>
+          </div>
+          <div style="width:1px;background:rgba(255,255,255,0.12);align-self:stretch;"></div>
+          <div style="text-align:center;">
+            <span class="mp360-stat-n">4,463</span>
+            <span class="mp360-stat-l">Families</span>
+          </div>
+          <div style="width:1px;background:rgba(255,255,255,0.12);align-self:stretch;"></div>
+          <div style="text-align:center;">
+            <span class="mp360-stat-n">14k+</span>
+            <span class="mp360-stat-l">Engaged</span>
+          </div>
+        </div>
+
+        <!-- Social icons -->
+        <div style="display:flex;gap:0.55rem;flex-wrap:wrap;">
+          <a href="#" class="mp360-soc" aria-label="Facebook">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="mp360-soc" aria-label="Instagram">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="mp360-soc" aria-label="X / Twitter">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="mailto:info@merapind360.org" class="mp360-soc" aria-label="Email us">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,7 12,13 2,7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Explore -->
+      <div>
+        <p class="mp360-foot-head">Explore</p>
+        <nav>
+          <a class="mp360-foot-link" href="../homepage_mera_pind_360_foundation/code.html">Home</a>
+          <a class="mp360-foot-link" href="../about_us_mera_pind_360_foundation/code.html">About Us</a>
+          <a class="mp360-foot-link" href="../our_programs_mera_pind_360_foundation/code.html">Our Programs</a>
+          <a class="mp360-foot-link" href="../impact_mera_pind_360_foundation/code.html">Impact</a>
+          <a class="mp360-foot-link" href="../news_updates_mera_pind_360_foundation/code.html">News &amp; Updates</a>
+        </nav>
+      </div>
+
+      <!-- Get Involved -->
+      <div>
+        <p class="mp360-foot-head">Get Involved</p>
+        <nav>
+          <a class="mp360-foot-link" href="../join_us_mera_pind_360_foundation/code.html">Volunteer With Us</a>
+          <a class="mp360-foot-link" href="../support_our_cause_mera_pind_360_foundation/code.html">Ways to Help</a>
+          <a class="mp360-foot-link" href="../contact_us_mera_pind_360_foundation/code.html">Contact Us</a>
+        </nav>
+      </div>
+
+      <!-- Contact / Address -->
+      <div>
+        <p class="mp360-foot-head">Find Us</p>
+        <address style="font-style:normal;color:rgba(255,255,255,0.6);font-size:0.875rem;line-height:1.85;font-family:'Lato',sans-serif;margin:0 0 1.1rem;">
+          Village Kotli Arian<br>
+          Adampur, Jalandhar<br>
+          Punjab, India
+        </address>
+        <a href="mailto:info@merapind360.org" class="mp360-foot-link"
+           style="font-size:0.82rem;margin-bottom:0.5rem;">info@merapind360.org</a>
+        <p style="color:rgba(255,255,255,0.32);font-size:0.75rem;margin:0.8rem 0 0;font-family:'Lato',sans-serif;line-height:1.5;">
+          Registered 29 March 2022<br>
+          <span style="color:rgba(255,255,255,0.2);font-size:0.7rem;">NGO Charity Foundation</span>
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="mp360-foot-bar">
+    <div class="mp360-foot-bar-inner">
+      <p class="mp360-foot-copy">&#169; 2026 Mera Pind 360 Foundation. All rights reserved.</p>
+      <p class="mp360-foot-copy">Built with purpose &middot; Serving Punjab&#39;s villages</p>
+    </div>
+  </div>
+</div>
+</footer>
+
+<script>
+(function() {
+  document.addEventListener('DOMContentLoaded', function() {
+
+    var header = document.getElementById('mp360-header');
+    if (header) {
+      var syncHeader = function() {
+        if (window.scrollY > 12) header.classList.add('mp360-nav-scrolled');
+        else header.classList.remove('mp360-nav-scrolled');
+      };
+      syncHeader();
+      window.addEventListener('scroll', syncHeader, { passive: true });
+    }
+
+    /* ── Megamenu hover + click + keyboard ── */
+    document.querySelectorAll('.mp360-mega-wrap').forEach(function(wrap) {
+      var trigger = wrap.querySelector('.mp360-mega-trigger');
+      var panel   = wrap.querySelector('.mp360-mega-panel');
+      if (!trigger || !panel) return;
+
+      var pinned = false;
+      var closeTimer = null;
+
+      function openMenu() {
+        if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+        wrap.classList.add('open');
+        trigger.setAttribute('aria-expanded','true');
+      }
+
+      function closeMenu(force) {
+        if (!force && pinned) return;
+        wrap.classList.remove('open');
+        trigger.setAttribute('aria-expanded','false');
+      }
+
+      wrap.addEventListener('mouseenter', function() {
+        openMenu();
+      });
+
+      wrap.addEventListener('mouseleave', function() {
+        closeTimer = setTimeout(function () { closeMenu(false); }, 120);
+      });
+
+      wrap.addEventListener('focusin', openMenu);
+      wrap.addEventListener('focusout', function(e) {
+        if (!wrap.contains(e.relatedTarget)) closeMenu(false);
+      });
+
+      trigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        pinned = !pinned;
+        if (pinned) openMenu();
+        else closeMenu(true);
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          pinned = false;
+          closeMenu(true);
+        }
+      });
+
+      document.addEventListener('click', function(e) {
+        if (!wrap.contains(e.target)) {
+          pinned = false;
+          closeMenu(true);
+        }
+      });
+    });
+
+    /* ── Mobile overlay ── */
+    var menuBtn = document.querySelector('[data-burger]');
+    if (!menuBtn) return;
+    var overlay = document.createElement('div');
+    overlay.id = 'mobile-nav-overlay';
+    overlay.style.cssText = 'display:none;position:fixed;inset:0;z-index:100;background:rgba(252,249,244,0.97);flex-direction:column;align-items:center;justify-content:center;gap:2rem;';
+    var mobileLinks = [
+      { label: 'About',     href: '../about_us_mera_pind_360_foundation/code.html' },
+      { label: 'Impact',    href: '../impact_mera_pind_360_foundation/code.html' },
+      { label: 'Programs',  href: '../our_programs_mera_pind_360_foundation/code.html' },
+      { label: 'News',      href: '../news_updates_mera_pind_360_foundation/code.html' },
+      { label: 'Volunteer', href: '../join_us_mera_pind_360_foundation/code.html' }
+    ];
+    mobileLinks.forEach(function(item) {
+      var el = document.createElement('a');
+      el.href = item.href;
+      el.textContent = item.label;
+      el.style.cssText = 'font-family:"Lato",sans-serif;font-size:1.25rem;font-weight:600;color:#173901;text-decoration:none;transition:color 0.2s;';
+      el.onmouseover = function() { el.style.color = '#845400'; };
+      el.onmouseout  = function() { el.style.color = '#173901'; };
+      overlay.appendChild(el);
+    });
+    var closeBtn = document.createElement('button');
+    closeBtn.innerHTML = '<span class="material-symbols-outlined" style="font-size:2.5rem;color:#173901;">close</span>';
+    closeBtn.style.cssText = 'position:absolute;top:1.5rem;right:2.5rem;background:none;border:none;cursor:pointer;';
+    closeBtn.onclick = function() { overlay.style.display = 'none'; };
+    overlay.appendChild(closeBtn);
+    document.body.appendChild(overlay);
+    menuBtn.onclick = function() { overlay.style.display = 'flex'; };
+  });
+})();
+(function(){
+  document.addEventListener('DOMContentLoaded',function(){
+    var path=window.location.pathname;
+    document.querySelectorAll('.mp360-link').forEach(function(a){
+      try{var lp=new URL(a.href,window.location.href).pathname;if(lp===path)a.classList.add('active');}catch(e){}
+    });
+    /* also highlight Programs trigger when on programs page */
+    var progTrigger = document.querySelector('.mp360-mega-trigger');
+    if (progTrigger) {
+      try {
+        var progHref = '../our_programs_mera_pind_360_foundation/code.html';
+        var progPath = new URL(progHref, window.location.href).pathname;
+        if (window.location.pathname === progPath || window.location.pathname.indexOf('_program/') !== -1 || window.location.pathname.indexOf('_program/code.html') !== -1 || window.location.pathname.indexOf('diaspora_programme_mera_pind_360_foundation') !== -1) progTrigger.classList.add('active');
+      } catch(e) {}
+    }
+  });
+})();
+</script>
+<script>
+(function () {
+  'use strict';
+
+  /* ─── colour tokens from design system ─── */
+  var C_PRIMARY       = 'rgb(23,57,1)';
+  var C_PRIMARY_DIM   = 'rgba(23,57,1,0.55)';
+  var C_SECONDARY     = 'rgb(132,84,0)';
+  var C_SECONDARY_DIM = 'rgba(132,84,0,0.18)';
+  var C_WHITE         = 'rgba(255,255,255,1)';
+  var C_WHITE_DIM     = 'rgba(255,255,255,0.55)';
+
+
+  window.addEventListener('load', function () {
+    if (typeof gsap === 'undefined') return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    /* ═══════════════════════════════════════════
+       1. NAV — slide down on load
+    ═══════════════════════════════════════════ */
+    gsap.from('header', {
+      y: -56, opacity: 0, duration: 0.8, ease: 'power3.out', clearProps: 'all'
+    });
+
+    /* ═══════════════════════════════════════════
+       2. HERO — stagger entrance
+    ═══════════════════════════════════════════ */
+    var heroSection = document.querySelector('body section');
+    if (heroSection) {
+      var heroEls = heroSection.querySelectorAll('span.inline-block, span.inline-flex, h1, p, .flex.flex-wrap > a, .flex.flex-wrap > button');
+      if (heroEls.length) {
+        gsap.from(Array.from(heroEls).slice(0, 8), {
+          y: 60, opacity: 0, duration: 1.1, stagger: 0.14,
+          ease: 'power3.out', delay: 0.3, clearProps: 'all'
+        });
+      }
+      /* hero bg parallax */
+      var heroBg = heroSection.querySelector('.absolute > img, .absolute img');
+      if (heroBg) {
+        gsap.to(heroBg, {
+          scrollTrigger: { trigger: heroSection, start: 'top top', end: 'bottom top', scrub: 1.2 },
+          y: '30%', ease: 'none'
+        });
+      }
+    }
+
+    /* ═══════════════════════════════════════════
+       3. HEADING ENTRANCE — fade-up (once)
+    ═══════════════════════════════════════════ */
+    document.querySelectorAll('h1, h2').forEach(function (el) {
+      if (heroSection && heroSection.contains(el)) return;
+      gsap.from(el, {
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+        y: 24, opacity: 0, duration: 0.7, ease: 'power2.out', clearProps: 'all'
+      });
+    });
+
+    /* ═══════════════════════════════════════════
+       4. SECTION SUBTITLE / LEAD PARAGRAPH fade-up
+    ═══════════════════════════════════════════ */
+    document.querySelectorAll('.text-center > p, .max-w-3xl > p, .max-w-2xl > p').forEach(function (el) {
+      if (heroSection && heroSection.contains(el)) return;
+      gsap.from(el, {
+        scrollTrigger: { trigger: el, start: 'top 90%', once: true },
+        y: 28, opacity: 0, duration: 0.85, delay: 0.1, ease: 'power2.out', clearProps: 'all'
+      });
+    });
+
+    /* ═══════════════════════════════════════════
+       5. CARDS — stagger fade-up
+    ═══════════════════════════════════════════ */
+    /* group cards by parent so stagger is per-row */
+    var processedParents = new Set();
+    document.querySelectorAll('section .grid > div, section .bento-grid > div').forEach(function (el) {
+      var parent = el.parentElement;
+      if (processedParents.has(parent)) return;
+      processedParents.add(parent);
+      var children = Array.from(parent.children);
+      gsap.from(children, {
+        scrollTrigger: { trigger: parent, start: 'top 88%', once: true },
+        y: 55, opacity: 0, duration: 0.75, stagger: 0.1, ease: 'power2.out', clearProps: 'all'
+      });
+    });
+
+    /* ═══════════════════════════════════════════
+       6. BLOCKQUOTES — slide from left
+    ═══════════════════════════════════════════ */
+    document.querySelectorAll('blockquote').forEach(function (el) {
+      gsap.from(el, {
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+        x: -45, opacity: 0, duration: 0.85, ease: 'power3.out', clearProps: 'all'
+      });
+    });
+
+    /* ═══════════════════════════════════════════
+       7. IMAGES (non-hero) — scale + fade
+    ═══════════════════════════════════════════ */
+    document.querySelectorAll('section img').forEach(function (el) {
+      if (heroSection && heroSection.contains(el)) return;
+      gsap.from(el, {
+        scrollTrigger: { trigger: el, start: 'top 90%', once: true },
+        scale: 0.94, opacity: 0, duration: 1.1, ease: 'power2.out', clearProps: 'all'
+      });
+    });
+
+    /* ═══════════════════════════════════════════
+       8. STAT COUNTERS — roll-up
+    ═══════════════════════════════════════════ */
+    document.querySelectorAll('[class*="text-headline-lg"][class*="font-bold"]').forEach(function (el) {
+      var raw = el.textContent.trim();
+      if (!/^\d/.test(raw)) return;
+      var num = parseFloat(raw.replace(/[^0-9.]/g, ''));
+      if (isNaN(num) || num <= 1) return;
+      var suffix = raw.replace(/^[\d,]+/, '');
+      var proxy  = { val: 0 };
+      gsap.to(proxy, {
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+        val: num, duration: 2.0, ease: 'power2.out',
+        onUpdate: function () { el.textContent = Math.round(proxy.val) + suffix; }
+      });
+    });
+
+    /* ═══════════════════════════════════════════
+       9. MARQUEE SECTIONS — horizontal drift
+          (Highlight/banner blocks with large display text)
+    ═══════════════════════════════════════════ */
+    document.querySelectorAll('section.bg-secondary-container, section[class*="bg-primary"]').forEach(function (section) {
+      var h2 = section.querySelector('h2');
+      if (!h2) return;
+      gsap.from(h2, {
+        scrollTrigger: { trigger: section, start: 'top 80%', once: true },
+        x: -60, opacity: 0, duration: 1.0, ease: 'power3.out', clearProps: 'all'
+      });
+      var body = section.querySelector('p');
+      if (body) {
+        gsap.from(body, {
+          scrollTrigger: { trigger: section, start: 'top 75%', once: true },
+          x: 40, opacity: 0, duration: 0.9, delay: 0.15, ease: 'power2.out', clearProps: 'all'
+        });
+      }
+    });
+
+    /* ═══════════════════════════════════════════
+       10. FOOTER — fade in
+    ═══════════════════════════════════════════ */
+    gsap.from('footer', {
+      scrollTrigger: { trigger: 'footer', start: 'top 95%', once: true },
+      opacity: 0, y: 28, duration: 0.7, ease: 'power2.out', clearProps: 'all'
+    });
+
+    /* ═══════════════════════════════════════════
+       11. HOMEPAGE HERO WORD CYCLER
+           Cycles a keyword in the h1 like the reference site
+    ═══════════════════════════════════════════ */
+    var heroH1 = document.querySelector('section h1');
+    if (heroH1 && document.title.toLowerCase().includes('home') || (heroH1 && window.location.pathname.toLowerCase().includes('homepage'))) {
+      var words = ['Education', 'Healthcare', 'Skills', 'Community', 'Empowerment'];
+      var el = document.createElement('span');
+      el.id = 'hero-cycler';
+      el.style.cssText = 'display:block;font-size:clamp(3rem,8vw,5rem);font-family:"Lato",serif;font-weight:700;color:rgb(23,57,1);letter-spacing:-0.02em;line-height:1;margin-bottom:0.4em;overflow:hidden;';
+      el.textContent = words[0];
+      heroH1.parentElement.insertBefore(el, heroH1);
+
+      var idx = 0;
+      function cycleWord() {
+        idx = (idx + 1) % words.length;
+        gsap.to(el, {
+          opacity: 0, y: -30, duration: 0.35, ease: 'power2.in',
+          onComplete: function () {
+            el.textContent = words[idx];
+            gsap.fromTo(el, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' });
+          }
+        });
+      }
+      setInterval(cycleWord, 2200);
+    }
+
+  }); /* end load */
+})();
+</script>
+<script id="mp360-reveal">
+(function(){
+  function reveal() {
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.10, rootMargin: '0px 0px -32px 0px' });
+    document.querySelectorAll('[data-reveal]').forEach(function(el){ io.observe(el); });
+  }
+  document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', reveal) : reveal();
+})();
+</script>
+<style id="mp360-video-gallery">
+/* ── Video card ── */
+.mp360-vid-card {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #173901;
+  aspect-ratio: 16/9;
+  cursor: pointer;
+  box-shadow: 0 4px 24px rgba(23,57,1,0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.mp360-vid-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(23,57,1,0.24); }
+.mp360-vid-thumb {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: opacity 0.35s ease;
+  display: block;
+}
+.mp360-vid-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(23,57,1,0.72) 100%);
+  display: flex; flex-direction: column;
+  justify-content: flex-end; padding: 1.25rem;
+  transition: opacity 0.2s;
+}
+.mp360-vid-card:hover .mp360-vid-overlay { opacity: 0.88; }
+.mp360-vid-play {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -60%);
+  width: 56px; height: 56px;
+  background: #ffffff; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  transition: transform 0.2s, background 0.2s;
+}
+.mp360-vid-card:hover .mp360-vid-play { transform: translate(-50%, -60%) scale(1.12); background: #173901; }
+.mp360-vid-play svg { fill: #173901; transition: fill 0.2s; }
+.mp360-vid-card:hover .mp360-vid-play svg { fill: #ffffff; }
+.mp360-vid-label {
+  font-family: 'Lato', sans-serif; font-size: 0.78rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: rgba(255,255,255,0.75); margin-bottom: 4px;
+}
+.mp360-vid-title {
+  font-family: 'Lato', sans-serif; font-size: 1rem; font-weight: 700;
+  color: #ffffff; line-height: 1.35; margin: 0;
+}
+.mp360-vid-card iframe {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  border: none; display: none; border-radius: 1rem;
+}
+.mp360-vid-card.is-playing iframe { display: block; }
+.mp360-vid-card.is-playing .mp360-vid-thumb,
+.mp360-vid-card.is-playing .mp360-vid-overlay,
+.mp360-vid-card.is-playing .mp360-vid-play { display: none; }
+
+/* ── Gallery lightbox ── */
+.mp360-gallery-item {
+  position: relative; overflow: hidden; border-radius: 1rem;
+  cursor: zoom-in; background: #1c1c19;
+}
+.mp360-gallery-item img {
+  display: block; width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.mp360-gallery-item:hover img { transform: scale(1.06); }
+.mp360-gallery-item::after {
+  content: '\e5d0'; /* material: open_in_full */
+  font-family: 'Material Symbols Outlined';
+  font-size: 1.25rem; line-height: 1;
+  position: absolute; bottom: 10px; right: 12px;
+  color: rgba(255,255,255,0.85);
+  background: rgba(23,57,1,0.6);
+  padding: 4px 6px; border-radius: 6px;
+  pointer-events: none;
+  opacity: 0; transition: opacity 0.2s;
+}
+.mp360-gallery-item:hover::after { opacity: 1; }
+
+/* ── Lightbox overlay ── */
+#mp360-lightbox {
+  display: none; position: fixed; inset: 0;
+  z-index: 9900; background: rgba(0,0,0,0.94);
+  align-items: center; justify-content: center;
+  padding: 20px;
+}
+#mp360-lightbox.open { display: flex; }
+#mp360-lightbox img {
+  max-width: 92vw; max-height: 88vh;
+  object-fit: contain; border-radius: 8px;
+  box-shadow: 0 8px 60px rgba(0,0,0,0.6);
+  user-select: none;
+}
+.mp360-lb-close {
+  position: fixed; top: 18px; right: 22px;
+  width: 44px; height: 44px;
+  background: rgba(255,255,255,0.12); border: none;
+  border-radius: 50%; cursor: pointer; color: #fff;
+  font-size: 1.5rem; display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.mp360-lb-close:hover { background: rgba(255,255,255,0.25); }
+.mp360-lb-arrow {
+  position: fixed; top: 50%; transform: translateY(-50%);
+  width: 48px; height: 48px;
+  background: rgba(255,255,255,0.12); border: none;
+  border-radius: 50%; cursor: pointer; color: #fff;
+  font-size: 1.5rem; display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s; z-index: 1;
+}
+.mp360-lb-arrow:hover { background: rgba(255,255,255,0.25); }
+.mp360-lb-prev { left: 16px; }
+.mp360-lb-next { right: 16px; }
+.mp360-lb-counter {
+  position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+  color: rgba(255,255,255,0.6); font-family: 'Lato', sans-serif;
+  font-size: 0.82rem; letter-spacing: 0.06em;
+}
+@media (max-width: 768px) {
+  .mp360-lb-arrow { width: 38px; height: 38px; font-size: 1.2rem; }
+  .mp360-lb-prev { left: 8px; }
+  .mp360-lb-next { right: 8px; }
+}
+</style>
+
+<!-- Lightbox DOM (shared) -->
+<div id="mp360-lightbox" role="dialog" aria-modal="true" aria-label="Image lightbox">
+  <button class="mp360-lb-close" id="mp360-lb-close" aria-label="Close lightbox">&#x2715;</button>
+  <button class="mp360-lb-arrow mp360-lb-prev" id="mp360-lb-prev" aria-label="Previous image">&#x2039;</button>
+  <img id="mp360-lb-img" src="" alt="" />
+  <button class="mp360-lb-arrow mp360-lb-next" id="mp360-lb-next" aria-label="Next image">&#x203a;</button>
+  <div class="mp360-lb-counter" id="mp360-lb-counter"></div>
+</div>
+
+<script id="mp360-video-gallery-js">
+(function () {
+  /* ── Video cards: click-to-play ── */
+  document.querySelectorAll('.mp360-vid-card').forEach(function (card) {
+    card.addEventListener('click', function () {
+      if (card.classList.contains('is-playing')) return;
+      var query = card.getAttribute('data-search');
+      var iframe = card.querySelector('iframe');
+      if (iframe && query) {
+        iframe.src = 'https://www.youtube-nocookie.com/embed?listType=search&list=' +
+                     encodeURIComponent(query) + '&autoplay=1&rel=0&modestbranding=1';
+        card.classList.add('is-playing');
+      }
+    });
+  });
+
+  /* ── Gallery lightbox ── */
+  var lb       = document.getElementById('mp360-lightbox');
+  var lbImg    = document.getElementById('mp360-lb-img');
+  var lbClose  = document.getElementById('mp360-lb-close');
+  var lbPrev   = document.getElementById('mp360-lb-prev');
+  var lbNext   = document.getElementById('mp360-lb-next');
+  var lbCtr    = document.getElementById('mp360-lb-counter');
+  if (!lb) return;
+
+  var galleryImgs = [];
+  var current     = 0;
+
+  function buildGallery() {
+    galleryImgs = Array.from(document.querySelectorAll('.mp360-gallery-item img'));
+    galleryImgs.forEach(function (img, i) {
+      img.parentElement.addEventListener('click', function () { openLb(i); });
+      img.parentElement.setAttribute('tabindex', '0');
+      img.parentElement.setAttribute('role', 'button');
+      img.parentElement.setAttribute('aria-label', 'View full image: ' + (img.alt || 'gallery image'));
+      img.parentElement.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLb(i); }
+      });
+    });
+  }
+
+  function openLb(i) {
+    current = i;
+    lbImg.src = galleryImgs[i].src.replace(/w=\d+/, 'w=1600');
+    lbImg.alt = galleryImgs[i].alt;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    lbClose.focus();
+    updateCtr();
+  }
+
+  function closeLb() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    if (galleryImgs[current]) galleryImgs[current].parentElement.focus();
+  }
+
+  function updateCtr() {
+    lbCtr.textContent = (current + 1) + ' / ' + galleryImgs.length;
+    lbPrev.style.display = galleryImgs.length > 1 ? '' : 'none';
+    lbNext.style.display = galleryImgs.length > 1 ? '' : 'none';
+  }
+
+  function goNext() { current = (current + 1) % galleryImgs.length; lbImg.src = galleryImgs[current].src.replace(/w=\d+/, 'w=1600'); lbImg.alt = galleryImgs[current].alt; updateCtr(); }
+  function goPrev() { current = (current - 1 + galleryImgs.length) % galleryImgs.length; lbImg.src = galleryImgs[current].src.replace(/w=\d+/, 'w=1600'); lbImg.alt = galleryImgs[current].alt; updateCtr(); }
+
+  lbClose.addEventListener('click', closeLb);
+  lbNext.addEventListener('click', goNext);
+  lbPrev.addEventListener('click', goPrev);
+
+  lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+
+  document.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape')     closeLb();
+    if (e.key === 'ArrowRight') goNext();
+    if (e.key === 'ArrowLeft')  goPrev();
+  });
+
+  buildGallery();
+})();
+</script>
+
+</body></html>

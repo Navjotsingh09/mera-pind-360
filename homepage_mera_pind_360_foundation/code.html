@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mera Pind 360 Foundation | Rural Punjab Development</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-tint": "#43682b",
+                      "error-container": "#ffdad6",
+                      "surface-dim": "#dcdad5",
+                      "error": "#ba1a1a",
+                      "on-secondary": "#ffffff",
+                      "tertiary-fixed-dim": "#d4c4b3",
+                      "secondary-fixed-dim": "#ffb958",
+                      "on-primary-fixed": "#0a2100",
+                      "on-tertiary-fixed-variant": "#504538",
+                      "on-secondary-fixed-variant": "#643f00",
+                      "on-error": "#ffffff",
+                      "on-background": "#1c1c19",
+                      "on-secondary-fixed": "#2a1800",
+                      "tertiary": "#3a3024",
+                      "on-tertiary-fixed": "#231a0f",
+                      "primary": "#173901",
+                      "surface-container": "#f0ede9",
+                      "primary-container": "#2d5016",
+                      "on-surface-variant": "#43493d",
+                      "surface-variant": "#e5e2dd",
+                      "on-secondary-container": "#714800",
+                      "on-primary": "#ffffff",
+                      "primary-fixed": "#c4efa3",
+                      "surface-bright": "#fcf9f4",
+                      "inverse-primary": "#a8d38a",
+                      "secondary-fixed": "#ffddb5",
+                      "on-surface": "#1c1c19",
+                      "surface": "#fcf9f4",
+                      "on-tertiary-container": "#c4b4a4",
+                      "background": "#fcf9f4",
+                      "surface-container-lowest": "#ffffff",
+                      "tertiary-fixed": "#f1e0ce",
+                      "secondary": "#845400",
+                      "on-primary-container": "#98c27b",
+                      "outline-variant": "#c3c9b9",
+                      "secondary-container": "#fcb654",
+                      "on-error-container": "#93000a",
+                      "primary-fixed-dim": "#a8d38a",
+                      "tertiary-container": "#514639",
+                      "outline": "#73796c",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-low": "#f6f3ee",
+                      "inverse-surface": "#31302d",
+                      "surface-container-high": "#ebe8e3",
+                      "on-primary-fixed-variant": "#2c4f15",
+                      "surface-container-highest": "#e5e2dd",
+                      "inverse-on-surface": "#f3f0eb"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "base": "8px",
+                      "section-gap": "120px",
+                      "container-max": "1280px",
+                      "grid-margin": "40px",
+                      "grid-gutter": "24px"
+              },
+              "fontFamily": {
+                    "label-lg": ["Lato", "sans-serif"],
+                    "body-lg": ["Lato", "sans-serif"],
+                    "display": ["Lato", "sans-serif"],
+                    "headline-sm": ["Lato", "sans-serif"],
+                    "body-md": ["Lato", "sans-serif"],
+                    "headline-md": ["Lato", "sans-serif"],
+                    "headline-lg": ["Lato", "sans-serif"]
+            },
+              "fontSize": {
+                      "label-lg": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-lg": ["20px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "display": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                      "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+    </style>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+.mp360-link{font-family:'Lato',sans-serif;font-size:1.05rem;font-weight:700;color:#2d3a28;text-decoration:none;transition:color .2s;}
+.mp360-link:hover,.mp360-link.active{color:#173901;}
+.mp360-link.active{font-weight:600;}
+/* === NAV POLISH + ORDER === */
+#mp360-header{transition:background-color .25s,border-color .25s,box-shadow .25s;}
+#mp360-header.mp360-nav-scrolled{background:rgba(252,249,244,0.985)!important;border-bottom-color:rgba(23,57,1,0.14)!important;box-shadow:0 10px 26px rgba(23,57,1,0.10);}
+#mp360-nav{padding:0;background:transparent;border:0;backdrop-filter:none;-webkit-backdrop-filter:none;display:flex!important;align-items:center;justify-content:center;gap:42px!important;overflow:visible!important;min-height:auto;box-shadow:none;}
+#mp360-nav>.mp360-mega-wrap{order:3;overflow:visible!important;}
+#mp360-header, #mp360-header > div, #mp360-nav, .mp360-mega-wrap{overflow:visible!important;}
+#mp360-nav a, #mp360-nav button{white-space:nowrap;}
+#mp360-nav>a[href*="about_us_mera_pind_360_foundation"]{order:1;}
+#mp360-nav>a[href*="impact_mera_pind_360_foundation"]{order:2;}
+#mp360-nav>a[href*="news_updates_mera_pind_360_foundation"]{order:4;}
+#mp360-nav>a[href*="join_us_mera_pind_360_foundation"]{order:5;}
+.mp360-link,.mp360-mega-trigger{position:relative;padding:10px 4px;}
+.mp360-link::after,.mp360-mega-trigger::after{content:'';position:absolute;left:0;right:0;bottom:1px;height:2px;background:#173901;transform:scaleX(0);transform-origin:center;transition:transform .2s ease;opacity:.85;}
+.mp360-link:hover::after,.mp360-link.active::after,.mp360-mega-trigger:hover::after,.mp360-mega-trigger.active::after,.mp360-mega-wrap.open .mp360-mega-trigger::after{transform:scaleX(1);}
+
+/* === MEGAMENU === */
+.mp360-mega-wrap{position:relative;display:inline-flex;}
+.mp360-mega-trigger{background:none;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:10px 4px;font-family:'Lato',sans-serif;font-size:1.05rem;font-weight:700;color:#2d3a28;transition:color .2s;}
+.mp360-mega-trigger:hover,.mp360-mega-trigger.active{color:#173901;}
+.mp360-chevron{width:14px;height:14px;flex-shrink:0;transition:transform 0.22s;}
+.mp360-mega-wrap.open .mp360-chevron{transform:rotate(180deg);}
+.mp360-mega-panel{position:fixed;top:78px;left:50%;transform:translateX(-50%) translateY(8px);width:min(920px,calc(100vw - 48px));background:#fff;border-radius:20px;box-shadow:0 18px 54px rgba(23,57,1,0.16),0 0 0 1px rgba(23,57,1,0.08);opacity:0;visibility:hidden;pointer-events:none;transition:opacity 0.22s,transform 0.22s,visibility 0.22s;z-index:5000;overflow:hidden;}
+.mp360-mega-wrap.open .mp360-mega-panel{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);}
+#mp360-header .mp360-mega-panel:hover{opacity:1;visibility:visible;pointer-events:auto;}
+.mp360-mega-inner{display:grid;grid-template-columns:200px 1fr 1fr;}
+.mp360-mega-feature{background:#173901;padding:28px 24px;position:relative;overflow:hidden;}
+.mp360-mega-col{padding:22px 20px;border-left:1px solid rgba(23,57,1,0.07);}
+.mp360-mega-col-hd{font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#845400;margin:0 0 10px;font-family:'Lato',sans-serif;}
+.mp360-mega-item{display:flex;align-items:flex-start;gap:10px;padding:9px 10px;border-radius:10px;text-decoration:none;color:#173901;font-size:0.8rem;line-height:1.42;margin-bottom:2px;transition:background .15s;font-family:'Lato',sans-serif;}
+.mp360-mega-item:hover{background:rgba(23,57,1,0.05);}
+.mp360-mega-item strong{display:block;font-size:0.85rem;font-weight:700;margin-bottom:1px;color:#173901;}
+.mp360-mega-item--dim{opacity:0.72;}
+.mp360-mega-ico{display:flex;align-items:center;justify-content:center;width:34px;height:34px;min-width:34px;background:rgba(23,57,1,0.07);border-radius:8px;color:#173901;flex-shrink:0;margin-top:1px;}
+.mp360-mega-item:hover .mp360-mega-ico{background:rgba(23,57,1,0.12);}
+.mp360-mega-soon{display:inline-flex;align-items:center;margin-left:6px;font-size:0.58rem;font-weight:700;letter-spacing:0.05em;background:rgba(132,84,0,0.12);color:#845400;border-radius:4px;padding:1px 5px;vertical-align:middle;text-transform:uppercase;}
+.mp360-mega-foot{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:rgba(23,57,1,0.025);border-top:1px solid rgba(23,57,1,0.07);font-family:'Lato',sans-serif;font-size:0.8rem;color:#43493d;}
+.mp360-mega-foot-btn{display:inline-flex;align-items:center;padding:7px 16px;background:#173901;color:#fff !important;border-radius:999px;font-family:'Lato',sans-serif;font-size:0.78rem;font-weight:600;text-decoration:none;transition:background .2s;}
+.mp360-mega-foot-btn:hover{background:#1e4a02;}
+@media(max-width:900px){.mp360-mega-panel{width:min(92vw,920px);left:50%;top:72px;transform:translateX(-50%) translateY(8px);}.mp360-mega-wrap.open .mp360-mega-panel{transform:translateX(-50%) translateY(0);}}
+@media(min-width:769px){[data-burger]{display:none!important;}#mp360-nav{display:flex!important;}}
+/* mp360-donate-btn removed — informational site only */
+
+</style>
+<!-- MP360-RESPONSIVE-V2 -->
+<style id="mp360-responsive">
+/* === Global safety: never let anything cause horizontal scroll === */
+html { overflow-x: visible; }
+body { max-width: 100%; overflow-x: hidden; }
+img, video, iframe, svg { max-width: 100%; height: auto; }
+
+/* === Tablet & below === */
+@media (max-width: 1024px) {
+  .max-w-container-max { max-width: 100% !important; }
+  .px-grid-margin { padding-left: 24px !important; padding-right: 24px !important; }
+  .py-section-gap { padding-top: 72px !important; padding-bottom: 72px !important; }
+  .gap-section-gap { gap: 48px !important; }
+  .text-display { font-size: 56px !important; line-height: 1.1 !important; }
+  .text-headline-lg { font-size: 36px !important; line-height: 1.15 !important; }
+  .text-headline-md { font-size: 26px !important; }
+  .text-headline-sm { font-size: 20px !important; }
+}
+
+/* === Mobile (≤768px) — primary breakpoint === */
+@media (max-width: 768px) {
+  /* Header / nav */
+  header > div[style*="max-width:1280px"],
+  header > div[style*="max-width: 1280px"] {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    height: 60px !important;
+  }
+  header img[alt="Mera Pind 360 Foundation"] { height: 2rem !important; }
+
+  /* Layout primitives */
+  .max-w-container-max { max-width: 100% !important; }
+  .px-grid-margin { padding-left: 16px !important; padding-right: 16px !important; }
+  .py-section-gap { padding-top: 56px !important; padding-bottom: 56px !important; }
+  .pt-24 { padding-top: 4rem !important; }
+  .mb-24 { margin-bottom: 3rem !important; }
+  .mb-20 { margin-bottom: 2.5rem !important; }
+  .mb-16 { margin-bottom: 2rem !important; }
+  .mb-12 { margin-bottom: 1.75rem !important; }
+  .mb-8  { margin-bottom: 1.25rem !important; }
+  .gap-grid-gutter { gap: 16px !important; }
+  .gap-12 { gap: 1.5rem !important; }
+  .gap-8  { gap: 1.25rem !important; }
+  .p-10, .p-12 { padding: 1.5rem !important; }
+  .p-8 { padding: 1.25rem !important; }
+
+  /* Typography */
+  .text-display     { font-size: 36px !important; line-height: 1.12 !important; letter-spacing: -0.01em !important; }
+  .text-headline-lg { font-size: 28px !important; line-height: 1.2 !important; }
+  .text-headline-md { font-size: 22px !important; line-height: 1.25 !important; }
+  .text-headline-sm { font-size: 18px !important; }
+  .text-body-lg     { font-size: 16px !important; line-height: 1.55 !important; }
+  .text-body-md     { font-size: 15px !important; }
+
+  /* Force grids that authors didn't collapse */
+  .grid-cols-2, .grid-cols-3, .grid-cols-4, .grid-cols-5, .grid-cols-6,
+  .grid-cols-12 { grid-template-columns: 1fr !important; }
+
+  /* But allow stat strips (2-up) on mobile to stay 2 columns when present */
+  .grid.grid-cols-2.md\:grid-cols-4 { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Column spans collapse */
+  [class*="md:col-span-"], [class*="lg:col-span-"],
+  [class*="col-span-"] { grid-column: span 1 / span 1 !important; }
+
+  /* Bento grid (homepage custom) */
+  .bento-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .bento-grid > * { grid-column: span 1 / span 1 !important; grid-row: auto !important; }
+
+  /* Hero heights — let content dictate */
+  section.relative.min-h-\[870px\],
+  section.relative[class*="min-h-["],
+  section.relative[class*="h-["] {
+    min-height: 0 !important;
+    height: auto !important;
+    padding-top: 5rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  /* Buttons in hero */
+  .hero-cta, .join-hero-cta { font-size: 0.85rem !important; padding: 0.75rem 1.1rem !important; }
+  .flex.flex-wrap.gap-6 { gap: 0.75rem !important; }
+  .px-8 { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+  .px-10 { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+  .py-3, .py-5 { padding-top: 0.75rem !important; padding-bottom: 0.75rem !important; }
+
+  /* Footer columns stack neatly */
+  footer .grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+
+  /* Tables / horizontally-wide content can scroll */
+  table { display: block; overflow-x: auto; max-width: 100%; }
+
+  /* Forms */
+  input, textarea, select { max-width: 100% !important; box-sizing: border-box; font-size: 16px !important; }
+
+  /* Mobile nav overlay (created by inline JS) — make text smaller for short screens */
+  #mobile-nav-overlay a { font-size: 1.6rem !important; }
+
+  /* Vision/Mission split: stack on mobile */
+  .vision-mission-grid { grid-template-columns: 1fr !important; }
+  .vision-mission-grid > div:first-child { min-height: 280px !important; }
+
+  /* Cards */
+  .join-role-card { padding: 1.5rem !important; }
+  .space-y-12 > * + * { margin-top: 2rem !important; }
+
+  /* Bordered dividers between stat strips (hide vertical on stack) */
+  .border-x { border-left-width: 0 !important; border-right-width: 0 !important; }
+
+  /* Absolute-positioned decorative elements often break on mobile — soften */
+  .absolute.inset-0 img { object-position: center !important; }
+}
+
+/* === Small phones === */
+@media (max-width: 420px) {
+  .text-display     { font-size: 30px !important; }
+  .text-headline-lg { font-size: 24px !important; }
+  .text-headline-md { font-size: 20px !important; }
+  .px-grid-margin { padding-left: 14px !important; padding-right: 14px !important; }
+  header > div[style*="max-width:1280px"],
+  header > div[style*="max-width: 1280px"] {
+    padding-left: 12px !important; padding-right: 12px !important;
+  }
+  header img[alt="Mera Pind 360 Foundation"] { height: 1.75rem !important; }
+}
+</style>
+
+<style id="mp360-global-v3">
+/* === Lato everywhere === */
+html, body, p, span, h1, h2, h3, h4, h5, h6, a, li, button, input, textarea, select, label, blockquote, cite, div, section, article, aside, header, footer, nav {
+  font-family: 'Lato', sans-serif !important;
+}
+.material-symbols-outlined { font-family: 'Material Symbols Outlined' !important; }
+
+/* === Headings weight bump === */
+h1, h2, .font-display, [class*="text-display"], [class*="text-headline-lg"] { font-weight: 900 !important; }
+h3, h4, [class*="text-headline-sm"], [class*="text-headline-md"] { font-weight: 700 !important; }
+
+/* === Nav links — improved contrast (#2d3a28 on #fcf9f4 = 7.4:1) === */
+.mp360-link { color: #2d3a28 !important; font-weight: 500 !important; }
+.mp360-link:hover, .mp360-link.active { color: #173901 !important; }
+
+/* === Get Involved pill (replaces Donate button) === */
+.mp360-getinvolved-btn {
+  background: transparent;
+  color: #173901 !important;
+  font-family: 'Lato', sans-serif !important;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.45rem 1.25rem;
+  border-radius: 99px;
+  border: 2px solid #173901;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+  display: inline-block;
+}
+.mp360-getinvolved-btn:hover { background: #173901; color: #fff !important; }
+.mp360-donate-btn {
+  background: #FF9933;
+  color: #1a0a00 !important;
+  font-family: 'Lato', sans-serif !important;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.45rem 1.25rem;
+  border-radius: 99px;
+  border: 2px solid #FF9933;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  display: inline-block;
+}
+.mp360-donate-btn:hover { background: #e68a00; border-color: #e68a00; color: #fff !important; }
+
+/* === Card standard === */
+.mp360-card, .program-card, .tier-card {
+  border-radius: 1rem !important;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(.165,.84,.44,1), box-shadow 0.35s !important;
+}
+.mp360-card:hover, .program-card:hover, .tier-card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 20px 48px -12px rgba(23,57,1,0.13) !important;
+}
+
+/* Enforce rounding site-wide */
+.rounded-xl  { border-radius: 0.75rem !important; }
+.rounded-2xl { border-radius: 1rem    !important; }
+.rounded-3xl { border-radius: 1.5rem  !important; }
+
+/* Program/cause card images */
+article img, .program-card img, div[style*="aspect-ratio"] img {
+  border-radius: 0 !important; /* images inside rounded containers don't need own radius */
+}
+
+/* === Contrast fixes: dark bg sections must have white text === */
+.bg-primary p, .bg-primary li,
+.bg-primary .font-body-lg, .bg-primary .font-body-md,
+.bg-primary .text-on-primary-container {
+  color: rgba(255,255,255,0.9) !important;
+}
+.bg-primary h1,.bg-primary h2,.bg-primary h3,.bg-primary h4 { color: #ffffff !important; }
+
+/* text-on-surface-variant on bg-surface-container is fine (#43493d on #f0ede9 = 4.7:1) */
+/* But on bg-primary it's broken — fixed above */
+
+/* === Scroll reveal === */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(.165,.84,.44,1);
+}
+[data-reveal="left"]  { transform: translateX(-32px); }
+[data-reveal="right"] { transform: translateX(32px);  }
+[data-reveal].visible { opacity: 1; transform: translate(0,0); }
+
+[data-delay="1"] { transition-delay: 0.08s; }
+[data-delay="2"] { transition-delay: 0.16s; }
+[data-delay="3"] { transition-delay: 0.24s; }
+[data-delay="4"] { transition-delay: 0.32s; }
+[data-delay="5"] { transition-delay: 0.40s; }
+
+/* === Image alignment === */
+img { display: block; }
+.object-cover { object-fit: cover; }
+</style>
+<style id="mp360-white-headings">
+/* Ensure headings inside text-white containers are white */
+.text-white h1, .text-white h2, .text-white h3, .text-white h4,
+.text-white p, .text-white span:not(.material-symbols-outlined) {
+  color: #ffffff !important;
+}
+/* CTA sections with photo backgrounds — all text white */
+section .absolute + div h1,
+section .absolute + div h2,
+section .absolute + div h3,
+section .absolute + div h4 {
+  color: inherit;
+}
+</style>
+
+<style id="mp360-ux-fixes">
+/* === UX Fixes: Skip link === */
+.mp360-skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 9999;
+  background: #173901;
+  color: #fff !important;
+  padding: 10px 20px;
+  border-radius: 0 0 8px 8px;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.mp360-skip-link:focus {
+  top: 0;
+  outline: 3px solid #f5c842;
+  outline-offset: 2px;
+}
+/* === UX Fixes: Focus visible styles === */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #173901 !important;
+  outline-offset: 3px !important;
+  border-radius: 3px;
+}
+</style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<header id="mp360-header" style="position:sticky;top:0;z-index:3000;background:rgba(252,249,244,0.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(23,57,1,0.08);">
+<div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;max-width:1280px;margin:0 auto;padding:0 2rem;height:64px;">
+<a href="../homepage_mera_pind_360_foundation/code.html" style="flex-shrink:0;display:flex;align-items:center;text-decoration:none;"><img src="../logo.avif" alt="Mera Pind 360 Foundation" style="height:2.5rem;width:auto;" /></a>
+<nav id="mp360-nav" class="hidden md:flex items-center" style="gap:28px;">
+
+<!-- ░ Programs megamenu ░ -->
+<div class="mp360-mega-wrap">
+  <button type="button" class="mp360-link mp360-mega-trigger" aria-expanded="false" aria-haspopup="true">
+    Programs
+    <svg class="mp360-chevron" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <div class="mp360-mega-panel" role="region" aria-label="Programmes menu">
+    <div class="mp360-mega-inner">
+
+      <!-- Left: Feature card -->
+      <div class="mp360-mega-feature">
+        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=800&q=80" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:20px 0 0 0;opacity:0.32;" />
+        <div style="position:relative;z-index:1;">
+          <p style="font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin:0 0 8px;">Our Work</p>
+          <h3 style="font-family:'Lato',sans-serif;font-size:1.15rem;font-weight:700;color:#fff;line-height:1.35;margin:0 0 10px;">Four rooms,<br>one roof.</h3>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.7);line-height:1.55;margin:0 0 20px;">Every centre unites library, health, governance and community under one roof in rural Punjab.</p>
+          <a href="../our_programs_mera_pind_360_foundation/code.html" style="display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;font-weight:700;color:#fcb654;text-decoration:none;letter-spacing:0.01em;">All programmes <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Middle: Programme links -->
+      <div class="mp360-mega-col">
+        <p class="mp360-mega-col-hd">Programmes</p>
+        <a href="../village_library_tools_mera_pind_360_program/code.html" class="mp360-mega-item">
+          <span class="mp360-mega-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></span>
+          <span><strong>Library &amp; Digital Literacy</strong>IT lab, reading rooms and digital access</span>
+        </a>
+        <a href="../telehealth_center_mera_pind_360_program/code.html" class="mp360-mega-item">
+          <span class="mp360-mega-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
+          <span><strong>Community Health</strong>Screenings, clinics and health education</span>
+        </a>
+        <a href="../common_services_centre_mera_pind_360_program/code.html" class="mp360-mega-item">
+          <span class="mp360-mega-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+          <span><strong>Rural Governance</strong>Service desk &amp; scheme navigation</span>
+        </a>
+      </div>
+
+      <!-- Right: Get Involved -->
+      <div class="mp360-mega-col">
+        <p class="mp360-mega-col-hd">Get Involved</p>
+        <a href="../join_us_mera_pind_360_foundation/code.html" class="mp360-mega-item">
+          <span class="mp360-mega-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></span>
+          <span><strong>Volunteer</strong>Join from Punjab or the diaspora</span>
+        </a>
+        <a href="../support_our_cause_mera_pind_360_foundation/code.html" class="mp360-mega-item">
+          <span class="mp360-mega-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></span>
+          <span><strong>Support Our Cause</strong>Help build the next centre</span>
+        </a>
+        <a href="../diaspora_programme_mera_pind_360_foundation/code.html" class="mp360-mega-item mp360-mega-item--dim">
+          <span class="mp360-mega-ico" style="opacity:0.45;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></span>
+          <span><strong>Diaspora Programme</strong><span class="mp360-mega-soon">Coming soon</span>NRI families back to their pind</span>
+        </a>
+      </div>
+
+    </div><!-- /mp360-mega-inner -->
+    <div class="mp360-mega-foot">
+      <span>Questions about our programmes?</span>
+      <a href="../contact_us_mera_pind_360_foundation/code.html" class="mp360-mega-foot-btn">Get in touch</a>
+    </div>
+  </div><!-- /mp360-mega-panel -->
+</div><!-- /mp360-mega-wrap -->
+
+<a href="../impact_mera_pind_360_foundation/code.html" class="mp360-link">Impact</a>
+<a href="../about_us_mera_pind_360_foundation/code.html" class="mp360-link">About</a>
+<a href="../news_updates_mera_pind_360_foundation/code.html" class="mp360-link">News</a>
+<a href="../join_us_mera_pind_360_foundation/code.html" class="mp360-link">Volunteer</a>
+</nav>
+<div style="display:flex;align-items:center;gap:12px;justify-self:end;">
+<a href="../contact_us_mera_pind_360_foundation/code.html" class="mp360-getinvolved-btn">Get Involved</a>
+<button data-burger class="md:hidden" aria-label="Open menu" style="background:none;border:none;cursor:pointer;padding:6px 4px;display:flex;flex-direction:column;gap:5px;justify-content:center;align-items:center;">
+<span style="display:block;width:22px;height:1.5px;background:#173901;border-radius:2px;transition:all 0.3s;"></span>
+<span style="display:block;width:22px;height:1.5px;background:#173901;border-radius:2px;transition:all 0.3s;"></span>
+<span style="display:block;width:22px;height:1.5px;background:#173901;border-radius:2px;transition:all 0.3s;"></span>
+</button>
+</div>
+</div>
+</header>
+<!-- Hero Section — Parallax Autoplay Slider -->
+<div id="main-content" tabindex="-1" style="position:absolute;top:0;left:0;width:0;height:0;overflow:hidden;" aria-hidden="true"></div>
+<section id="mp360-hero" class="relative overflow-hidden bg-surface-bright pt-4 pb-12 md:pt-6 md:pb-16">
+  <div class="px-4 md:px-6">
+    <div class="relative rounded-3xl overflow-hidden" style="min-height:82vh;">
+
+      <!-- ░░ Parallax Slide Stack ░░ -->
+      <div id="hero-slider-wrap" style="position:absolute;inset:0;overflow:hidden;border-radius:inherit;">
+
+        <!-- Slide 1 – Village courtyard, golden hour -->
+        <div class="hero-slide" style="position:absolute;inset:0;opacity:1;transition:opacity 1.2s ease;">
+          <img class="hero-parallax-img" alt="A grandmother and grandchild in a Punjabi village courtyard, golden-hour light"
+               src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=80"
+               style="width:100%;height:120%;object-fit:cover;object-position:center;transform:translateY(0);will-change:transform;" />
+        </div>
+
+        <!-- Slide 2 – Community gathering, rural Punjab -->
+        <div class="hero-slide" style="position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;">
+          <img class="hero-parallax-img" alt="Community gathering in a rural Punjab village, evening light"
+               loading="lazy"
+               src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=1600&q=80"
+               style="width:100%;height:120%;object-fit:cover;object-position:center;transform:translateY(0);will-change:transform;" />
+        </div>
+
+        <!-- Slide 3 – Hands holding seedling, tilled earth -->
+        <div class="hero-slide" style="position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;">
+          <img class="hero-parallax-img" alt="Cupped hands holding a young seedling above tilled earth in rural Punjab"
+               loading="lazy"
+               src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1600&q=80"
+               style="width:100%;height:120%;object-fit:cover;object-position:center;transform:translateY(0);will-change:transform;" />
+        </div>
+
+        <!-- Slide 4 – Golden wheat fields at harvest -->
+        <div class="hero-slide" style="position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;">
+          <img class="hero-parallax-img" alt="Golden wheat fields stretching to the horizon at harvest time in Punjab"
+               loading="lazy"
+               src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=1600&q=80"
+               style="width:100%;height:120%;object-fit:cover;object-position:center;transform:translateY(0);will-change:transform;" />
+        </div>
+      </div>
+
+      <!-- Gradient overlay (always on top of images) -->
+      <div class="absolute inset-0" style="background:linear-gradient(90deg,rgba(23,57,1,0.82) 0%,rgba(23,57,1,0.58) 42%,rgba(23,57,1,0.18) 100%);z-index:2;pointer-events:none;"></div>
+
+      <!-- ░░ Foreground content ░░ -->
+      <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-8 md:p-14 lg:p-16" style="min-height:82vh;z-index:3;">
+
+        <!-- Left: copy -->
+        <div class="lg:col-span-7 text-white">
+          <span class="inline-block bg-white/15 backdrop-blur-sm text-white px-4 py-2 rounded-full font-label-lg mb-8" style="font-size:0.7rem;letter-spacing:0.12em;">HERITAGE IN OUR ROOTS. FUTURE IN OUR HANDS.</span>
+
+          <!-- Cycling keyword -->
+          <div id="hero-cycler" style="font-size:clamp(3rem,8vw,5rem);font-family:'Lato',sans-serif;font-weight:900;color:#ffffff;letter-spacing:-0.02em;line-height:1;margin-bottom:0.35em;text-shadow:0 2px 20px rgba(0,0,0,0.3);">Education</div>
+
+          <h1 class="font-display leading-tight mb-8" style="font-size:clamp(2.2rem,5vw,4.2rem);font-weight:700;color:#ffffff;">
+            Adopt the village<br/>you came from.
+          </h1>
+          <p class="font-body-lg mb-10 max-w-xl leading-relaxed" style="color:rgba(255,255,255,0.88);font-size:1.05rem;">
+            Inspired by the Shaheedi of Guru Arjan Dev Ji and the Seva of Bhagat Puran Singh &mdash; we preserve culture, train skills, teach remotely, heal beyond distance, and deliver city services to every village. Building self-reliant communities, united in humanity. Sarbat da Bhala.
+          </p>
+
+          <!-- CTA + slide dots on same row -->
+          <div class="flex flex-wrap items-center gap-5">
+            <a href="../about_us_mera_pind_360_foundation/code.html"
+               class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-label-lg border border-white/40 text-white transition-all hover:bg-white/15"
+               style="font-size:0.82rem;letter-spacing:0.08em;color:#fff;">
+              The 360&deg; Model
+            </a>
+            <!-- Slide progress dots -->
+            <div id="hero-dots" style="display:flex;align-items:center;gap:6px;">
+              <button class="hero-dot" data-idx="0" aria-label="Slide 1" style="width:20px;height:3px;border-radius:2px;background:#fff;border:none;cursor:pointer;padding:0;transition:all 0.4s;"></button>
+              <button class="hero-dot" data-idx="1" aria-label="Slide 2" style="width:8px;height:3px;border-radius:2px;background:rgba(255,255,255,0.4);border:none;cursor:pointer;padding:0;transition:all 0.4s;"></button>
+              <button class="hero-dot" data-idx="2" aria-label="Slide 3" style="width:8px;height:3px;border-radius:2px;background:rgba(255,255,255,0.4);border:none;cursor:pointer;padding:0;transition:all 0.4s;"></button>
+              <button class="hero-dot" data-idx="3" aria-label="Slide 4" style="width:8px;height:3px;border-radius:2px;background:rgba(255,255,255,0.4);border:none;cursor:pointer;padding:0;transition:all 0.4s;"></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: floating info card -->
+        <div class="lg:col-span-5 lg:col-start-8">
+          <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-sm mx-auto lg:mx-0 lg:ml-auto">
+            <div class="flex items-center justify-between mb-6">
+              <div class="flex items-center gap-2">
+                <span class="w-7 h-7 rounded-full flex items-center justify-center" style="background:#173901;">
+                  <span class="material-symbols-outlined" style="font-size:1rem;color:#fcb654;">eco</span>
+                </span>
+                <span class="font-display font-bold text-primary" style="font-size:0.95rem;">Mera Pind 360</span>
+              </div>
+              <span class="font-label-lg uppercase tracking-widest text-on-surface-variant" style="font-size:0.65rem;">2024</span>
+            </div>
+            <div class="h-px w-full bg-outline-variant/40 mb-6"></div>
+            <h3 class="font-display text-primary mb-3 leading-snug" style="font-size:1.35rem;">The 360&deg; Centre Model</h3>
+            <p class="text-on-surface-variant leading-relaxed mb-2" style="font-size:0.88rem;">
+              Four rooms, one roof &mdash; library, IT lab, clinic, and service desk &mdash; built for every village our diaspora calls home.
+            </p>
+            <div class="flex items-center gap-2 mt-5" style="font-size:0.72rem;color:#43493d;">
+              <span class="material-symbols-outlined" style="font-size:0.9rem;color:#173901;">check_circle</span>
+              <span>100% transparent, audited annually</span>
+            </div>
+            <div class="flex items-center gap-2 mt-2" style="font-size:0.72rem;color:#43493d;">
+              <span class="material-symbols-outlined" style="font-size:0.9rem;color:#173901;">check_circle</span>
+              <span>Co-funded so no family bears it alone</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /content grid -->
+    </div>
+  </div>
+
+  <!-- ░░ Slider + Parallax JS ░░ -->
+  <script>
+  (function(){
+    var slides   = document.querySelectorAll('.hero-slide');
+    var dots     = document.querySelectorAll('.hero-dot');
+    var imgs     = document.querySelectorAll('.hero-parallax-img');
+    var cyclerEl = document.getElementById('hero-cycler');
+    var words    = ['Education','Healthcare','Skills','Community','Empowerment'];
+    var current  = 0;
+    var total    = slides.length;
+    var timer;
+
+    /* ── Go to slide n ── */
+    function goTo(n) {
+      slides[current].style.opacity = '0';
+      dots[current].style.width    = '8px';
+      dots[current].style.background = 'rgba(255,255,255,0.4)';
+      current = n % total;
+      slides[current].style.opacity = '1';
+      dots[current].style.width    = '20px';
+      dots[current].style.background = '#ffffff';
+    }
+
+    /* ── Word cycler (synced to slide changes) ── */
+    var wordIdx = 0;
+    function cycleWord() {
+      wordIdx = (wordIdx + 1) % words.length;
+      cyclerEl.style.opacity   = '0';
+      cyclerEl.style.transform = 'translateY(-18px)';
+      setTimeout(function(){
+        cyclerEl.textContent     = words[wordIdx];
+        cyclerEl.style.opacity   = '1';
+        cyclerEl.style.transform = 'translateY(0)';
+      }, 350);
+    }
+    cyclerEl.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+
+    /* ── Autoplay ── */
+    function startAuto() {
+      timer = setInterval(function(){
+        goTo((current + 1) % total);
+        cycleWord();
+      }, 5000);
+    }
+
+    /* ── Dot clicks ── */
+    dots.forEach(function(dot){
+      dot.addEventListener('click', function(){
+        clearInterval(timer);
+        var idx = parseInt(this.getAttribute('data-idx'), 10);
+        goTo(idx);
+        startAuto();
+      });
+    });
+
+    startAuto();
+
+    /* ── Pause autoplay on hover / focus (WCAG 2.1 SC 2.2.2) ── */
+    var heroSection = document.getElementById('mp360-hero');
+    if (heroSection) {
+      heroSection.addEventListener('mouseenter', function () { clearInterval(timer); });
+      heroSection.addEventListener('mouseleave', function () { startAuto(); });
+      heroSection.addEventListener('focusin',    function () { clearInterval(timer); });
+      heroSection.addEventListener('focusout',   function (e) {
+        if (!heroSection.contains(e.relatedTarget)) { startAuto(); }
+      });
+    }
+
+    /* ── Parallax on scroll ── */
+    var hero = document.getElementById('mp360-hero');
+    function parallax() {
+      if (!hero) return;
+      var top = hero.getBoundingClientRect().top;
+      var ht  = hero.offsetHeight;
+      if (top > ht || top < -ht) return;        /* out of view — skip */
+      var ratio  = Math.max(0, Math.min(1, -top / ht));
+      var offset = ratio * 70;                  /* up to 70px travel */
+      imgs.forEach(function(img){
+        img.style.transform = 'translateY(' + offset + 'px)';
+      });
+    }
+    window.addEventListener('scroll', parallax, { passive: true });
+    parallax(); /* initial call */
+  })();
+  </script>
+</section>
+
+<!-- Value Props + Stats Grid -->
+<section class="py-section-gap bg-background">
+  <div class="container mx-auto px-grid-margin max-w-container-max">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-grid-gutter">
+
+      <!-- Image card -->
+      <div class="rounded-2xl overflow-hidden bg-surface-container relative" style="min-height:280px;">
+        <img class="absolute inset-0 w-full h-full object-cover"
+             alt="Cupped hands holding a young seedling above tilled earth in rural Punjab, soft natural light"
+             src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80" />
+        <div class="absolute inset-0" style="background:linear-gradient(180deg,rgba(23,57,1,0) 40%,rgba(23,57,1,0.55) 100%);"></div>
+        <div class="absolute bottom-6 left-6 text-white">
+          <span class="font-label-lg uppercase tracking-widest" style="font-size:0.65rem;opacity:0.85;">For the villages</span>
+          <p class="font-display mt-1" style="font-size:1.1rem;">that made us.</p>
+        </div>
+      </div>
+
+      <!-- Value: Compassion-driven -->
+      <div class="rounded-2xl bg-surface-bright border border-outline-variant/30 p-10 flex flex-col">
+        <span class="material-symbols-outlined text-primary mb-6" style="font-size:2.5rem;">favorite</span>
+        <h3 class="font-display text-headline-sm text-primary mb-3 leading-snug">Rooted in seva.</h3>
+        <p class="text-on-surface-variant leading-relaxed mb-6 flex-1" style="font-size:0.92rem;">
+          Every centre is built in the spirit of Seva &mdash; inspired by the Shaheedi of Guru Arjan Dev Ji and the compassion of Bhagat Puran Singh. Designed with village heads, run with local hands, dedicated to Sarbat da Bhala.
+        </p>
+        <div class="pt-6 border-t border-outline-variant/30">
+          <p class="font-display font-bold text-primary leading-none" style="font-size:2.4rem;">60</p>
+          <p class="font-label-lg uppercase tracking-wider text-on-surface-variant mt-2" style="font-size:0.7rem;">villages reached</p>
+        </div>
+      </div>
+
+      <!-- Value: Transparent & trusted -->
+      <div class="rounded-2xl bg-surface-bright border border-outline-variant/30 p-10 flex flex-col">
+        <span class="material-symbols-outlined text-primary mb-6" style="font-size:2.5rem;">verified_user</span>
+        <h3 class="font-display text-headline-sm text-primary mb-3 leading-snug">Transparent &amp; audited.</h3>
+        <p class="text-on-surface-variant leading-relaxed mb-6 flex-1" style="font-size:0.92rem;">
+          Every figure on this page is audited to the close of 2024. No NRI family bears the full burden alone, and no village is left at the mercy of any one patron.
+        </p>
+        <div class="pt-6 border-t border-outline-variant/30">
+          <p class="font-display font-bold text-primary leading-none" style="font-size:2.4rem;">~100</p>
+          <p class="font-label-lg uppercase tracking-wider text-on-surface-variant mt-2" style="font-size:0.7rem;">NRI families returned</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Programs (Causes) Section -->
+<section class="py-section-gap bg-surface-container-low">
+  <div class="container mx-auto px-grid-margin max-w-container-max">
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-16 items-end">
+      <div class="lg:col-span-6">
+        <span class="font-label-lg uppercase tracking-widest text-secondary mb-4 block" style="font-size:0.7rem;">Our Programs</span>
+        <h2 class="font-display text-headline-lg text-primary leading-tight">
+          Four rooms.<br/>One roof. One pind at a time.
+        </h2>
+      </div>
+      <div class="lg:col-span-5 lg:col-start-8">
+        <p class="text-on-surface-variant leading-relaxed" style="font-size:1rem;">
+          Explore the programs that bring the 360&deg; model to life in every village we serve. Every program is designed with the input of village leaders and local partners to ensure cultural relevance and long-term viability.
+        </p>
+      </div>
+    </div>
+
+    <div class="space-y-6">
+
+      <!-- Program 1: Library -->
+      <article class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch bg-surface rounded-2xl overflow-hidden border border-outline-variant/20">
+        <div class="md:col-span-7 p-8 md:p-12 flex flex-col">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="w-10 h-10 rounded-full flex items-center justify-center bg-primary-fixed/30">
+              <span class="material-symbols-outlined text-primary" style="font-size:1.3rem;">local_library</span>
+            </span>
+            <span class="font-label-lg uppercase tracking-widest text-on-surface-variant" style="font-size:0.68rem;">Room 01</span>
+          </div>
+          <h3 class="font-display text-primary mb-4 leading-snug" style="font-size:1.7rem;">A library in every village.</h3>
+          <p class="text-on-surface-variant leading-relaxed mb-8 flex-1" style="font-size:0.95rem;">
+            Modern knowledge hubs providing access to literature, education, and community dialogue &mdash; opening a window to the world for children who had none before.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            
+            <a href="../our_programs_mera_pind_360_foundation/code.html"
+               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-label-lg border border-primary/30 text-primary transition-all hover:bg-primary/5"
+               style="font-size:0.75rem;letter-spacing:0.08em;">
+              Learn more
+            </a>
+          </div>
+        </div>
+        <div class="md:col-span-5 relative" style="min-height:240px;">
+          <img class="absolute inset-0 w-full h-full object-cover"
+               alt="A young Punjabi student reading in a bright, modern village library with bookshelves and large windows"
+               src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=1200&q=80" />
+        </div>
+      </article>
+
+      <!-- Program 2: IT Lab + Skills -->
+      <article class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch bg-surface rounded-2xl overflow-hidden border border-outline-variant/20">
+        <div class="md:col-span-5 relative order-2 md:order-1" style="min-height:240px;">
+          <img class="absolute inset-0 w-full h-full object-cover"
+               alt="Young people in rural Punjab learning computer skills in a bright village IT lab"
+               src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=900&q=80" />
+        </div>
+        <div class="md:col-span-7 p-8 md:p-12 flex flex-col order-1 md:order-2">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="w-10 h-10 rounded-full flex items-center justify-center bg-primary-fixed/30">
+              <span class="material-symbols-outlined text-primary" style="font-size:1.3rem;">computer</span>
+            </span>
+            <span class="font-label-lg uppercase tracking-widest text-on-surface-variant" style="font-size:0.68rem;">Room 02</span>
+          </div>
+          <h3 class="font-display text-primary mb-4 leading-snug" style="font-size:1.7rem;">IT lab &amp; skills, bridging the divide.</h3>
+          <p class="text-on-surface-variant leading-relaxed mb-8 flex-1" style="font-size:0.95rem;">
+            Comprehensive training in software, internet, and vocational trades so young people can build a life in their pind &mdash; or anywhere they choose &mdash; without leaving family behind.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            
+            <a href="../our_programs_mera_pind_360_foundation/code.html"
+               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-label-lg border border-primary/30 text-primary transition-all hover:bg-primary/5"
+               style="font-size:0.75rem;letter-spacing:0.08em;">
+              Learn more
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Program 3: Health Clinic -->
+      <article class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch bg-surface rounded-2xl overflow-hidden border border-outline-variant/20">
+        <div class="md:col-span-7 p-8 md:p-12 flex flex-col">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="w-10 h-10 rounded-full flex items-center justify-center bg-primary-fixed/30">
+              <span class="material-symbols-outlined text-primary" style="font-size:1.3rem;">medical_services</span>
+            </span>
+            <span class="font-label-lg uppercase tracking-widest text-on-surface-variant" style="font-size:0.68rem;">Room 03 &middot; Room 04</span>
+          </div>
+          <h3 class="font-display text-primary mb-4 leading-snug" style="font-size:1.7rem;">Health clinic &amp; service desk.</h3>
+          <p class="text-on-surface-variant leading-relaxed mb-8 flex-1" style="font-size:0.95rem;">
+            Regular check-ups, health education, and a service desk helping villagers navigate government schemes and digital governance &mdash; closing the gap between need and access.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            
+            <a href="../our_programs_mera_pind_360_foundation/code.html"
+               class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-label-lg border border-primary/30 text-primary transition-all hover:bg-primary/5"
+               style="font-size:0.75rem;letter-spacing:0.08em;">
+              Learn more
+            </a>
+          </div>
+        </div>
+        <div class="md:col-span-5 relative" style="min-height:240px;">
+          <img class="absolute inset-0 w-full h-full object-cover"
+               alt="A village clinic in rural Punjab with a doctor consulting an elderly patient, warm natural light"
+               src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=900&q=80" />
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Vision / Mission split with stats -->
+<section class="py-section-gap bg-background">
+  <div class="container mx-auto px-grid-margin max-w-container-max">
+    <!-- Two-column layout: image left (45%), cards right (55%) -->
+    <div class="vision-mission-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch;">
+
+      <!-- Image panel with floating stat tiles -->
+      <div class="rounded-2xl overflow-hidden relative" style="min-height:440px;">
+        <img class="absolute inset-0 w-full h-full object-cover"
+             alt="Cupped hands holding a young seedling above tilled Punjabi earth, soft natural light"
+             src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=900&q=80" />
+        <div class="absolute inset-0" style="background:linear-gradient(180deg,rgba(23,57,1,0.08) 0%,rgba(23,57,1,0.50) 100%);"></div>
+
+        <!-- Stat tiles float at top with good contrast -->
+        <div class="absolute top-5 left-5 right-5 flex gap-3">
+          <div class="flex-1 rounded-xl p-4" style="background:rgba(255,255,255,0.97);box-shadow:0 4px 16px rgba(0,0,0,0.12);">
+            <p class="font-display font-bold leading-none" style="font-size:1.7rem;color:#173901;">4,463</p>
+            <p class="font-label-lg uppercase tracking-wider mt-1" style="font-size:0.62rem;color:#43493d;">Families screened in 2024</p>
+          </div>
+          <div class="flex-1 rounded-xl p-4" style="background:rgba(255,255,255,0.97);box-shadow:0 4px 16px rgba(0,0,0,0.12);">
+            <p class="font-display font-bold leading-none" style="font-size:1.7rem;color:#173901;">14,000+</p>
+            <p class="font-label-lg uppercase tracking-wider mt-1" style="font-size:0.62rem;color:#43493d;">Young people engaged</p>
+          </div>
+        </div>
+
+        <!-- Bottom label on the image -->
+        <div class="absolute bottom-6 left-6">
+          <p class="font-label-lg uppercase tracking-widest" style="font-size:0.6rem;color:rgba(255,255,255,0.7);">Audited to close of 2024</p>
+        </div>
+      </div>
+
+      <!-- Right: Vision + Mission stacked -->
+      <div style="display:flex;flex-direction:column;gap:20px;">
+
+        <!-- Vision card -->
+        <div class="rounded-2xl flex flex-col flex-1 p-8"
+             style="background:#f6f3ee;border:1px solid rgba(195,201,185,0.4);">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="material-symbols-outlined" style="font-size:1.6rem;color:#173901;">visibility</span>
+            <h3 class="font-display" style="font-size:1.15rem;color:#173901;font-weight:700;">Vision Statement</h3>
+          </div>
+          <p style="font-size:0.93rem;color:#2d3826;line-height:1.7;">
+            A rural Punjab where the village your family came from is not a place of departure but a place of return &mdash; with the dignity, services, and opportunity of a modern town.
+          </p>
+        </div>
+
+        <!-- Mission card -->
+        <div class="rounded-2xl flex flex-col flex-1 p-8"
+             style="background:#173901;border:1px solid rgba(23,57,1,0.2);">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="material-symbols-outlined" style="font-size:1.6rem;color:#fcb654;">flag</span>
+            <h3 class="font-display" style="font-size:1.15rem;color:#ffffff;font-weight:700;">Mission Statement</h3>
+          </div>
+          <p style="font-size:0.93rem;color:rgba(255,255,255,0.88);line-height:1.7;">
+            Inspired by the Shaheedi of Guru Arjan Dev Ji and the Seva of Bhagat Puran Singh, Mera Pind 360 bridges villages with opportunity &mdash; preserving culture and historic values while delivering IT and traditional skills, remote education, tele-health, and urban-grade civic services. Building self-reliant communities rooted in heritage, united in humanity, and ready for the future.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Stat bar below the cards -->
+    <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="rounded-2xl p-6" style="background:#f6f3ee;border:1px solid rgba(195,201,185,0.4);">
+        <p class="font-display font-bold leading-none mb-2" style="font-size:1.25rem;color:#173901;">60</p>
+        <p class="font-label-lg uppercase tracking-wider" style="font-size:0.65rem;color:#43493d;">Villages reached</p>
+      </div>
+      <div class="rounded-2xl p-6" style="background:#f6f3ee;border:1px solid rgba(195,201,185,0.4);">
+        <p class="font-display font-bold leading-none mb-2" style="font-size:1.25rem;color:#173901;">4,463</p>
+        <p class="font-label-lg uppercase tracking-wider" style="font-size:0.65rem;color:#43493d;">Families screened 2024</p>
+      </div>
+      <div class="rounded-2xl p-6" style="background:#f6f3ee;border:1px solid rgba(195,201,185,0.4);">
+        <p class="font-display font-bold leading-none mb-2" style="font-size:1.25rem;color:#173901;">14,000+</p>
+        <p class="font-label-lg uppercase tracking-wider" style="font-size:0.65rem;color:#43493d;">Young people engaged 2024</p>
+      </div>
+      <div class="rounded-2xl p-6" style="background:#f6f3ee;border:1px solid rgba(195,201,185,0.4);">
+        <p class="font-display font-bold leading-none mb-2" style="font-size:1.25rem;color:#173901;">~100</p>
+        <p class="font-label-lg uppercase tracking-wider" style="font-size:0.65rem;color:#43493d;">NRI families returned</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Highlight Banner: free services -->
+<section class="bg-secondary-container py-20">
+  <div class="container mx-auto px-grid-margin max-w-container-max text-center">
+    <div class="flex flex-col items-center justify-center gap-5">
+      <span class="material-symbols-outlined text-on-secondary-container" style="font-size:3rem;font-variation-settings:'FILL' 1;">verified</span>
+      <h2 class="font-display text-on-secondary-container leading-tight" style="font-size:clamp(1.8rem,4vw,3rem);">Every service is 100% free.</h2>
+      <p class="font-body-lg text-on-secondary-container/80 max-w-xl" style="font-size:1rem;">
+        Development should never come with a price tag for the families who need it most.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Stories of the 360 model -->
+<section class="py-section-gap" style="background:linear-gradient(180deg,#e8f0dc 0%,#dde9cb 100%);">
+  <div class="container mx-auto px-grid-margin max-w-container-max">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="font-label-lg uppercase tracking-widest text-primary mb-4 block" style="font-size:0.7rem;">Stay Connected</span>
+      <h2 class="font-display text-primary leading-tight mb-6" style="font-size:clamp(1.8rem,4vw,2.8rem);">
+        Real stories of return,<br/>real impact in every pind we touch.
+      </h2>
+      <p class="text-on-surface-variant leading-relaxed" style="font-size:1rem;">
+        From the announcement at Chandigarh Press Club in 2021 to sixty villages today &mdash; a record still being written, one return at a time.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-grid-gutter">
+
+      <a href="../about_us_mera_pind_360_foundation/code.html" class="group block bg-white rounded-2xl overflow-hidden border border-outline-variant/20 transition-all hover:shadow-xl">
+        <div class="relative" style="aspect-ratio:4/3;overflow:hidden;">
+          <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+               alt="A press conference at Chandigarh Press Club announcing the 360 model"
+               src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?auto=format&fit=crop&w=900&q=80" />
+        </div>
+        <div class="p-7">
+          <span class="font-label-lg uppercase tracking-widest text-secondary" style="font-size:0.65rem;">November 2021</span>
+          <h3 class="font-display text-primary mt-3 mb-3 leading-snug" style="font-size:1.15rem;">The model is announced.</h3>
+          <p class="text-on-surface-variant leading-relaxed" style="font-size:0.88rem;">
+            At the Chandigarh Press Club, Bhupinder Singh Hundal announces a new model for rural Punjab &mdash; four rooms, one roof.
+          </p>
+        </div>
+      </a>
+
+      <a href="../about_us_mera_pind_360_foundation/code.html" class="group block bg-white rounded-2xl overflow-hidden border border-outline-variant/20 transition-all hover:shadow-xl">
+        <div class="relative" style="aspect-ratio:4/3;overflow:hidden;">
+          <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+               alt="The first 360 centre in Village Kotli Arian, Adampur, Jalandhar"
+               src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=900&q=80" />
+        </div>
+        <div class="p-7">
+          <span class="font-label-lg uppercase tracking-widest text-secondary" style="font-size:0.65rem;">29 March 2022</span>
+          <h3 class="font-display text-primary mt-3 mb-3 leading-snug" style="font-size:1.15rem;">Foundation registered.</h3>
+          <p class="text-on-surface-variant leading-relaxed" style="font-size:0.88rem;">
+            Incorporated at Village Kotli Arian, Adampur, Jalandhar. Library, IT lab, clinic, and service desk all operational by year-end.
+          </p>
+        </div>
+      </a>
+
+      <a href="../impact_mera_pind_360_foundation/code.html" class="group block bg-white rounded-2xl overflow-hidden border border-outline-variant/20 transition-all hover:shadow-xl">
+        <div class="relative" style="aspect-ratio:4/3;overflow:hidden;">
+          <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+               alt="A wide view across rural Punjab fields at golden hour"
+               src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=900&q=80" />
+        </div>
+        <div class="p-7">
+          <span class="font-label-lg uppercase tracking-widest text-secondary" style="font-size:0.65rem;">2023&ndash;24</span>
+          <h3 class="font-display text-primary mt-3 mb-3 leading-snug" style="font-size:1.15rem;">The model scales.</h3>
+          <p class="text-on-surface-variant leading-relaxed" style="font-size:0.88rem;">
+            Sixty villages reach an agreement with the Foundation. 4,463 families screened and 14,000+ young people engaged in 2024 alone.
+          </p>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="text-center mt-12">
+      <a href="../news_updates_mera_pind_360_foundation/code.html"
+         class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-label-lg transition-all hover:opacity-90"
+         style="background:#173901;color:#fff;font-size:0.8rem;letter-spacing:0.08em;">
+        Read all stories <span class="material-symbols-outlined" style="font-size:1.05rem;">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter CTA: floating card over rural photo -->
+<section class="py-section-gap bg-background">
+  <div class="container mx-auto px-grid-margin max-w-container-max">
+    <div class="relative rounded-3xl overflow-hidden" style="min-height:380px;">
+      <img class="absolute inset-0 w-full h-full object-cover"
+           alt="Wheat fields at golden hour in rural Punjab"
+           src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1400&q=80" />
+      <div class="absolute inset-0" style="background:linear-gradient(90deg,rgba(23,57,1,0.45) 0%,rgba(23,57,1,0.15) 60%,rgba(23,57,1,0.05) 100%);"></div>
+
+      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-8 md:p-14" style="min-height:380px;">
+        <div class="lg:col-span-7 text-white">
+          <span class="inline-block bg-white/15 backdrop-blur-sm text-white px-4 py-2 rounded-full font-label-lg mb-6" style="font-size:0.65rem;letter-spacing:0.12em;">STAY CONNECTED</span>
+          <h2 class="font-display leading-tight mb-4" style="font-size:clamp(1.8rem,3.5vw,2.6rem);color:#ffffff;">Get updates that<br/>make a difference.</h2>
+          <p class="leading-relaxed max-w-md" style="color:rgba(255,255,255,0.88);font-size:0.95rem;">
+            Monthly notes from the villages &mdash; what was built, who came back, what we learned.
+          </p>
+        </div>
+
+        <div class="lg:col-span-5 lg:col-start-8">
+          <div class="bg-white rounded-2xl shadow-2xl p-7 max-w-md mx-auto lg:ml-auto">
+            <h3 class="font-display text-primary mb-2 leading-snug" style="font-size:1.15rem;">Join the mailing list.</h3>
+            <p class="text-on-surface-variant mb-5" style="font-size:0.82rem;">No spam. Just real progress from the pind.</p>
+            <form class="flex flex-col sm:flex-row gap-3">
+              <input type="email" required placeholder="Your email address"
+                     class="flex-1 px-4 py-3 rounded-full border border-outline-variant/40 focus:outline-none focus:border-primary"
+                     style="font-size:0.88rem;background:#f6f3ee;" />
+              <button type="submit"
+                      class="px-6 py-3 rounded-full font-label-lg transition-all hover:opacity-90"
+                      style="background:#173901;color:#fff;font-size:0.78rem;letter-spacing:0.08em;">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+<style>
+/* ===== MP360 FOOTER ===== */
+.mp360-foot { background: #173901; }
+.mp360-foot-inner { max-width: 1280px; margin: 0 auto; padding: 4rem 2rem 3rem; }
+.mp360-foot-grid {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr 1fr 1fr;
+  gap: 3rem;
+}
+@media (max-width: 860px) {
+  .mp360-foot-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem 2rem; }
+}
+@media (max-width: 520px) {
+  .mp360-foot-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+.mp360-foot-head {
+  color: rgba(255,255,255,0.4);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0 0 1.1rem;
+  font-family: 'Lato', sans-serif;
+}
+.mp360-foot-link {
+  color: rgba(255,255,255,0.65);
+  font-size: 0.875rem;
+  text-decoration: none;
+  display: block;
+  padding: 0.28rem 0;
+  font-family: 'Lato', sans-serif;
+  transition: color 0.18s, padding-left 0.18s;
+}
+.mp360-foot-link:hover { color: #fcb654; padding-left: 5px; }
+.mp360-soc {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.09);
+  border: 1px solid rgba(255,255,255,0.14);
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+.mp360-soc:hover { background: rgba(252,182,84,0.2); color: #fcb654; border-color: rgba(252,182,84,0.45); transform: translateY(-2px); }
+.mp360-stat-n { color: #fcb654; font-size: 1.3rem; font-weight: 900; line-height: 1; display: block; font-family: 'Lato', sans-serif; }
+.mp360-stat-l { color: rgba(255,255,255,0.4); font-size: 0.62rem; letter-spacing: 0.07em; text-transform: uppercase; display: block; margin-top: 3px; font-family: 'Lato', sans-serif; }
+.mp360-foot-bar { border-top: 1px solid rgba(255,255,255,0.1); }
+.mp360-foot-bar-inner {
+  max-width: 1280px; margin: 0 auto; padding: 1.1rem 2rem;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 0.5rem;
+}
+.mp360-foot-copy { color: rgba(255,255,255,0.3); font-size: 0.775rem; font-family: 'Lato', sans-serif; margin: 0; }
+</style>
+
+<div class="mp360-foot">
+  <div class="mp360-foot-inner">
+    <div class="mp360-foot-grid">
+
+      <!-- Brand column -->
+      <div>
+        <img src="../logo.avif" alt="Mera Pind 360 Foundation"
+             style="height:2.6rem;width:auto;margin-bottom:1.2rem;filter:brightness(0) invert(1);opacity:0.92;" />
+        <p style="color:rgba(255,255,255,0.6);font-size:0.875rem;line-height:1.75;max-width:265px;margin:0 0 1.75rem;font-family:'Lato',sans-serif;">
+          Inspired by Shaheedi and <em>Seva</em> &mdash; preserving heritage while bringing skills, education, health, and city services to every village. Sarbat da Bhala.
+        </p>
+
+        <!-- Mini stats strip -->
+        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.75rem;padding:1rem 1.25rem;background:rgba(255,255,255,0.06);border-radius:0.75rem;border:1px solid rgba(255,255,255,0.08);">
+          <div style="text-align:center;">
+            <span class="mp360-stat-n">60</span>
+            <span class="mp360-stat-l">Villages</span>
+          </div>
+          <div style="width:1px;background:rgba(255,255,255,0.12);align-self:stretch;"></div>
+          <div style="text-align:center;">
+            <span class="mp360-stat-n">4,463</span>
+            <span class="mp360-stat-l">Families</span>
+          </div>
+          <div style="width:1px;background:rgba(255,255,255,0.12);align-self:stretch;"></div>
+          <div style="text-align:center;">
+            <span class="mp360-stat-n">14k+</span>
+            <span class="mp360-stat-l">Engaged</span>
+          </div>
+        </div>
+
+        <!-- Social icons -->
+        <div style="display:flex;gap:0.55rem;flex-wrap:wrap;">
+          <a href="#" class="mp360-soc" aria-label="Facebook">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="mp360-soc" aria-label="Instagram">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="mp360-soc" aria-label="X / Twitter">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="mailto:info@merapind360.org" class="mp360-soc" aria-label="Email us">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,7 12,13 2,7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Explore -->
+      <div>
+        <p class="mp360-foot-head">Explore</p>
+        <nav>
+          <a class="mp360-foot-link" href="../homepage_mera_pind_360_foundation/code.html">Home</a>
+          <a class="mp360-foot-link" href="../about_us_mera_pind_360_foundation/code.html">About Us</a>
+          <a class="mp360-foot-link" href="../our_programs_mera_pind_360_foundation/code.html">Our Programs</a>
+          <a class="mp360-foot-link" href="../impact_mera_pind_360_foundation/code.html">Impact</a>
+          <a class="mp360-foot-link" href="../news_updates_mera_pind_360_foundation/code.html">News &amp; Updates</a>
+        </nav>
+      </div>
+
+      <!-- Get Involved -->
+      <div>
+        <p class="mp360-foot-head">Get Involved</p>
+        <nav>
+          <a class="mp360-foot-link" href="../join_us_mera_pind_360_foundation/code.html">Volunteer With Us</a>
+          <a class="mp360-foot-link" href="../support_our_cause_mera_pind_360_foundation/code.html">Ways to Help</a>
+          <a class="mp360-foot-link" href="../contact_us_mera_pind_360_foundation/code.html">Contact Us</a>
+        </nav>
+      </div>
+
+      <!-- Contact / Address -->
+      <div>
+        <p class="mp360-foot-head">Find Us</p>
+        <address style="font-style:normal;color:rgba(255,255,255,0.6);font-size:0.875rem;line-height:1.85;font-family:'Lato',sans-serif;margin:0 0 1.1rem;">
+          Village Kotli Arian<br>
+          Adampur, Jalandhar<br>
+          Punjab, India
+        </address>
+        <a href="mailto:info@merapind360.org" class="mp360-foot-link"
+           style="font-size:0.82rem;margin-bottom:0.5rem;">info@merapind360.org</a>
+        <p style="color:rgba(255,255,255,0.32);font-size:0.75rem;margin:0.8rem 0 0;font-family:'Lato',sans-serif;line-height:1.5;">
+          Registered 29 March 2022<br>
+          <span style="color:rgba(255,255,255,0.2);font-size:0.7rem;">NGO Charity Foundation</span>
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="mp360-foot-bar">
+    <div class="mp360-foot-bar-inner">
+      <p class="mp360-foot-copy">&#169; 2026 Mera Pind 360 Foundation. All rights reserved.</p>
+      <p class="mp360-foot-copy">Built with purpose &middot; Serving Punjab&#39;s villages</p>
+    </div>
+  </div>
+</div>
+</footer>
+
+<script>
+(function() {
+  document.addEventListener('DOMContentLoaded', function() {
+
+    var header = document.getElementById('mp360-header');
+    if (header) {
+      var syncHeader = function() {
+        if (window.scrollY > 12) header.classList.add('mp360-nav-scrolled');
+        else header.classList.remove('mp360-nav-scrolled');
+      };
+      syncHeader();
+      window.addEventListener('scroll', syncHeader, { passive: true });
+    }
+
+    /* ── Megamenu hover + click + keyboard ── */
+    document.querySelectorAll('.mp360-mega-wrap').forEach(function(wrap) {
+      var trigger = wrap.querySelector('.mp360-mega-trigger');
+      var panel   = wrap.querySelector('.mp360-mega-panel');
+      if (!trigger || !panel) return;
+
+      var pinned = false;
+      var closeTimer = null;
+
+      function openMenu() {
+        if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+        wrap.classList.add('open');
+        trigger.setAttribute('aria-expanded','true');
+      }
+
+      function closeMenu(force) {
+        if (!force && pinned) return;
+        wrap.classList.remove('open');
+        trigger.setAttribute('aria-expanded','false');
+      }
+
+      wrap.addEventListener('mouseenter', function() {
+        openMenu();
+      });
+
+      wrap.addEventListener('mouseleave', function() {
+        closeTimer = setTimeout(function () { closeMenu(false); }, 120);
+      });
+
+      wrap.addEventListener('focusin', openMenu);
+      wrap.addEventListener('focusout', function(e) {
+        if (!wrap.contains(e.relatedTarget)) closeMenu(false);
+      });
+
+      trigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        pinned = !pinned;
+        if (pinned) openMenu();
+        else closeMenu(true);
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          pinned = false;
+          closeMenu(true);
+        }
+      });
+
+      document.addEventListener('click', function(e) {
+        if (!wrap.contains(e.target)) {
+          pinned = false;
+          closeMenu(true);
+        }
+      });
+    });
+
+    /* ── Mobile overlay ── */
+    var menuBtn = document.querySelector('[data-burger]');
+    if (!menuBtn) return;
+    var overlay = document.createElement('div');
+    overlay.id = 'mobile-nav-overlay';
+    overlay.style.cssText = 'display:none;position:fixed;inset:0;z-index:100;background:rgba(252,249,244,0.97);flex-direction:column;align-items:center;justify-content:center;gap:2rem;';
+    var mobileLinks = [
+      { label: 'About',     href: '../about_us_mera_pind_360_foundation/code.html' },
+      { label: 'Impact',    href: '../impact_mera_pind_360_foundation/code.html' },
+      { label: 'Programs',  href: '../our_programs_mera_pind_360_foundation/code.html' },
+      { label: 'News',      href: '../news_updates_mera_pind_360_foundation/code.html' },
+      { label: 'Volunteer', href: '../join_us_mera_pind_360_foundation/code.html' }
+    ];
+    mobileLinks.forEach(function(item) {
+      var el = document.createElement('a');
+      el.href = item.href;
+      el.textContent = item.label;
+      el.style.cssText = 'font-family:"Lato",sans-serif;font-size:1.25rem;font-weight:600;color:#173901;text-decoration:none;transition:color 0.2s;';
+      el.onmouseover = function() { el.style.color = '#845400'; };
+      el.onmouseout  = function() { el.style.color = '#173901'; };
+      overlay.appendChild(el);
+    });
+    var closeBtn = document.createElement('button');
+    closeBtn.innerHTML = '<span class="material-symbols-outlined" style="font-size:2.5rem;color:#173901;">close</span>';
+    closeBtn.style.cssText = 'position:absolute;top:1.5rem;right:2.5rem;background:none;border:none;cursor:pointer;';
+    closeBtn.onclick = function() { overlay.style.display = 'none'; };
+    overlay.appendChild(closeBtn);
+    document.body.appendChild(overlay);
+    menuBtn.onclick = function() { overlay.style.display = 'flex'; };
+  });
+})();
+(function(){
+  document.addEventListener('DOMContentLoaded',function(){
+    var path=window.location.pathname;
+    document.querySelectorAll('.mp360-link').forEach(function(a){
+      try{var lp=new URL(a.href,window.location.href).pathname;if(lp===path)a.classList.add('active');}catch(e){}
+    });
+    /* also highlight Programs trigger when on programs page */
+    var progTrigger = document.querySelector('.mp360-mega-trigger');
+    if (progTrigger) {
+      try {
+        var progHref = '../our_programs_mera_pind_360_foundation/code.html';
+        var progPath = new URL(progHref, window.location.href).pathname;
+        if (window.location.pathname === progPath) progTrigger.classList.add('active');
+      } catch(e) {}
+    }
+  });
+})();
+</script>
+<script>
+(function () {
+  'use strict';
+
+  /* ─── colour tokens from design system ─── */
+  var C_PRIMARY       = 'rgb(23,57,1)';
+  var C_PRIMARY_DIM   = 'rgba(23,57,1,0.55)';
+  var C_SECONDARY     = 'rgb(132,84,0)';
+  var C_SECONDARY_DIM = 'rgba(132,84,0,0.18)';
+  var C_WHITE         = 'rgba(255,255,255,1)';
+  var C_WHITE_DIM     = 'rgba(255,255,255,0.55)';
+
+
+  window.addEventListener('load', function () {
+    if (typeof gsap === 'undefined') return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    /* ═══════════════════════════════════════════
+       1. NAV — slide down on load
+    ═══════════════════════════════════════════ */
+    gsap.from('header', {
+      y: -56, opacity: 0, duration: 0.8, ease: 'power3.out', clearProps: 'all'
+    });
+
+    /* ═══════════════════════════════════════════
+       2. HERO — stagger entrance
+    ═══════════════════════════════════════════ */
+    var heroSection = document.querySelector('body section');
+    if (heroSection) {
+      var heroEls = heroSection.querySelectorAll('span.inline-block, span.inline-flex, h1, p, .flex.flex-wrap > a, .flex.flex-wrap > button');
+      if (heroEls.length) {
+        gsap.from(Array.from(heroEls).slice(0, 8), {
+          y: 60, opacity: 0, duration: 1.1, stagger: 0.14,
+          ease: 'power3.out', delay: 0.3, clearProps: 'all'
+        });
+      }
+      /* hero bg parallax */
+      var heroBg = heroSection.querySelector('.absolute > img, .absolute img');
+      if (heroBg) {
+        gsap.to(heroBg, {
+          scrollTrigger: { trigger: heroSection, start: 'top top', end: 'bottom top', scrub: 1.2 },
+          y: '30%', ease: 'none'
+        });
+      }
+    }
+
+    /* ═══════════════════════════════════════════
+       3. HEADING ENTRANCE — fade-up (once)
+    ═══════════════════════════════════════════ */
+    document.querySelectorAll('h1, h2').forEach(function (el) {
+      if (heroSection && heroSection.contains(el)) return;
+      gsap.from(el, {
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+        y: 24, opacity: 0, duration: 0.7, ease: 'power2.out', clearProps: 'all'
+      });
+    });
+
+    /* ═══════════════════════════════════════════
+       4. SECTION SUBTITLE / LEAD PARAGRAPH fade-up
+    ═══════════════════════════════════════════ */
+    document.querySelectorAll('.text-center > p, .max-w-3xl > p, .max-w-2xl > p').forEach(function (el) {
+      if (heroSection && heroSection.contains(el)) return;
+      gsap.from(el, {
+        scrollTrigger: { trigger: el, start: 'top 90%', once: true },
+        y: 28, opacity: 0, duration: 0.85, delay: 0.1, ease: 'power2.out', clearProps: 'all'
+      });
+    });
+
+    /* ═══════════════════════════════════════════
+       5. CARDS — stagger fade-up
+    ═══════════════════════════════════════════ */
+    /* group cards by parent so stagger is per-row */
+    var processedParents = new Set();
+    document.querySelectorAll('section .grid > div, section .bento-grid > div').forEach(function (el) {
+      var parent = el.parentElement;
+      if (processedParents.has(parent)) return;
+      processedParents.add(parent);
+      var children = Array.from(parent.children);
+      gsap.from(children, {
+        scrollTrigger: { trigger: parent, start: 'top 88%', once: true },
+        y: 55, opacity: 0, duration: 0.75, stagger: 0.1, ease: 'power2.out', clearProps: 'all'
+      });
+    });
+
+    /* ═══════════════════════════════════════════
+       6. BLOCKQUOTES — slide from left
+    ═══════════════════════════════════════════ */
+    document.querySelectorAll('blockquote').forEach(function (el) {
+      gsap.from(el, {
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+        x: -45, opacity: 0, duration: 0.85, ease: 'power3.out', clearProps: 'all'
+      });
+    });
+
+    /* ═══════════════════════════════════════════
+       7. IMAGES (non-hero) — scale + fade
+    ═══════════════════════════════════════════ */
+    document.querySelectorAll('section img').forEach(function (el) {
+      if (heroSection && heroSection.contains(el)) return;
+      gsap.from(el, {
+        scrollTrigger: { trigger: el, start: 'top 90%', once: true },
+        scale: 0.94, opacity: 0, duration: 1.1, ease: 'power2.out', clearProps: 'all'
+      });
+    });
+
+    /* ═══════════════════════════════════════════
+       8. STAT COUNTERS — roll-up
+    ═══════════════════════════════════════════ */
+    document.querySelectorAll('[class*="text-headline-lg"][class*="font-bold"]').forEach(function (el) {
+      var raw = el.textContent.trim();
+      if (!/^\d/.test(raw)) return;
+      var num = parseFloat(raw.replace(/[^0-9.]/g, ''));
+      if (isNaN(num) || num <= 1) return;
+      var suffix = raw.replace(/^[\d,]+/, '');
+      var proxy  = { val: 0 };
+      gsap.to(proxy, {
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+        val: num, duration: 2.0, ease: 'power2.out',
+        onUpdate: function () { el.textContent = Math.round(proxy.val) + suffix; }
+      });
+    });
+
+    /* ═══════════════════════════════════════════
+       9. MARQUEE SECTIONS — horizontal drift
+          (Highlight/banner blocks with large display text)
+    ═══════════════════════════════════════════ */
+    document.querySelectorAll('section.bg-secondary-container, section[class*="bg-primary"]').forEach(function (section) {
+      var h2 = section.querySelector('h2');
+      if (!h2) return;
+      gsap.from(h2, {
+        scrollTrigger: { trigger: section, start: 'top 80%', once: true },
+        x: -60, opacity: 0, duration: 1.0, ease: 'power3.out', clearProps: 'all'
+      });
+      var body = section.querySelector('p');
+      if (body) {
+        gsap.from(body, {
+          scrollTrigger: { trigger: section, start: 'top 75%', once: true },
+          x: 40, opacity: 0, duration: 0.9, delay: 0.15, ease: 'power2.out', clearProps: 'all'
+        });
+      }
+    });
+
+    /* ═══════════════════════════════════════════
+       10. FOOTER — fade in
+    ═══════════════════════════════════════════ */
+    gsap.from('footer', {
+      scrollTrigger: { trigger: 'footer', start: 'top 95%', once: true },
+      opacity: 0, y: 28, duration: 0.7, ease: 'power2.out', clearProps: 'all'
+    });
+
+    /* Hero word cycler is now handled by the inline slider script — removed from GSAP block */
+
+  }); /* end load */
+})();
+</script>
+<script>
+(function () {
+  var client = window.supabase.createClient('https://iihfejbjweortgghytce.supabase.co', 'sb_publishable_qz_Z7w3LoI68uQGE9q8UTw_u-EnlwsF');
+
+  var form = document.querySelector('section form');
+  if (!form) return;
+  form.id = 'newsletter-home';
+
+  var input = form.querySelector('input[type="email"]');
+  var btn   = form.querySelector('button');
+
+  /* status — aria-live so screen readers announce it */
+  var status = document.createElement('p');
+  status.setAttribute('role', 'status');
+  status.setAttribute('aria-live', 'polite');
+  status.style.cssText = 'display:none;margin-top:0.75rem;font-size:0.85rem;font-family:Lato,sans-serif;';
+  form.parentElement.appendChild(status);
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var email = input ? input.value.trim() : '';
+    if (!email) return;
+    var orig = btn ? btn.textContent : '';
+    if (btn) { btn.innerHTML = '<span aria-hidden="true">…</span><span class="sr-only">Subscribing…</span>'; btn.disabled = true; }
+
+    var { error } = await client.from('newsletter_signups').insert({ email: email, source: 'homepage' });
+    if (btn) { btn.textContent = orig; btn.disabled = false; }
+    if (error && error.code === '23505') {
+      status.style.color = '#c4efa3';
+      status.textContent = '✓ You\u2019re already subscribed!';
+    } else if (error) {
+      status.style.color = '#ffdad6';
+      status.textContent = '✗ Something went wrong. Please try again.';
+    } else {
+      status.textContent = '✓ You\u2019re subscribed. Welcome to the Pind Dispatch!';
+      status.style.color = '#c4efa3';
+      if (input) input.value = '';
+    }
+    status.style.display = 'block';
+    setTimeout(function () { status.style.display = 'none'; }, 5000);
+  });
+})();
+</script>
+<script id="mp360-reveal">
+(function(){
+  function reveal() {
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.10, rootMargin: '0px 0px -32px 0px' });
+    document.querySelectorAll('[data-reveal]').forEach(function(el){ io.observe(el); });
+  }
+  document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', reveal) : reveal();
+})();
+</script>
+</body></html>
