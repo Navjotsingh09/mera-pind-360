@@ -8,6 +8,13 @@
     { "source": "/news", "destination": "/news_updates_mera_pind_360_foundation/code.html" },
     { "source": "/join", "destination": "/join_us_mera_pind_360_foundation/code.html" },
     { "source": "/contact", "destination": "/contact_us_mera_pind_360_foundation/code.html" },
-    { "source": "/support", "destination": "/support_our_cause_mera_pind_360_foundation/code.html" }
+    { "source": "/support", "destination": "/support_our_cause_mera_pind_360_foundation/code.html" },
+    { "source": "/diaspora", "destination": "/diaspora_programme_mera_pind_360_foundation/code.html" },
+    { "source": "/programs/library", "destination": "/village_library_tools_mera_pind_360_program/code.html" },
+    { "source": "/programs/it-lab", "destination": "/technical_it_lab_mera_pind_360_program/code.html" },
+    { "source": "/programs/telehealth", "destination": "/telehealth_center_mera_pind_360_program/code.html" },
+    { "source": "/programs/skills", "destination": "/non_technical_skills_mera_pind_360_program/code.html" },
+    { "source": "/programs/families", "destination": "/supporting_poor_families_mera_pind_360_program/code.html" },
+    { "source": "/programs/csc", "destination": "/common_services_centre_mera_pind_360_program/code.html" }
   ]
 }
