@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Donate Now | Friends of Punjab Foundation — Supporting Mera Pind 360</title>
+<meta name="description" content="Make a tax-deductible donation to Friends of Punjab Foundation, a US 501(c)(3). Your gift funds Mera Pind 360 programs — education, health, and community development in rural Punjab, India."/>
+<link rel="canonical" href="https://merapind360.org/donate"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          /* === MP360 colours (nav / footer) === */
+          "mp-primary":            "#173901",
+          "mp-secondary":          "#845400",
+          "mp-surface":            "#fcf9f4",
+          "mp-on-surface":         "#1c1c19",
+          "mp-on-surface-variant": "#43493d",
+          "mp-outline-variant":    "#c3c9b9",
+          /* === FoPF brand colours === */
+          "fopf-navy":       "#0f2d71",
+          "fopf-navy-dark":  "#091e50",
+          "fopf-navy-mid":   "#1a3f8f",
+          "fopf-gold":       "#c8881a",
+          "fopf-gold-light": "#f5a623",
+          "fopf-gold-pale":  "#fef3dd",
+          "fopf-surface":    "#f4f7fb",
+          "fopf-blue-light": "#e8eef8",
+        }
+      }
+    }
+  }
+</script>
+<style>
+/* ── Global ── */
+html,body,p,span,h1,h2,h3,h4,h5,h6,a,li,button,input,textarea,select,label,div,section,article,header,footer,nav {
+  font-family:'Lato',sans-serif!important;
+}
+.material-symbols-outlined{font-family:'Material Symbols Outlined'!important;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;}
+html{overflow-x:hidden;}
+body{background:#f4f7fb;color:#0f2d71;overflow-x:hidden;}
+
+/* ── MP360 nav (reused verbatim) ── */
+.mp360-link{font-size:1.05rem;font-weight:700;color:#2d3a28;text-decoration:none;transition:color .2s;}
+.mp360-link:hover,.mp360-link.active{color:#173901;}
+#mp360-header{transition:background-color .25s,border-color .25s,box-shadow .25s;}
+#mp360-header.mp360-nav-scrolled{background:rgba(252,249,244,0.985)!important;border-bottom-color:rgba(23,57,1,0.14)!important;box-shadow:0 10px 26px rgba(23,57,1,0.10);}
+#mp360-nav{padding:0;background:transparent;border:0;backdrop-filter:none;-webkit-backdrop-filter:none;display:flex!important;align-items:center;justify-content:center;gap:42px!important;overflow:visible!important;min-height:auto;box-shadow:none;}
+#mp360-header,#mp360-header>div,#mp360-nav,.mp360-mega-wrap{overflow:visible!important;}
+#mp360-nav a,#mp360-nav button{white-space:nowrap;}
+.mp360-link,.mp360-mega-trigger{position:relative;padding:10px 4px;}
+.mp360-link::after,.mp360-mega-trigger::after{content:'';position:absolute;left:0;right:0;bottom:1px;height:2px;background:#173901;transform:scaleX(0);transform-origin:center;transition:transform .2s ease;opacity:.85;}
+.mp360-link:hover::after,.mp360-link.active::after,.mp360-mega-trigger:hover::after,.mp360-mega-trigger.active::after,.mp360-mega-wrap.open .mp360-mega-trigger::after{transform:scaleX(1);}
+.mp360-mega-wrap{position:relative;display:inline-flex;}
+.mp360-mega-trigger{background:none;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:10px 4px;font-size:1.05rem;font-weight:700;color:#2d3a28;transition:color .2s;}
+.mp360-mega-trigger:hover,.mp360-mega-trigger.active{color:#173901;}
+.mp360-chevron{width:14px;height:14px;flex-shrink:0;transition:transform 0.22s;}
+.mp360-mega-wrap.open .mp360-chevron{transform:rotate(180deg);}
+.mp360-mega-panel{position:fixed;top:78px;left:50%;transform:translateX(-50%) translateY(8px);width:min(920px,calc(100vw - 48px));background:#fff;border-radius:20px;box-shadow:0 18px 54px rgba(23,57,1,0.16),0 0 0 1px rgba(23,57,1,0.08);opacity:0;visibility:hidden;pointer-events:none;transition:opacity 0.22s,transform 0.22s,visibility 0.22s;z-index:5000;overflow:hidden;}
+.mp360-mega-wrap.open .mp360-mega-panel{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);}
+.mp360-mega-inner{display:grid;grid-template-columns:200px 1fr 1fr;}
+.mp360-mega-feature{background:#173901;padding:28px 24px;position:relative;overflow:hidden;}
+.mp360-mega-col{padding:22px 20px;border-left:1px solid rgba(23,57,1,0.07);}
+.mp360-mega-col-hd{font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#845400;margin:0 0 10px;}
+.mp360-mega-item{display:flex;align-items:flex-start;gap:10px;padding:9px 10px;border-radius:10px;text-decoration:none;color:#173901;font-size:0.8rem;line-height:1.42;margin-bottom:2px;transition:background .15s;}
+.mp360-mega-item:hover{background:rgba(23,57,1,0.05);}
+.mp360-mega-item strong{display:block;font-size:0.85rem;font-weight:700;margin-bottom:1px;color:#173901;}
+.mp360-mega-item--dim{opacity:0.72;}
+.mp360-mega-ico{display:flex;align-items:center;justify-content:center;width:34px;height:34px;min-width:34px;background:rgba(23,57,1,0.07);border-radius:8px;color:#173901;flex-shrink:0;margin-top:1px;}
+.mp360-mega-item:hover .mp360-mega-ico{background:rgba(23,57,1,0.12);}
+.mp360-mega-soon{display:inline-flex;align-items:center;margin-left:6px;font-size:0.58rem;font-weight:700;letter-spacing:0.05em;background:rgba(132,84,0,0.12);color:#845400;border-radius:4px;padding:1px 5px;vertical-align:middle;text-transform:uppercase;}
+.mp360-mega-foot{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:rgba(23,57,1,0.025);border-top:1px solid rgba(23,57,1,0.07);font-size:0.8rem;color:#43493d;}
+.mp360-mega-foot-btn{display:inline-flex;align-items:center;padding:7px 16px;background:#173901;color:#fff!important;border-radius:999px;font-size:0.78rem;font-weight:600;text-decoration:none;transition:background .2s;}
+.mp360-mega-foot-btn:hover{background:#1e4a02;}
+.mp360-getinvolved-btn{background:transparent;color:#173901!important;font-size:0.85rem;font-weight:700;padding:0.45rem 1.25rem;border-radius:99px;border:2px solid #173901;text-decoration:none;white-space:nowrap;transition:background .2s,color .2s;display:inline-block;}
+.mp360-getinvolved-btn:hover{background:#173901;color:#fff!important;}
+.mp360-donate-btn{background:#FF9933;color:#1a0a00!important;font-size:0.85rem;font-weight:700;padding:0.45rem 1.25rem;border-radius:99px;border:2px solid #FF9933;text-decoration:none;white-space:nowrap;transition:background .2s,color .2s,border-color .2s;display:inline-block;}
+.mp360-donate-btn:hover{background:#e68a00;border-color:#e68a00;color:#fff!important;}
+@media(max-width:900px){.mp360-mega-panel{width:min(92vw,920px);left:50%;top:72px;transform:translateX(-50%) translateY(8px);}.mp360-mega-wrap.open .mp360-mega-panel{transform:translateX(-50%) translateY(0);}}
+@media(min-width:769px){[data-burger]{display:none!important;}#mp360-nav{display:flex!important;}}
+@media(max-width:768px){#mp360-nav{display:none!important;}[data-burger]{display:flex!important;}.mp360-getinvolved-btn,.mp360-donate-btn{display:none!important;}}
+
+/* ── FoPF brand elements ── */
+.fopf-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(15,45,113,0.09);color:#0f2d71;border-radius:999px;padding:5px 14px;font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;}
+.fopf-hero{background:linear-gradient(135deg,#0f2d71 0%,#1a3f8f 55%,#091e50 100%);}
+
+/* ── Tier cards ── */
+.tier-card{background:#fff;border:2px solid #e4eaf5;border-radius:16px;padding:1.5rem;cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .25s;position:relative;outline:none;}
+.tier-card:hover{border-color:#0f2d71;box-shadow:0 8px 32px rgba(15,45,113,0.12);transform:translateY(-3px);}
+.tier-card.selected{border-color:#0f2d71;background:#e8eef8;box-shadow:0 0 0 3px rgba(15,45,113,0.15);}
+.tier-card.tier-featured{border-color:#c8881a;}
+.tier-card.tier-featured.selected{border-color:#c8881a;background:#fef3dd;box-shadow:0 0 0 3px rgba(200,136,26,0.2);}
+.tier-card:focus-visible{outline:2px solid #0f2d71;outline-offset:3px;}
+.tier-pop-badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:#c8881a;color:#fff;font-size:0.6rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:3px 12px;border-radius:999px;white-space:nowrap;}
+
+/* ── Toggle (one-time / monthly) ── */
+.freq-toggle{display:inline-flex;background:#e4eaf5;border-radius:999px;padding:3px;gap:2px;}
+.freq-btn{padding:9px 22px;border-radius:999px;border:none;cursor:pointer;font-weight:700;font-size:0.9rem;transition:background .18s,color .18s,box-shadow .18s;background:transparent;color:#0f2d71;}
+.freq-btn.active{background:#0f2d71;color:#fff;box-shadow:0 2px 10px rgba(15,45,113,0.25);}
+
+/* ── Custom amount input ── */
+.custom-amount-wrap{position:relative;margin-top:1rem;}
+.custom-amount-wrap .currency-prefix{position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:1.1rem;font-weight:700;color:#0f2d71;pointer-events:none;}
+.custom-amount-wrap input{width:100%;padding:14px 16px 14px 36px;border:2px solid #e4eaf5;border-radius:12px;font-size:1.1rem;font-weight:700;color:#0f2d71;background:#fff;outline:none;transition:border-color .2s,box-shadow .2s;}
+.custom-amount-wrap input:focus{border-color:#0f2d71;box-shadow:0 0 0 3px rgba(15,45,113,0.15);}
+.custom-amount-wrap input::placeholder{color:#9dafc8;font-weight:400;}
+
+/* ── Donor input fields ── */
+.donor-field{width:100%;padding:13px 16px;border:2px solid #e4eaf5;border-radius:12px;font-size:1rem;color:#0f2d71;background:#fff;outline:none;transition:border-color .2s,box-shadow .2s;}
+.donor-field:focus{border-color:#0f2d71;box-shadow:0 0 0 3px rgba(15,45,113,0.12);}
+.donor-field::placeholder{color:#9dafc8;}
+
+/* ── Donate CTA button ── */
+.fopf-donate-cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:17px 24px;background:#0f2d71;color:#fff;border:none;border-radius:14px;font-size:1.1rem;font-weight:700;cursor:pointer;transition:background .2s,box-shadow .2s,transform .15s;letter-spacing:0.02em;}
+.fopf-donate-cta:hover{background:#091e50;box-shadow:0 8px 28px rgba(15,45,113,0.3);transform:translateY(-1px);}
+.fopf-donate-cta:active{transform:translateY(0);}
+.fopf-donate-cta:disabled{background:#9dafc8;cursor:not-allowed;transform:none;box-shadow:none;}
+
+/* ── Trust badges ── */
+.trust-badge{display:flex;align-items:flex-start;gap:12px;padding:16px;background:#fff;border-radius:12px;border:1px solid #e4eaf5;}
+.trust-ico{width:38px;height:38px;min-width:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:#e8eef8;color:#0f2d71;flex-shrink:0;}
+
+/* ── Impact progress bars ── */
+.impact-bar{height:5px;background:#e4eaf5;border-radius:3px;overflow:hidden;margin-top:6px;}
+.impact-bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,#0f2d71,#c8881a);transition:width 1s cubic-bezier(.165,.84,.44,1);}
+
+/* ── Success banner ── */
+#fopf-success-banner{display:none;background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border:1px solid #81c784;border-radius:16px;padding:24px 28px;margin-bottom:2rem;text-align:center;}
+#fopf-success-banner.visible{display:block;}
+
+/* ── Error message ── */
+#fopf-error-msg{display:none;color:#ba1a1a;background:#ffdad6;border-radius:10px;padding:12px 16px;margin-top:12px;font-size:0.9rem;text-align:center;}
+#fopf-error-msg.visible{display:block;}
+
+/* ── Spinner ── */
+.fopf-spinner{width:20px;height:20px;border:2.5px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:none;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* ── Responsive ── */
+@media(max-width:1024px){
+  .fopf-form-grid{grid-template-columns:1fr!important;}
+}
+@media(max-width:768px){
+  .fopf-hero-inner{padding:4rem 1.25rem 3rem!important;}
+  .fopf-tiers-grid{grid-template-columns:1fr 1fr!important;}
+  .fopf-form-card{padding:1.75rem 1.25rem!important;}
+  .freq-btn{padding:9px 14px!important;font-size:0.83rem!important;}
+}
+@media(max-width:520px){
+  .fopf-tiers-grid{grid-template-columns:1fr!important;}
+}
+
+/* ── MP360 footer ── */
+.mp360-foot{background:#173901;}
+.mp360-foot-inner{max-width:1280px;margin:0 auto;padding:4rem 2rem 3rem;}
+.mp360-foot-grid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:3rem;}
+@media(max-width:860px){.mp360-foot-grid{grid-template-columns:1fr 1fr;gap:2.5rem 2rem;}}
+@media(max-width:520px){.mp360-foot-grid{grid-template-columns:1fr;gap:2rem;}}
+.mp360-foot-head{color:rgba(255,255,255,0.65);font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;margin:0 0 1.1rem;}
+.mp360-foot-link{color:rgba(255,255,255,0.65);font-size:0.875rem;text-decoration:none;display:block;padding:0.28rem 0;transition:color .18s,padding-left .18s;}
+.mp360-foot-link:hover{color:#fcb654;padding-left:5px;}
+.mp360-soc{display:inline-flex;align-items:center;justify-content:center;width:2.1rem;height:2.1rem;border-radius:50%;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.14);color:rgba(255,255,255,0.7);text-decoration:none;transition:all .2s;flex-shrink:0;}
+.mp360-soc:hover{background:rgba(252,182,84,0.2);color:#fcb654;border-color:rgba(252,182,84,0.45);transform:translateY(-2px);}
+.mp360-stat-n{color:#fcb654;font-size:1.3rem;font-weight:900;line-height:1;display:block;}
+.mp360-stat-l{color:rgba(255,255,255,0.65);font-size:0.62rem;letter-spacing:0.07em;text-transform:uppercase;display:block;margin-top:3px;}
+.mp360-foot-bar{border-top:1px solid rgba(255,255,255,0.1);}
+.mp360-foot-bar-inner{max-width:1280px;margin:0 auto;padding:1.1rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;}
+.mp360-foot-copy{color:rgba(255,255,255,0.65);font-size:0.775rem;margin:0;}
+
+/* ── Accessibility ── */
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #0f2d71!important;outline-offset:3px!important;border-radius:3px;}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+<!-- Skip link -->
+<a href="#fopf-main" style="position:absolute;top:-100px;left:16px;z-index:9999;background:#0f2d71;color:#fff;padding:10px 20px;border-radius:0 0 8px 8px;font-weight:700;text-decoration:none;transition:top .2s;" onfocus="this.style.top='0'" onblur="this.style.top='-100px'">Skip to main content</a>
+
+<!-- ═══════════════════════════════════════════════════════
+     NAV — shared MP360 header
+════════════════════════════════════════════════════════ -->
+<header id="mp360-header" style="position:sticky;top:0;z-index:3000;background:rgba(252,249,244,0.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(23,57,1,0.08);">
+  <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;max-width:1280px;margin:0 auto;padding:0 2rem;height:64px;">
+    <a href="/" style="flex-shrink:0;display:flex;align-items:center;text-decoration:none;"><img src="/logo.avif" alt="Mera Pind 360 Foundation" style="height:2.5rem;width:auto;"/></a>
+    <nav id="mp360-nav" class="hidden md:flex items-center" style="gap:28px;">
+      <div class="mp360-mega-wrap">
+        <button type="button" class="mp360-link mp360-mega-trigger" aria-expanded="false" aria-haspopup="true">
+          Programs
+          <svg class="mp360-chevron" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="mp360-mega-panel" role="region" aria-label="Programmes menu">
+          <div class="mp360-mega-inner">
+            <div class="mp360-mega-feature">
+              <img src="/images/ccs/img_20260305_131456_750.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:20px 0 0 0;opacity:0.32;"/>
+              <div style="position:relative;z-index:1;">
+                <p style="font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin:0 0 8px;">Our Work</p>
+                <h3 style="font-size:1.15rem;font-weight:700;color:#fff;line-height:1.35;margin:0 0 10px;">Four rooms,<br>one roof.</h3>
+                <p style="font-size:0.8rem;color:rgba(255,255,255,0.7);line-height:1.55;margin:0 0 20px;">Every centre unites library, health, governance and community under one roof in rural Punjab.</p>
+                <a href="/programs" style="display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;font-weight:700;color:#fcb654;text-decoration:none;">All programmes <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              </div>
+            </div>
+            <div class="mp360-mega-col">
+              <p class="mp360-mega-col-hd">Programmes</p>
+              <a href="/programs/library" class="mp360-mega-item"><span class="mp360-mega-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></span><span><strong>Library &amp; Digital Literacy</strong>IT lab, reading rooms and digital access</span></a>
+              <a href="/programs/telehealth" class="mp360-mega-item"><span class="mp360-mega-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span><span><strong>Community Health</strong>Screenings, clinics and health education</span></a>
+              <a href="/programs/csc" class="mp360-mega-item"><span class="mp360-mega-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span><span><strong>Rural Governance</strong>Service desk &amp; scheme navigation</span></a>
+            </div>
+            <div class="mp360-mega-col">
+              <p class="mp360-mega-col-hd">Get Involved</p>
+              <a href="/join" class="mp360-mega-item"><span class="mp360-mega-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></span><span><strong>Volunteer</strong>Join from Punjab or the diaspora</span></a>
+              <a href="/donate" class="mp360-mega-item"><span class="mp360-mega-ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></span><span><strong>Donate Now</strong>Support Mera Pind 360 programs</span></a>
+              <a href="/diaspora" class="mp360-mega-item mp360-mega-item--dim"><span class="mp360-mega-ico" style="opacity:0.45;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></span><span><strong>Diaspora Programme</strong><span class="mp360-mega-soon">Coming soon</span></span></a>
+            </div>
+          </div>
+          <div class="mp360-mega-foot">
+            <span>Questions about our programmes?</span>
+            <a href="/contact" class="mp360-mega-foot-btn">Get in touch</a>
+          </div>
+        </div>
+      </div>
+      <a href="/impact" class="mp360-link">Impact</a>
+      <a href="/about" class="mp360-link">About</a>
+      <a href="/news" class="mp360-link">News</a>
+      <a href="/join" class="mp360-link">Volunteer</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:12px;justify-self:end;">
+      <a href="/contact" class="mp360-getinvolved-btn">Get Involved</a>
+      <a href="/donate" class="mp360-donate-btn" aria-current="page">Donate</a>
+      <button data-burger class="md:hidden" aria-label="Open menu" style="background:none;border:none;cursor:pointer;padding:6px 4px;display:flex;flex-direction:column;gap:5px;justify-content:center;align-items:center;">
+        <span style="display:block;width:22px;height:1.5px;background:#173901;border-radius:2px;transition:all .3s;"></span>
+        <span style="display:block;width:22px;height:1.5px;background:#173901;border-radius:2px;transition:all .3s;"></span>
+        <span style="display:block;width:22px;height:1.5px;background:#173901;border-radius:2px;transition:all .3s;"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════
+     MAIN
+════════════════════════════════════════════════════════ -->
+<main id="fopf-main">
+
+  <!-- ── HERO BANNER ── -->
+  <section class="fopf-hero" aria-labelledby="fopf-hero-heading" style="position:relative;overflow:hidden;">
+    <!-- Decorative background shapes -->
+    <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;overflow:hidden;">
+      <div style="position:absolute;top:-120px;right:-120px;width:480px;height:480px;border-radius:50%;background:rgba(255,255,255,0.04);"></div>
+      <div style="position:absolute;bottom:-80px;left:-80px;width:360px;height:360px;border-radius:50%;background:rgba(200,136,26,0.08);"></div>
+      <!-- Wheat/grain pattern overlay -->
+      <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.03;" preserveAspectRatio="xMidYMid slice" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <pattern id="grain" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+          <circle cx="10" cy="10" r="1" fill="white"/>
+          <circle cx="30" cy="30" r="1" fill="white"/>
+          <circle cx="20" cy="20" r="0.5" fill="white"/>
+        </pattern>
+        <rect width="400" height="400" fill="url(#grain)"/>
+      </svg>
+    </div>
+
+    <div class="fopf-hero-inner" style="position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:5rem 2rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
+      <!-- Left copy -->
+      <div>
+        <div class="fopf-badge" style="background:rgba(200,136,26,0.18);color:#f5c842;margin-bottom:1.5rem;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          Friends of Punjab Foundation
+        </div>
+        <h1 id="fopf-hero-heading" style="font-size:clamp(2.2rem,5vw,3.5rem);font-weight:900;color:#ffffff;line-height:1.1;letter-spacing:-0.02em;margin:0 0 1.25rem;">
+          Make a difference<br>in rural Punjab.
+        </h1>
+        <p style="font-size:1.1rem;color:rgba(255,255,255,0.82);line-height:1.7;margin:0 0 2rem;max-width:480px;">
+          Friends of Punjab Foundation is the US fundraising arm of Mera Pind 360. Every dollar you give goes directly to education, healthcare, and community services in the villages of Punjab, India.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center;">
+          <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:10px;padding:10px 16px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12l2 2 4-4"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+            <span style="font-size:0.82rem;color:rgba(255,255,255,0.9);font-weight:600;">US 501(c)(3) Registered</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:10px;padding:10px 16px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+            <span style="font-size:0.82rem;color:rgba(255,255,255,0.9);font-weight:600;">Tax-Deductible Gifts</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:10px;padding:10px 16px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span style="font-size:0.82rem;color:rgba(255,255,255,0.9);font-weight:600;">Secure Stripe Checkout</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: stats -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;" aria-label="Foundation impact statistics">
+        <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.15);border-radius:16px;padding:1.75rem 1.5rem;text-align:center;">
+          <div style="font-size:2.5rem;font-weight:900;color:#f5c842;line-height:1;">60</div>
+          <div style="font-size:0.78rem;color:rgba(255,255,255,0.7);margin-top:4px;text-transform:uppercase;letter-spacing:0.06em;font-weight:600;">Villages Served</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.15);border-radius:16px;padding:1.75rem 1.5rem;text-align:center;">
+          <div style="font-size:2.5rem;font-weight:900;color:#f5c842;line-height:1;">4,463</div>
+          <div style="font-size:0.78rem;color:rgba(255,255,255,0.7);margin-top:4px;text-transform:uppercase;letter-spacing:0.06em;font-weight:600;">Families Reached</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.1);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.15);border-radius:16px;padding:1.75rem 1.5rem;text-align:center;">
+          <div style="font-size:2.5rem;font-weight:900;color:#f5c842;line-height:1;">14k+</div>
+          <div style="font-size:0.78rem;color:rgba(255,255,255,0.7);margin-top:4px;text-transform:uppercase;letter-spacing:0.06em;font-weight:600;">Community Members</div>
+        </div>
+        <div style="background:rgba(200,136,26,0.25);backdrop-filter:blur(8px);border:1px solid rgba(200,136,26,0.4);border-radius:16px;padding:1.75rem 1.5rem;text-align:center;">
+          <div style="font-size:2.5rem;font-weight:900;color:#f5c842;line-height:1;">100%</div>
+          <div style="font-size:0.78rem;color:rgba(255,255,255,0.7);margin-top:4px;text-transform:uppercase;letter-spacing:0.06em;font-weight:600;">Direct Impact</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BREADCRUMB / BRIDGE ── -->
+  <div style="background:#fff;border-bottom:1px solid #e4eaf5;">
+    <div style="max-width:1280px;margin:0 auto;padding:0.9rem 2rem;display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+      <a href="/" style="font-size:0.82rem;color:#845400;text-decoration:none;font-weight:600;">Mera Pind 360</a>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c3c9b9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+      <span style="font-size:0.82rem;color:#0f2d71;font-weight:700;">Donate — Friends of Punjab Foundation</span>
+    </div>
+  </div>
+
+  <!-- ── SUCCESS BANNER (shown on return from Stripe) ── -->
+  <div style="max-width:1280px;margin:0 auto;padding:0 2rem;">
+    <div id="fopf-success-banner" role="alert" aria-live="polite">
+      <div style="display:flex;justify-content:center;margin-bottom:1rem;">
+        <div style="width:56px;height:56px;border-radius:50%;background:#43a047;display:flex;align-items:center;justify-content:center;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+      </div>
+      <h2 style="color:#1b5e20;font-size:1.5rem;font-weight:900;margin:0 0 0.5rem;">Thank you! Your donation is confirmed.</h2>
+      <p style="color:#2e7d32;font-size:1rem;margin:0 0 0.5rem;">A receipt has been emailed to you from Stripe. Your gift is tax-deductible — Friends of Punjab Foundation is a registered 501(c)(3).</p>
+      <p id="fopf-success-amount" style="color:#1b5e20;font-weight:700;font-size:1.1rem;margin:0;"></p>
+    </div>
+  </div>
+
+  <!-- ── DONATION FORM + SIDEBAR ── -->
+  <section aria-labelledby="fopf-form-heading" style="max-width:1280px;margin:0 auto;padding:3rem 2rem 5rem;">
+    <div class="fopf-form-grid" style="display:grid;grid-template-columns:1fr 420px;gap:2.5rem;align-items:start;">
+
+      <!-- ── LEFT: Donation form card ── -->
+      <div class="fopf-form-card" style="background:#fff;border-radius:20px;padding:2.5rem;box-shadow:0 4px 32px rgba(15,45,113,0.08);border:1px solid #e4eaf5;">
+
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:0.5rem;">
+          <!-- FoPF icon placeholder — replace with actual FoPF logo -->
+          <div style="width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#0f2d71,#1a3f8f);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          </div>
+          <div>
+            <h2 id="fopf-form-heading" style="font-size:1.35rem;font-weight:900;color:#0f2d71;margin:0;line-height:1.2;">Make your gift today</h2>
+            <p style="font-size:0.82rem;color:#6b7b9a;margin:0;">Friends of Punjab Foundation</p>
+          </div>
+        </div>
+
+        <div style="height:1px;background:#e4eaf5;margin:1.5rem 0;"></div>
+
+        <!-- Frequency toggle -->
+        <div style="margin-bottom:1.75rem;">
+          <p style="font-size:0.78rem;font-weight:700;color:#6b7b9a;text-transform:uppercase;letter-spacing:0.08em;margin:0 0 0.75rem;">How often?</p>
+          <div class="freq-toggle" role="group" aria-label="Donation frequency">
+            <button type="button" class="freq-btn active" id="btn-onetime" data-mode="payment" aria-pressed="true">Give Once</button>
+            <button type="button" class="freq-btn" id="btn-monthly" data-mode="subscription" aria-pressed="false">Give Monthly</button>
+          </div>
+          <p id="monthly-note" style="display:none;font-size:0.8rem;color:#0f2d71;margin:0.6rem 0 0;background:#e8eef8;border-radius:8px;padding:8px 12px;">
+            <strong>Monthly giving</strong> has the greatest impact — you'll sustain an entire programme strand, not just a one-off contribution. Cancel anytime.
+          </p>
+        </div>
+
+        <!-- Preset tiers -->
+        <div style="margin-bottom:1.75rem;">
+          <p style="font-size:0.78rem;font-weight:700;color:#6b7b9a;text-transform:uppercase;letter-spacing:0.08em;margin:0 0 0.75rem;">Choose an amount</p>
+          <div class="fopf-tiers-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;" role="group" aria-label="Preset donation amounts">
+
+            <!-- Tier 1: Seedling -->
+            <div class="tier-card" role="button" tabindex="0" data-amount="25" data-tier="Seedling" aria-pressed="false" aria-label="Seedling — $25">
+              <div style="font-size:1.45rem;font-weight:900;color:#0f2d71;margin-bottom:4px;">$25</div>
+              <div style="font-size:0.78rem;font-weight:700;color:#c8881a;margin-bottom:6px;">Seedling</div>
+              <div style="font-size:0.72rem;color:#6b7b9a;line-height:1.5;">Funds a digital literacy session for one child</div>
+            </div>
+
+            <!-- Tier 2: Sustainer -->
+            <div class="tier-card" role="button" tabindex="0" data-amount="60" data-tier="Sustainer" aria-pressed="false" aria-label="Sustainer — $60">
+              <div style="font-size:1.45rem;font-weight:900;color:#0f2d71;margin-bottom:4px;">$60</div>
+              <div style="font-size:0.78rem;font-weight:700;color:#c8881a;margin-bottom:6px;">Sustainer</div>
+              <div style="font-size:0.72rem;color:#6b7b9a;line-height:1.5;">Covers a family health screening &amp; consultation</div>
+            </div>
+
+            <!-- Tier 3: Scholar (featured) -->
+            <div class="tier-card tier-featured" role="button" tabindex="0" data-amount="120" data-tier="Scholar" aria-pressed="false" aria-label="Scholar — $120 — most popular">
+              <div class="tier-pop-badge">Most Popular</div>
+              <div style="font-size:1.45rem;font-weight:900;color:#0f2d71;margin-bottom:4px;">$120</div>
+              <div style="font-size:0.78rem;font-weight:700;color:#c8881a;margin-bottom:6px;">Scholar</div>
+              <div style="font-size:0.72rem;color:#6b7b9a;line-height:1.5;">Sponsors digital literacy for 3 children, one month</div>
+            </div>
+
+            <!-- Tier 4: Cultivator -->
+            <div class="tier-card" role="button" tabindex="0" data-amount="250" data-tier="Cultivator" aria-pressed="false" aria-label="Cultivator — $250">
+              <div style="font-size:1.45rem;font-weight:900;color:#0f2d71;margin-bottom:4px;">$250</div>
+              <div style="font-size:0.78rem;font-weight:700;color:#c8881a;margin-bottom:6px;">Cultivator</div>
+              <div style="font-size:0.72rem;color:#6b7b9a;line-height:1.5;">Supports a CSC service desk for one full week</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Custom amount -->
+        <div style="margin-bottom:1.75rem;">
+          <label for="fopf-custom-amount" style="font-size:0.78rem;font-weight:700;color:#6b7b9a;text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:0.5rem;">Or enter your own amount</label>
+          <div class="custom-amount-wrap">
+            <span class="currency-prefix" aria-hidden="true">$</span>
+            <input type="number" id="fopf-custom-amount" name="custom_amount" min="5" step="1" placeholder="Enter amount (min $5)" inputmode="numeric" autocomplete="off"/>
+          </div>
+          <p id="fopf-amount-error" style="display:none;color:#ba1a1a;font-size:0.8rem;margin-top:6px;" role="alert">Please enter a valid amount of at least $5.</p>
+        </div>
+
+        <!-- Donor details -->
+        <div style="margin-bottom:1.75rem;">
+          <p style="font-size:0.78rem;font-weight:700;color:#6b7b9a;text-transform:uppercase;letter-spacing:0.08em;margin:0 0 0.75rem;">Your details</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div>
+              <label for="fopf-donor-name" style="font-size:0.8rem;font-weight:600;color:#0f2d71;display:block;margin-bottom:6px;">Full Name</label>
+              <input type="text" id="fopf-donor-name" name="donor_name" class="donor-field" placeholder="Your name" autocomplete="name"/>
+            </div>
+            <div>
+              <label for="fopf-donor-email" style="font-size:0.8rem;font-weight:600;color:#0f2d71;display:block;margin-bottom:6px;">Email Address <span aria-label="required" style="color:#c8881a;">*</span></label>
+              <input type="email" id="fopf-donor-email" name="donor_email" class="donor-field" placeholder="you@email.com" required autocomplete="email"/>
+            </div>
+          </div>
+          <p id="fopf-email-error" style="display:none;color:#ba1a1a;font-size:0.8rem;margin-top:6px;" role="alert">A valid email is needed to send your tax receipt.</p>
+        </div>
+
+        <!-- CTA -->
+        <button type="button" id="fopf-donate-btn" class="fopf-donate-cta" aria-live="polite">
+          <span id="fopf-btn-text">Donate $120 — Secure Checkout</span>
+          <div class="fopf-spinner" id="fopf-spinner" aria-label="Processing…"></div>
+          <svg id="fopf-btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        <div id="fopf-error-msg" role="alert" aria-live="assertive"></div>
+
+        <!-- Tax notice -->
+        <div style="display:flex;align-items:flex-start;gap:10px;margin-top:1.25rem;padding:14px 16px;background:#f4f7fb;border-radius:10px;border:1px solid #dce4f0;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0f2d71" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;" aria-hidden="true"><path d="M9 12l2 2 4-4"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+          <p style="font-size:0.78rem;color:#4a5a7a;line-height:1.6;margin:0;">
+            Friends of Punjab Foundation is a registered <strong>US 501(c)(3) nonprofit</strong>. Your donation is <strong>tax-deductible</strong> to the full extent permitted by law. A receipt will be emailed to you by Stripe after your gift is processed.
+          </p>
+        </div>
+
+        <!-- Secure payment note -->
+        <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:1.25rem;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9dafc8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          <span style="font-size:0.72rem;color:#9dafc8;font-weight:600;">Secured by Stripe &middot; PCI DSS Level 1</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9dafc8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span style="font-size:0.72rem;color:#9dafc8;font-weight:600;">256-bit SSL</span>
+        </div>
+      </div>
+
+      <!-- ── RIGHT: Sidebar ── -->
+      <aside aria-label="Why donate and impact information" style="display:flex;flex-direction:column;gap:1.5rem;">
+
+        <!-- About FoPF -->
+        <div style="background:#0f2d71;border-radius:20px;padding:2rem;color:#fff;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
+            <div style="width:40px;height:40px;border-radius:10px;background:rgba(245,198,66,0.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+            </div>
+            <h3 style="font-size:1rem;font-weight:700;color:#fff;margin:0;">About Friends of Punjab</h3>
+          </div>
+          <p style="font-size:0.875rem;color:rgba(255,255,255,0.82);line-height:1.7;margin:0 0 1rem;">
+            Friends of Punjab Foundation is the US-registered 501(c)(3) arm that enables American donors to support the Mera Pind 360 initiative in rural Punjab, India — with full tax deductibility.
+          </p>
+          <p style="font-size:0.875rem;color:rgba(255,255,255,0.82);line-height:1.7;margin:0;">
+            100% of programme funds reach the ground. Administrative costs are covered by the founding board, so every dollar you give builds villages.
+          </p>
+          <div style="margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,0.12);">
+            <a href="https://www.friendsofpunjabfoundation.org" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;color:#f5c842;font-weight:700;text-decoration:none;">
+              Visit friendsofpunjabfoundation.org
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Trust badges -->
+        <div style="background:#fff;border-radius:20px;padding:1.75rem;border:1px solid #e4eaf5;">
+          <h3 style="font-size:0.85rem;font-weight:700;color:#6b7b9a;text-transform:uppercase;letter-spacing:0.08em;margin:0 0 1.25rem;">Why donors trust us</h3>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div class="trust-badge">
+              <div class="trust-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0f2d71" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+              <div><div style="font-size:0.875rem;font-weight:700;color:#0f2d71;">US 501(c)(3) Nonprofit</div><div style="font-size:0.78rem;color:#6b7b9a;margin-top:2px;">Registered, audited, fully transparent</div></div>
+            </div>
+            <div class="trust-badge">
+              <div class="trust-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0f2d71" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+              <div><div style="font-size:0.875rem;font-weight:700;color:#0f2d71;">100% Programme Funds</div><div style="font-size:0.78rem;color:#6b7b9a;margin-top:2px;">Zero admin fee — board covers overheads</div></div>
+            </div>
+            <div class="trust-badge">
+              <div class="trust-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0f2d71" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+              <div><div style="font-size:0.875rem;font-weight:700;color:#0f2d71;">Detailed Monthly Reports</div><div style="font-size:0.78rem;color:#6b7b9a;margin-top:2px;">Shared with all donors — nothing hidden</div></div>
+            </div>
+            <div class="trust-badge">
+              <div class="trust-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0f2d71" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+              <div><div style="font-size:0.875rem;font-weight:700;color:#0f2d71;">Secured by Stripe</div><div style="font-size:0.78rem;color:#6b7b9a;margin-top:2px;">PCI DSS Level 1 — card data never touches us</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Impact breakdown -->
+        <div style="background:#fff;border-radius:20px;padding:1.75rem;border:1px solid #e4eaf5;">
+          <h3 style="font-size:0.85rem;font-weight:700;color:#6b7b9a;text-transform:uppercase;letter-spacing:0.08em;margin:0 0 1.25rem;">Your impact breakdown</h3>
+          <div style="display:flex;flex-direction:column;gap:1rem;">
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:baseline;">
+                <span style="font-size:0.875rem;font-weight:600;color:#0f2d71;">Education &amp; Digital Literacy</span>
+                <span style="font-size:0.78rem;font-weight:700;color:#c8881a;">40%</span>
+              </div>
+              <div class="impact-bar"><div class="impact-bar-fill" data-width="40" style="width:0%;"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:baseline;">
+                <span style="font-size:0.875rem;font-weight:600;color:#0f2d71;">Community Health</span>
+                <span style="font-size:0.78rem;font-weight:700;color:#c8881a;">25%</span>
+              </div>
+              <div class="impact-bar"><div class="impact-bar-fill" data-width="25" style="width:0%;"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:baseline;">
+                <span style="font-size:0.875rem;font-weight:600;color:#0f2d71;">Rural Governance (CSC)</span>
+                <span style="font-size:0.78rem;font-weight:700;color:#c8881a;">20%</span>
+              </div>
+              <div class="impact-bar"><div class="impact-bar-fill" data-width="20" style="width:0%;"></div></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:baseline;">
+                <span style="font-size:0.875rem;font-weight:600;color:#0f2d71;">Skills &amp; Livelihoods</span>
+                <span style="font-size:0.78rem;font-weight:700;color:#c8881a;">15%</span>
+              </div>
+              <div class="impact-bar"><div class="impact-bar-fill" data-width="15" style="width:0%;"></div></div>
+            </div>
+          </div>
+          <a href="/impact" style="display:inline-flex;align-items:center;gap:5px;margin-top:1.25rem;font-size:0.82rem;color:#0f2d71;font-weight:700;text-decoration:none;">See our full impact report <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+
+        <!-- Questions -->
+        <div style="background:#fef3dd;border-radius:20px;padding:1.75rem;border:1px solid #f5d98a;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:0.75rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8881a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <h3 style="font-size:0.9rem;font-weight:700;color:#7a5010;margin:0;">Questions?</h3>
+          </div>
+          <p style="font-size:0.82rem;color:#7a5010;line-height:1.6;margin:0 0 1rem;">We'd love to hear from you — whether about your donation, our programmes, or how to get more involved.</p>
+          <a href="/contact" style="display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;color:#7a5010;font-weight:700;text-decoration:none;border-bottom:1.5px solid #c8881a;padding-bottom:1px;">Contact our team <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+
+      </aside>
+    </div>
+  </section>
+
+  <!-- ── PROGRAMS SUPPORTED STRIP ── -->
+  <section aria-labelledby="fopf-programs-heading" style="background:#fff;border-top:1px solid #e4eaf5;border-bottom:1px solid #e4eaf5;padding:4rem 2rem;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:2.5rem;">
+        <span style="display:inline-block;background:#e8eef8;color:#0f2d71;font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;border-radius:999px;padding:5px 16px;margin-bottom:0.75rem;">Your donation funds</span>
+        <h2 id="fopf-programs-heading" style="font-size:1.75rem;font-weight:900;color:#0f2d71;margin:0 0 0.75rem;">Four rooms, one roof.</h2>
+        <p style="font-size:1rem;color:#6b7b9a;max-width:520px;margin:0 auto;line-height:1.65;">Every Mera Pind 360 centre unites education, health, governance, and community under one roof — in the heart of every village.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;">
+        <!-- Library -->
+        <div style="text-align:center;padding:1.75rem 1.25rem;border-radius:16px;background:#f4f7fb;border:1px solid #e4eaf5;transition:box-shadow .2s,transform .2s;" onmouseenter="this.style.boxShadow='0 8px 28px rgba(15,45,113,0.1)';this.style.transform='translateY(-3px)'" onmouseleave="this.style.boxShadow='';this.style.transform=''">
+          <div style="width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,#0f2d71,#1a3f8f);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+          </div>
+          <h3 style="font-size:1rem;font-weight:700;color:#0f2d71;margin:0 0 0.5rem;">Library &amp; IT Lab</h3>
+          <p style="font-size:0.8rem;color:#6b7b9a;line-height:1.55;margin:0;">Digital literacy, reading rooms, and computer access for all ages.</p>
+        </div>
+        <!-- Health -->
+        <div style="text-align:center;padding:1.75rem 1.25rem;border-radius:16px;background:#f4f7fb;border:1px solid #e4eaf5;transition:box-shadow .2s,transform .2s;" onmouseenter="this.style.boxShadow='0 8px 28px rgba(15,45,113,0.1)';this.style.transform='translateY(-3px)'" onmouseleave="this.style.boxShadow='';this.style.transform=''">
+          <div style="width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,#0f2d71,#1a3f8f);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3 style="font-size:1rem;font-weight:700;color:#0f2d71;margin:0 0 0.5rem;">Community Health</h3>
+          <p style="font-size:0.8rem;color:#6b7b9a;line-height:1.55;margin:0;">Screenings, telehealth consultations, and health education camps.</p>
+        </div>
+        <!-- Governance -->
+        <div style="text-align:center;padding:1.75rem 1.25rem;border-radius:16px;background:#f4f7fb;border:1px solid #e4eaf5;transition:box-shadow .2s,transform .2s;" onmouseenter="this.style.boxShadow='0 8px 28px rgba(15,45,113,0.1)';this.style.transform='translateY(-3px)'" onmouseleave="this.style.boxShadow='';this.style.transform=''">
+          <div style="width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,#0f2d71,#1a3f8f);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3 style="font-size:1rem;font-weight:700;color:#0f2d71;margin:0 0 0.5rem;">Rural Governance</h3>
+          <p style="font-size:0.8rem;color:#6b7b9a;line-height:1.55;margin:0;">Common Service Centres bringing city schemes to rural doorsteps.</p>
+        </div>
+        <!-- Skills -->
+        <div style="text-align:center;padding:1.75rem 1.25rem;border-radius:16px;background:#f4f7fb;border:1px solid #e4eaf5;transition:box-shadow .2s,transform .2s;" onmouseenter="this.style.boxShadow='0 8px 28px rgba(15,45,113,0.1)';this.style.transform='translateY(-3px)'" onmouseleave="this.style.boxShadow='';this.style.transform=''">
+          <div style="width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,#0f2d71,#1a3f8f);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f5c842" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3 style="font-size:1rem;font-weight:700;color:#0f2d71;margin:0 0 0.5rem;">Skills &amp; Livelihoods</h3>
+          <p style="font-size:0.8rem;color:#6b7b9a;line-height:1.55;margin:0;">Vocational training in crafts, spoken English, and digital skills.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════════════════════════════════════════════════
+     FOOTER — shared MP360 footer
+════════════════════════════════════════════════════════ -->
+<footer>
+<div class="mp360-foot">
+  <div class="mp360-foot-inner">
+    <div class="mp360-foot-grid">
+      <div>
+        <img src="/logo.avif" alt="Mera Pind 360 Foundation" style="height:2.6rem;width:auto;margin-bottom:1.2rem;opacity:0.92;"/>
+        <p style="color:rgba(255,255,255,0.6);font-size:0.875rem;line-height:1.75;max-width:265px;margin:0 0 1.75rem;">
+          Inspired by Shaheedi and <em>Seva</em> &mdash; preserving heritage while bringing skills, education, health, and city services to every village. Sarbat da Bhala.
+        </p>
+        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.75rem;padding:1rem 1.25rem;background:rgba(255,255,255,0.06);border-radius:0.75rem;border:1px solid rgba(255,255,255,0.08);">
+          <div style="text-align:center;"><span class="mp360-stat-n">60</span><span class="mp360-stat-l">Villages</span></div>
+          <div style="width:1px;background:rgba(255,255,255,0.12);align-self:stretch;"></div>
+          <div style="text-align:center;"><span class="mp360-stat-n">4,463</span><span class="mp360-stat-l">Families</span></div>
+          <div style="width:1px;background:rgba(255,255,255,0.12);align-self:stretch;"></div>
+          <div style="text-align:center;"><span class="mp360-stat-n">14k+</span><span class="mp360-stat-l">Engaged</span></div>
+        </div>
+        <div style="display:flex;gap:0.55rem;flex-wrap:wrap;">
+          <a href="#" class="mp360-soc" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="#" class="mp360-soc" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" class="mp360-soc" aria-label="X / Twitter"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="mailto:info@merapind360.org" class="mp360-soc" aria-label="Email us"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,7 12,13 2,7"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <p class="mp360-foot-head">Explore</p>
+        <nav>
+          <a class="mp360-foot-link" href="/">Home</a>
+          <a class="mp360-foot-link" href="/about">About Us</a>
+          <a class="mp360-foot-link" href="/programs">Our Programs</a>
+          <a class="mp360-foot-link" href="/impact">Impact</a>
+          <a class="mp360-foot-link" href="/news">News &amp; Updates</a>
+        </nav>
+      </div>
+      <div>
+        <p class="mp360-foot-head">Get Involved</p>
+        <nav>
+          <a class="mp360-foot-link" href="/join">Volunteer With Us</a>
+          <a class="mp360-foot-link" href="/donate">Donate Now</a>
+          <a class="mp360-foot-link" href="/contact">Contact Us</a>
+        </nav>
+      </div>
+      <div>
+        <p class="mp360-foot-head">Find Us</p>
+        <address style="font-style:normal;color:rgba(255,255,255,0.6);font-size:0.875rem;line-height:1.85;margin:0 0 1.1rem;">
+          Village Kotli Arian<br>
+          Adampur, Jalandhar<br>
+          Punjab, India
+        </address>
+        <a href="mailto:info@merapind360.org" class="mp360-foot-link" style="font-size:0.82rem;margin-bottom:0.5rem;">info@merapind360.org</a>
+        <p style="color:rgba(255,255,255,0.32);font-size:0.75rem;margin:0.8rem 0 0;line-height:1.5;">
+          Donations processed by Friends of Punjab Foundation<br>
+          <span style="color:rgba(255,255,255,0.2);font-size:0.7rem;">US 501(c)(3) &middot; EIN available on request</span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="mp360-foot-bar">
+    <div class="mp360-foot-bar-inner">
+      <p class="mp360-foot-copy">&#169; 2026 Mera Pind 360 Foundation &amp; Friends of Punjab Foundation. All rights reserved.</p>
+      <p class="mp360-foot-copy">Built with purpose &middot; Serving Punjab&#39;s villages</p>
+    </div>
+  </div>
+</div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════════════════════ -->
+<script>
+(function () {
+  'use strict';
+
+  /* ── State ── */
+  var selectedAmount = 120;       // default: Scholar
+  var selectedTier   = 'Scholar';
+  var donationMode   = 'payment'; // 'payment' | 'subscription'
+
+  /* ── DOM refs ── */
+  var donateBtn     = document.getElementById('fopf-donate-btn');
+  var btnText       = document.getElementById('fopf-btn-text');
+  var spinner       = document.getElementById('fopf-spinner');
+  var btnArrow      = document.getElementById('fopf-btn-arrow');
+  var errorMsg      = document.getElementById('fopf-error-msg');
+  var amtError      = document.getElementById('fopf-amount-error');
+  var emailError    = document.getElementById('fopf-email-error');
+  var customInput   = document.getElementById('fopf-custom-amount');
+  var nameInput     = document.getElementById('fopf-donor-name');
+  var emailInput    = document.getElementById('fopf-donor-email');
+  var btnOnetime    = document.getElementById('btn-onetime');
+  var btnMonthly    = document.getElementById('btn-monthly');
+  var monthlyNote   = document.getElementById('monthly-note');
+  var successBanner = document.getElementById('fopf-success-banner');
+  var successAmt    = document.getElementById('fopf-success-amount');
+  var tierCards     = document.querySelectorAll('.tier-card');
+
+  /* ── Helpers ── */
+  function formatUSD(n) {
+    return '$' + parseFloat(n).toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+  }
+
+  function updateBtnLabel() {
+    var label = donationMode === 'subscription'
+      ? 'Give ' + formatUSD(selectedAmount) + ' / month — Secure Checkout'
+      : 'Donate ' + formatUSD(selectedAmount) + ' — Secure Checkout';
+    btnText.textContent = label;
+  }
+
+  function selectTier(card) {
+    tierCards.forEach(function (c) {
+      c.classList.remove('selected');
+      c.setAttribute('aria-pressed', 'false');
+    });
+    card.classList.add('selected');
+    card.setAttribute('aria-pressed', 'true');
+    selectedAmount = parseFloat(card.getAttribute('data-amount'));
+    selectedTier   = card.getAttribute('data-tier');
+    // Clear custom input when preset selected
+    customInput.value = '';
+    hideEl(amtError);
+    updateBtnLabel();
+  }
+
+  function showEl(el)  { el.style.display = ''; el.classList.add('visible');    }
+  function hideEl(el)  { el.style.display = 'none'; el.classList.remove('visible'); }
+  function showMsgEl(el, text) { el.textContent = text; el.classList.add('visible'); el.style.display = ''; }
+
+  /* ── Auto-select Scholar on load ── */
+  (function () {
+    var def = document.querySelector('.tier-card[data-amount="120"]');
+    if (def) selectTier(def);
+  })();
+
+  /* ── Tier card click / keyboard ── */
+  tierCards.forEach(function (card) {
+    card.addEventListener('click', function () { selectTier(card); });
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectTier(card); }
+    });
+  });
+
+  /* ── Custom amount input ── */
+  customInput.addEventListener('input', function () {
+    var v = parseFloat(this.value);
+    if (this.value && !isNaN(v) && v >= 5) {
+      selectedAmount = v;
+      selectedTier   = 'Custom Gift';
+      tierCards.forEach(function (c) {
+        c.classList.remove('selected');
+        c.setAttribute('aria-pressed', 'false');
+      });
+      hideEl(amtError);
+      updateBtnLabel();
+    } else if (this.value) {
+      showMsgEl(amtError, 'Please enter a valid amount of at least $5.');
+    }
+  });
+
+  /* ── Frequency toggle ── */
+  function setMode(mode) {
+    donationMode = mode;
+    if (mode === 'subscription') {
+      btnMonthly.classList.add('active');
+      btnMonthly.setAttribute('aria-pressed', 'true');
+      btnOnetime.classList.remove('active');
+      btnOnetime.setAttribute('aria-pressed', 'false');
+      monthlyNote.style.display = '';
+    } else {
+      btnOnetime.classList.add('active');
+      btnOnetime.setAttribute('aria-pressed', 'true');
+      btnMonthly.classList.remove('active');
+      btnMonthly.setAttribute('aria-pressed', 'false');
+      monthlyNote.style.display = 'none';
+    }
+    updateBtnLabel();
+  }
+
+  btnOnetime.addEventListener('click',  function () { setMode('payment');      });
+  btnMonthly.addEventListener('click',  function () { setMode('subscription'); });
+
+  /* ── Impact bar animation ── */
+  (function () {
+    var bars = document.querySelectorAll('.impact-bar-fill');
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var fill = entry.target;
+          var w = fill.getAttribute('data-width');
+          fill.style.width = w + '%';
+          observer.unobserve(fill);
+        }
+      });
+    }, { threshold: 0.2 });
+    bars.forEach(function (b) { observer.observe(b); });
+  })();
+
+  /* ── Success banner on return from Stripe ── */
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('success') === 'true') {
+      showEl(successBanner);
+      var amt = params.get('amount');
+      if (amt) {
+        successAmt.textContent = 'Donation amount: ' + formatUSD(amt);
+      }
+      // Clean up URL without reload
+      history.replaceState({}, '', window.location.pathname);
+      // Scroll to banner
+      successBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  })();
+
+  /* ── Validate email ── */
+  function isValidEmail(e) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
+  }
+
+  /* ── Donate button ── */
+  donateBtn.addEventListener('click', async function () {
+    hideEl(errorMsg);
+    hideEl(emailError);
+
+    // Validate amount
+    var customVal = customInput.value.trim();
+    if (customVal) {
+      var parsed = parseFloat(customVal);
+      if (isNaN(parsed) || parsed < 5) {
+        showMsgEl(amtError, 'Please enter a valid amount of at least $5.');
+        customInput.focus();
+        return;
+      }
+      selectedAmount = parsed;
+      selectedTier   = 'Custom Gift';
+    }
+    if (!selectedAmount || selectedAmount < 5) {
+      showMsgEl(amtError, 'Please select or enter an amount before donating.');
+      return;
+    }
+
+    // Validate email (required for receipt)
+    var email = emailInput.value.trim();
+    if (!email || !isValidEmail(email)) {
+      showMsgEl(emailError, 'A valid email address is needed to send your tax receipt.');
+      emailInput.focus();
+      return;
+    }
+
+    // Disable & show spinner
+    donateBtn.disabled = true;
+    spinner.style.display = 'block';
+    btnArrow.style.display = 'none';
+    btnText.textContent = donationMode === 'subscription' ? 'Setting up monthly gift…' : 'Preparing checkout…';
+
+    try {
+      var resp = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          amount:      selectedAmount,
+          mode:        donationMode,
+          tier_name:   selectedTier,
+          donor_name:  nameInput.value.trim() || null,
+          donor_email: email,
+        }),
+      });
+
+      var data = await resp.json();
+
+      if (!resp.ok || data.error) {
+        throw new Error(data.error || 'Something went wrong. Please try again.');
+      }
+
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        throw new Error('No checkout URL received. Please contact us.');
+      }
+    } catch (err) {
+      donateBtn.disabled = false;
+      spinner.style.display = 'none';
+      btnArrow.style.display = '';
+      updateBtnLabel();
+      showMsgEl(errorMsg, err.message || 'Unable to start checkout. Please try again or contact us at info@merapind360.org.');
+    }
+  });
+
+  /* ── Nav: header scroll shadow ── */
+  var header = document.getElementById('mp360-header');
+  if (header) {
+    function syncHeader() {
+      if (window.scrollY > 12) header.classList.add('mp360-nav-scrolled');
+      else header.classList.remove('mp360-nav-scrolled');
+    }
+    syncHeader();
+    window.addEventListener('scroll', syncHeader, { passive: true });
+  }
+
+  /* ── Megamenu ── */
+  document.querySelectorAll('.mp360-mega-wrap').forEach(function (wrap) {
+    var trigger = wrap.querySelector('.mp360-mega-trigger');
+    var panel   = wrap.querySelector('.mp360-mega-panel');
+    if (!trigger || !panel) return;
+    var pinned = false, closeTimer = null;
+    function openMenu()  { if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; } wrap.classList.add('open'); trigger.setAttribute('aria-expanded','true'); }
+    function closeMenu(f){ if (!f && pinned) return; wrap.classList.remove('open'); trigger.setAttribute('aria-expanded','false'); }
+    wrap.addEventListener('mouseenter', openMenu);
+    wrap.addEventListener('mouseleave', function () { closeTimer = setTimeout(function () { closeMenu(false); }, 120); });
+    wrap.addEventListener('focusin',    openMenu);
+    wrap.addEventListener('focusout',   function (e) { if (!wrap.contains(e.relatedTarget)) closeMenu(false); });
+    trigger.addEventListener('click',   function (e) { e.preventDefault(); pinned = !pinned; if (pinned) openMenu(); else closeMenu(true); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { pinned = false; closeMenu(true); } });
+    document.addEventListener('click',   function (e) { if (!wrap.contains(e.target)) { pinned = false; closeMenu(true); } });
+  });
+
+  /* ── Mobile drawer ── */
+  (function () {
+    var menuBtn = document.querySelector('[data-burger]');
+    if (!menuBtn) return;
+    var backdrop = document.createElement('div');
+    backdrop.style.cssText = 'position:fixed;inset:0;z-index:3999;background:rgba(0,0,0,0.45);transition:opacity 0.3s;opacity:0;display:none;';
+    document.body.appendChild(backdrop);
+    var drawer = document.createElement('div');
+    drawer.setAttribute('role','dialog');
+    drawer.setAttribute('aria-modal','true');
+    drawer.setAttribute('aria-label','Navigation menu');
+    drawer.style.cssText = 'position:fixed;top:0;right:0;bottom:0;z-index:4000;width:min(320px,90vw);background:#fcf9f4;box-shadow:-4px 0 32px rgba(23,57,1,0.15);display:flex;flex-direction:column;transform:translateX(100%);transition:transform 0.32s cubic-bezier(0.4,0,0.2,1);overflow-y:auto;';
+    var dhdr = document.createElement('div');
+    dhdr.style.cssText = 'display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(23,57,1,0.08);flex-shrink:0;';
+    var dlogo = document.createElement('img'); dlogo.src='/logo.avif'; dlogo.alt='Mera Pind 360'; dlogo.style.cssText='height:2rem;width:auto;';
+    var closeX = document.createElement('button'); closeX.setAttribute('aria-label','Close menu'); closeX.style.cssText='background:none;border:none;cursor:pointer;padding:8px;display:flex;align-items:center;justify-content:center;border-radius:8px;'; closeX.innerHTML='<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#173901" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+    dhdr.appendChild(dlogo); dhdr.appendChild(closeX); drawer.appendChild(dhdr);
+    var nbody = document.createElement('div'); nbody.style.cssText='flex:1;overflow-y:auto;';
+    function navLink(lbl, href) { var a=document.createElement('a'); a.href=href; a.textContent=lbl; a.style.cssText='display:block;padding:14px 24px;font-size:1rem;font-weight:600;color:#173901;text-decoration:none;border-bottom:1px solid rgba(23,57,1,0.05);transition:background 0.15s;'; return a; }
+    nbody.appendChild(navLink('Programs','/programs'));
+    nbody.appendChild(navLink('Impact','/impact'));
+    nbody.appendChild(navLink('About','/about'));
+    nbody.appendChild(navLink('News','/news'));
+    nbody.appendChild(navLink('Volunteer','/join'));
+    nbody.appendChild(navLink('Contact','/contact'));
+    drawer.appendChild(nbody);
+    var cfoot = document.createElement('div'); cfoot.style.cssText='padding:16px 20px;border-top:1px solid rgba(23,57,1,0.08);display:flex;flex-direction:column;gap:10px;flex-shrink:0;';
+    var dBtn = document.createElement('a'); dBtn.href='/donate'; dBtn.textContent='Donate Now'; dBtn.style.cssText='display:block;text-align:center;padding:13px 20px;background:#0f2d71;color:#fff;font-size:0.95rem;font-weight:700;text-decoration:none;border-radius:999px;';
+    var gBtn = document.createElement('a'); gBtn.href='/join'; gBtn.textContent='Get Involved'; gBtn.style.cssText='display:block;text-align:center;padding:13px 20px;background:transparent;color:#173901;border:1.5px solid rgba(23,57,1,0.25);font-size:0.95rem;font-weight:600;text-decoration:none;border-radius:999px;';
+    cfoot.appendChild(dBtn); cfoot.appendChild(gBtn); drawer.appendChild(cfoot);
+    document.body.appendChild(drawer);
+    function openDrawer()  { backdrop.style.display='block'; setTimeout(function(){ backdrop.style.opacity='1'; drawer.style.transform='translateX(0)'; },10); document.body.style.overflow='hidden'; }
+    function closeDrawer() { backdrop.style.opacity='0'; drawer.style.transform='translateX(100%)'; setTimeout(function(){ backdrop.style.display='none'; },320); document.body.style.overflow=''; }
+    menuBtn.addEventListener('click',    openDrawer);
+    closeX.addEventListener('click',     closeDrawer);
+    backdrop.addEventListener('click',   closeDrawer);
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeDrawer(); });
+  })();
+
+})();
+</script>
+
+</body>
+</html>
