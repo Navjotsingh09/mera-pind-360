@@ -179,6 +179,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #0f2d
 </style>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
 
@@ -800,11 +801,14 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #0f2d
   }
 
   /* ── Donate button ── */
-  /* ── Payment Link URLs ── */
-  var LINK_ONETIME = 'https://buy.stripe.com/28E5kw0dB6Gk8gT1Da8Ra00';
-  var LINK_MONTHLY = 'https://buy.stripe.com/8x25kw3pN8Os68L2He8Ra01';
+  /* ── Stripe config ── */
+  var STRIPE_PK      = 'pk_live_51TYdGS2YeOzEo46xW7IpTxIG0iov7bBRygXH0Y0Z8DJ8pd6laYfbKCRs6GCgKerBu9VSldhqXaQIEL9thtUXBhsJ00euolIto1';
+  var PRICE_ONETIME  = 'price_1Tn6Ev2YeOzEo46xF96fEkbx'; /* one-time — customer chooses */
+  var PRICE_MONTHLY  = 'price_1Tn6Ev2YeOzEo46xF96fEkbx'; /* monthly  — update if separate price */
+  var LINK_ONETIME   = 'https://buy.stripe.com/28E5kw0dB6Gk8gT1Da8Ra00';
+  var LINK_MONTHLY   = 'https://buy.stripe.com/8x25kw3pN8Os68L2He8Ra01';
 
-  donateBtn.addEventListener('click', function () {
+  donateBtn.addEventListener('click', async function () {
     hideEl(errorMsg);
     hideEl(emailError);
 
@@ -822,11 +826,25 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #0f2d
     btnArrow.style.display = 'none';
     btnText.textContent = 'Opening secure checkout…';
 
-    // Build URL — email pre-fills on Stripe, donor confirms amount there
-    var link  = donationMode === 'subscription' ? LINK_MONTHLY : LINK_ONETIME;
-    var params = new URLSearchParams();
-    params.set('prefilled_email', email);
-    window.location.href = link + '?' + params.toString();
+    try {
+      var stripe = Stripe(STRIPE_PK);
+      var result = await stripe.redirectToCheckout({
+        lineItems: [{
+          price: donationMode === 'subscription' ? PRICE_MONTHLY : PRICE_ONETIME,
+          quantity: 1
+        }],
+        mode: donationMode === 'subscription' ? 'subscription' : 'payment',
+        customerEmail: email,
+        successUrl: window.location.origin + '/donate?success=true',
+        cancelUrl:  window.location.origin + '/donate',
+      });
+      if (result.error) throw new Error(result.error.message);
+    } catch (err) {
+      /* Stripe.js redirectToCheckout failed — fall back to Payment Link */
+      var link = donationMode === 'subscription' ? LINK_MONTHLY : LINK_ONETIME;
+      var params = new URLSearchParams({ prefilled_email: email });
+      window.location.href = link + '?' + params.toString();
+    }
   });
 
   /* ── Nav: header scroll shadow ── */
