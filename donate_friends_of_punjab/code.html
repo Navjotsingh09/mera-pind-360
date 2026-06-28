@@ -827,15 +827,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #0f2d
   }
 
   /* ── Donate button ── */
-  /* ── Stripe Payment Link URLs ──────────────────────────────────────────
-     One-time:  https://buy.stripe.com/28E5kw0dB6Gk8gT1Da8Ra00
-     Monthly:   create a Payment Link in Stripe dashboard from price
-                price_1Tn6Ev2YeOzEo46xF96fEkbx then paste URL below
-  ── */
-  var STRIPE_ONETIME_LINK  = 'https://buy.stripe.com/28E5kw0dB6Gk8gT1Da8Ra00';
-  var STRIPE_MONTHLY_LINK  = 'https://buy.stripe.com/8x25kw3pN8Os68L2He8Ra01';
-
-  donateBtn.addEventListener('click', function () {
+  donateBtn.addEventListener('click', async function () {
     hideEl(errorMsg);
     hideEl(emailError);
 
@@ -856,7 +848,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #0f2d
       return;
     }
 
-    // Validate email (required for receipt)
+    // Validate email
     var email = emailInput.value.trim();
     if (!email || !isValidEmail(email)) {
       showMsgEl(emailError, 'A valid email address is needed to send your tax receipt.');
@@ -864,28 +856,43 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #0f2d
       return;
     }
 
-    // Pick the right Payment Link
-    var isMonthly  = (donationMode === 'subscription');
-    var targetLink = isMonthly ? STRIPE_MONTHLY_LINK : STRIPE_ONETIME_LINK;
-
-    if (!targetLink) {
-      // Monthly link not set up yet — fall back to one-time link
-      targetLink = STRIPE_ONETIME_LINK;
-    }
-
-    // Show spinner while redirecting
+    // Show spinner
     donateBtn.disabled = true;
     spinner.style.display = 'block';
     btnArrow.style.display = 'none';
-    btnText.textContent = isMonthly ? 'Setting up monthly gift…' : 'Preparing secure checkout…';
+    btnText.textContent = donationMode === 'subscription' ? 'Setting up monthly gift…' : 'Preparing secure checkout…';
 
-    // Build URL — Stripe Payment Links accept prefilled_amount (cents) and prefilled_email
-    var amountCents = Math.round(selectedAmount * 100);
-    var params = new URLSearchParams();
-    params.set('prefilled_amount', amountCents);
-    if (email) params.set('prefilled_email', email);
+    try {
+      var resp = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          amount:      selectedAmount,
+          mode:        donationMode,
+          tier_name:   selectedTier,
+          donor_name:  nameInput.value.trim() || null,
+          donor_email: email,
+        }),
+      });
 
-    window.location.href = targetLink + '?' + params.toString();
+      var data = await resp.json();
+
+      if (!resp.ok || data.error) {
+        throw new Error(data.error || 'Something went wrong. Please try again.');
+      }
+
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        throw new Error('No checkout URL received. Please contact us.');
+      }
+    } catch (err) {
+      donateBtn.disabled = false;
+      spinner.style.display = 'none';
+      btnArrow.style.display = '';
+      updateBtnLabel();
+      showMsgEl(errorMsg, err.message || 'Unable to start checkout. Please try again or contact us at info@merapind360.org.');
+    }
   });
 
   /* ── Nav: header scroll shadow ── */
