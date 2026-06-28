@@ -411,14 +411,10 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #0f2d
           </div>
         </div>
 
-        <!-- Custom amount -->
-        <div style="margin-bottom:1.75rem;">
-          <label for="fopf-custom-amount" style="font-size:0.78rem;font-weight:700;color:#6b7b9a;text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:0.5rem;">Or enter your own amount</label>
-          <div class="custom-amount-wrap">
-            <span class="currency-prefix" aria-hidden="true">$</span>
-            <input type="number" id="fopf-custom-amount" name="custom_amount" min="5" step="1" placeholder="Enter amount (min $5)" inputmode="numeric" autocomplete="off"/>
-          </div>
-          <p id="fopf-amount-error" style="display:none;color:#ba1a1a;font-size:0.8rem;margin-top:6px;" role="alert">Please enter a valid amount of at least $5.</p>
+        <!-- Stripe amount note -->
+        <div style="margin-bottom:1.75rem;display:flex;align-items:flex-start;gap:10px;padding:12px 16px;background:#e8eef8;border-radius:10px;border:1px solid #c8d5ee;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f2d71" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <p style="font-size:0.8rem;color:#0f2d71;margin:0;line-height:1.55;">Select a suggested amount above, then <strong>confirm or adjust your gift on Stripe's secure checkout page</strong>.</p>
         </div>
 
         <!-- Donor details -->
@@ -711,10 +707,9 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #0f2d
   }
 
   function updateBtnLabel() {
-    var label = donationMode === 'subscription'
-      ? 'Give ' + formatUSD(selectedAmount) + ' / month — Secure Checkout'
-      : 'Donate ' + formatUSD(selectedAmount) + ' — Secure Checkout';
-    btnText.textContent = label;
+    btnText.textContent = donationMode === 'subscription'
+      ? 'Set Up Monthly Giving — Secure Checkout'
+      : 'Proceed to Secure Checkout';
   }
 
   function selectTier(card) {
@@ -827,26 +822,13 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #0f2d
   }
 
   /* ── Donate button ── */
-  donateBtn.addEventListener('click', async function () {
+  /* ── Payment Link URLs ── */
+  var LINK_ONETIME = 'https://buy.stripe.com/28E5kw0dB6Gk8gT1Da8Ra00';
+  var LINK_MONTHLY = 'https://buy.stripe.com/8x25kw3pN8Os68L2He8Ra01';
+
+  donateBtn.addEventListener('click', function () {
     hideEl(errorMsg);
     hideEl(emailError);
-
-    // Validate amount
-    var customVal = customInput.value.trim();
-    if (customVal) {
-      var parsed = parseFloat(customVal);
-      if (isNaN(parsed) || parsed < 5) {
-        showMsgEl(amtError, 'Please enter a valid amount of at least $5.');
-        customInput.focus();
-        return;
-      }
-      selectedAmount = parsed;
-      selectedTier   = 'Custom Gift';
-    }
-    if (!selectedAmount || selectedAmount < 5) {
-      showMsgEl(amtError, 'Please select or enter an amount before donating.');
-      return;
-    }
 
     // Validate email
     var email = emailInput.value.trim();
@@ -860,39 +842,13 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #0f2d
     donateBtn.disabled = true;
     spinner.style.display = 'block';
     btnArrow.style.display = 'none';
-    btnText.textContent = donationMode === 'subscription' ? 'Setting up monthly gift…' : 'Preparing secure checkout…';
+    btnText.textContent = 'Opening secure checkout…';
 
-    try {
-      var resp = await fetch('/api/create-checkout-session', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          amount:      selectedAmount,
-          mode:        donationMode,
-          tier_name:   selectedTier,
-          donor_name:  nameInput.value.trim() || null,
-          donor_email: email,
-        }),
-      });
-
-      var data = await resp.json();
-
-      if (!resp.ok || data.error) {
-        throw new Error(data.error || 'Something went wrong. Please try again.');
-      }
-
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
-        throw new Error('No checkout URL received. Please contact us.');
-      }
-    } catch (err) {
-      donateBtn.disabled = false;
-      spinner.style.display = 'none';
-      btnArrow.style.display = '';
-      updateBtnLabel();
-      showMsgEl(errorMsg, err.message || 'Unable to start checkout. Please try again or contact us at info@merapind360.org.');
-    }
+    // Build URL — email pre-fills on Stripe, donor confirms amount there
+    var link  = donationMode === 'subscription' ? LINK_MONTHLY : LINK_ONETIME;
+    var params = new URLSearchParams();
+    params.set('prefilled_email', email);
+    window.location.href = link + '?' + params.toString();
   });
 
   /* ── Nav: header scroll shadow ── */
