@@ -689,9 +689,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #0f2d
   var spinner       = document.getElementById('fopf-spinner');
   var btnArrow      = document.getElementById('fopf-btn-arrow');
   var errorMsg      = document.getElementById('fopf-error-msg');
-  var amtError      = document.getElementById('fopf-amount-error');
   var emailError    = document.getElementById('fopf-email-error');
-  var customInput   = document.getElementById('fopf-custom-amount');
   var nameInput     = document.getElementById('fopf-donor-name');
   var emailInput    = document.getElementById('fopf-donor-email');
   var btnOnetime    = document.getElementById('btn-onetime');
@@ -721,9 +719,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #0f2d
     card.setAttribute('aria-pressed', 'true');
     selectedAmount = parseFloat(card.getAttribute('data-amount'));
     selectedTier   = card.getAttribute('data-tier');
-    // Clear custom input when preset selected
-    customInput.value = '';
-    hideEl(amtError);
     updateBtnLabel();
   }
 
@@ -743,23 +738,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #0f2d
     card.addEventListener('keydown', function (e) {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectTier(card); }
     });
-  });
-
-  /* ── Custom amount input ── */
-  customInput.addEventListener('input', function () {
-    var v = parseFloat(this.value);
-    if (this.value && !isNaN(v) && v >= 5) {
-      selectedAmount = v;
-      selectedTier   = 'Custom Gift';
-      tierCards.forEach(function (c) {
-        c.classList.remove('selected');
-        c.setAttribute('aria-pressed', 'false');
-      });
-      hideEl(amtError);
-      updateBtnLabel();
-    } else if (this.value) {
-      showMsgEl(amtError, 'Please enter a valid amount of at least $5.');
-    }
   });
 
   /* ── Frequency toggle ── */
