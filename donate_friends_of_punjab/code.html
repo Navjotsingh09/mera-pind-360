@@ -375,70 +375,18 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #0f2d
           </p>
         </div>
 
-        <!-- Preset tiers -->
+        <!-- Donor email -->
         <div style="margin-bottom:1.75rem;">
-          <p style="font-size:0.78rem;font-weight:700;color:#6b7b9a;text-transform:uppercase;letter-spacing:0.08em;margin:0 0 0.75rem;">Choose an amount</p>
-          <div class="fopf-tiers-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;" role="group" aria-label="Preset donation amounts">
-
-            <!-- Tier 1: Seedling -->
-            <div class="tier-card" role="button" tabindex="0" data-amount="25" data-tier="Seedling" aria-pressed="false" aria-label="Seedling — $25">
-              <div style="font-size:1.45rem;font-weight:900;color:#0f2d71;margin-bottom:4px;">$25</div>
-              <div style="font-size:0.78rem;font-weight:700;color:#c8881a;margin-bottom:6px;">Seedling</div>
-              <div style="font-size:0.72rem;color:#6b7b9a;line-height:1.5;">Funds a digital literacy session for one child</div>
-            </div>
-
-            <!-- Tier 2: Sustainer -->
-            <div class="tier-card" role="button" tabindex="0" data-amount="60" data-tier="Sustainer" aria-pressed="false" aria-label="Sustainer — $60">
-              <div style="font-size:1.45rem;font-weight:900;color:#0f2d71;margin-bottom:4px;">$60</div>
-              <div style="font-size:0.78rem;font-weight:700;color:#c8881a;margin-bottom:6px;">Sustainer</div>
-              <div style="font-size:0.72rem;color:#6b7b9a;line-height:1.5;">Covers a family health screening &amp; consultation</div>
-            </div>
-
-            <!-- Tier 3: Scholar (featured) -->
-            <div class="tier-card tier-featured" role="button" tabindex="0" data-amount="120" data-tier="Scholar" aria-pressed="false" aria-label="Scholar — $120 — most popular">
-              <div class="tier-pop-badge">Most Popular</div>
-              <div style="font-size:1.45rem;font-weight:900;color:#0f2d71;margin-bottom:4px;">$120</div>
-              <div style="font-size:0.78rem;font-weight:700;color:#c8881a;margin-bottom:6px;">Scholar</div>
-              <div style="font-size:0.72rem;color:#6b7b9a;line-height:1.5;">Sponsors digital literacy for 3 children, one month</div>
-            </div>
-
-            <!-- Tier 4: Cultivator -->
-            <div class="tier-card" role="button" tabindex="0" data-amount="250" data-tier="Cultivator" aria-pressed="false" aria-label="Cultivator — $250">
-              <div style="font-size:1.45rem;font-weight:900;color:#0f2d71;margin-bottom:4px;">$250</div>
-              <div style="font-size:0.78rem;font-weight:700;color:#c8881a;margin-bottom:6px;">Cultivator</div>
-              <div style="font-size:0.72rem;color:#6b7b9a;line-height:1.5;">Supports a CSC service desk for one full week</div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Stripe amount note -->
-        <div style="margin-bottom:1.75rem;display:flex;align-items:flex-start;gap:10px;padding:12px 16px;background:#e8eef8;border-radius:10px;border:1px solid #c8d5ee;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f2d71" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          <p style="font-size:0.8rem;color:#0f2d71;margin:0;line-height:1.55;">Select a suggested amount above, then <strong>confirm or adjust your gift on Stripe's secure checkout page</strong>.</p>
-        </div>
-
-        <!-- Donor details -->
-        <div style="margin-bottom:1.75rem;">
-          <p style="font-size:0.78rem;font-weight:700;color:#6b7b9a;text-transform:uppercase;letter-spacing:0.08em;margin:0 0 0.75rem;">Your details</p>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-            <div>
-              <label for="fopf-donor-name" style="font-size:0.8rem;font-weight:600;color:#0f2d71;display:block;margin-bottom:6px;">Full Name</label>
-              <input type="text" id="fopf-donor-name" name="donor_name" class="donor-field" placeholder="Your name" autocomplete="name"/>
-            </div>
-            <div>
-              <label for="fopf-donor-email" style="font-size:0.8rem;font-weight:600;color:#0f2d71;display:block;margin-bottom:6px;">Email Address <span aria-label="required" style="color:#c8881a;">*</span></label>
-              <input type="email" id="fopf-donor-email" name="donor_email" class="donor-field" placeholder="you@email.com" required autocomplete="email"/>
-            </div>
-          </div>
+          <label for="fopf-donor-email" style="font-size:0.9rem;font-weight:700;color:#0f2d71;display:block;margin-bottom:8px;">Your Email Address <span aria-label="required" style="color:#c8881a;">*</span></label>
+          <input type="email" id="fopf-donor-email" name="donor_email" class="donor-field" placeholder="you@email.com" required autocomplete="email" style="font-size:1.05rem;padding:15px 18px;"/>
           <p id="fopf-email-error" style="display:none;color:#ba1a1a;font-size:0.8rem;margin-top:6px;" role="alert">A valid email is needed to send your tax receipt.</p>
         </div>
 
         <!-- CTA -->
-        <button type="button" id="fopf-donate-btn" class="fopf-donate-cta" aria-live="polite">
-          <span id="fopf-btn-text">Donate $120 — Secure Checkout</span>
+        <button type="button" id="fopf-donate-btn" class="fopf-donate-cta" aria-live="polite" style="font-size:1.2rem;padding:20px 28px;">
+          <span id="fopf-btn-text">Donate Today</span>
           <div class="fopf-spinner" id="fopf-spinner" aria-label="Processing…"></div>
-          <svg id="fopf-btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg id="fopf-btn-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </button>
         <div id="fopf-error-msg" role="alert" aria-live="assertive"></div>
 
@@ -691,55 +639,17 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #0f2d
   var btnArrow      = document.getElementById('fopf-btn-arrow');
   var errorMsg      = document.getElementById('fopf-error-msg');
   var emailError    = document.getElementById('fopf-email-error');
-  var nameInput     = document.getElementById('fopf-donor-name');
   var emailInput    = document.getElementById('fopf-donor-email');
   var btnOnetime    = document.getElementById('btn-onetime');
   var btnMonthly    = document.getElementById('btn-monthly');
   var monthlyNote   = document.getElementById('monthly-note');
   var successBanner = document.getElementById('fopf-success-banner');
   var successAmt    = document.getElementById('fopf-success-amount');
-  var tierCards     = document.querySelectorAll('.tier-card');
 
   /* ── Helpers ── */
-  function formatUSD(n) {
-    return '$' + parseFloat(n).toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
-  }
-
-  function updateBtnLabel() {
-    btnText.textContent = donationMode === 'subscription'
-      ? 'Set Up Monthly Giving — Secure Checkout'
-      : 'Proceed to Secure Checkout';
-  }
-
-  function selectTier(card) {
-    tierCards.forEach(function (c) {
-      c.classList.remove('selected');
-      c.setAttribute('aria-pressed', 'false');
-    });
-    card.classList.add('selected');
-    card.setAttribute('aria-pressed', 'true');
-    selectedAmount = parseFloat(card.getAttribute('data-amount'));
-    selectedTier   = card.getAttribute('data-tier');
-    updateBtnLabel();
-  }
-
-  function showEl(el)  { el.style.display = ''; el.classList.add('visible');    }
+  function showEl(el)  { el.style.display = ''; el.classList.add('visible'); }
   function hideEl(el)  { el.style.display = 'none'; el.classList.remove('visible'); }
   function showMsgEl(el, text) { el.textContent = text; el.classList.add('visible'); el.style.display = ''; }
-
-  /* ── Auto-select Scholar on load ── */
-  (function () {
-    var def = document.querySelector('.tier-card[data-amount="120"]');
-    if (def) selectTier(def);
-  })();
-
-  /* ── Tier card click / keyboard ── */
-  tierCards.forEach(function (card) {
-    card.addEventListener('click', function () { selectTier(card); });
-    card.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectTier(card); }
-    });
-  });
 
   /* ── Frequency toggle ── */
   function setMode(mode) {
@@ -750,14 +660,15 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #0f2d
       btnOnetime.classList.remove('active');
       btnOnetime.setAttribute('aria-pressed', 'false');
       monthlyNote.style.display = '';
+      btnText.textContent = 'Donate Today — Monthly';
     } else {
       btnOnetime.classList.add('active');
       btnOnetime.setAttribute('aria-pressed', 'true');
       btnMonthly.classList.remove('active');
       btnMonthly.setAttribute('aria-pressed', 'false');
       monthlyNote.style.display = 'none';
+      btnText.textContent = 'Donate Today';
     }
-    updateBtnLabel();
   }
 
   btnOnetime.addEventListener('click',  function () { setMode('payment');      });
@@ -800,19 +711,14 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #0f2d
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
   }
 
-  /* ── Donate button ── */
-  /* ── Stripe config ── */
-  var STRIPE_PK      = 'pk_live_51TYdGS2YeOzEo46xW7IpTxIG0iov7bBRygXH0Y0Z8DJ8pd6laYfbKCRs6GCgKerBu9VSldhqXaQIEL9thtUXBhsJ00euolIto1';
-  var PRICE_ONETIME  = 'price_1Tn6Ev2YeOzEo46xF96fEkbx'; /* one-time — customer chooses */
-  var PRICE_MONTHLY  = 'price_1Tn6Ev2YeOzEo46xF96fEkbx'; /* monthly  — update if separate price */
-  var LINK_ONETIME   = 'https://buy.stripe.com/28E5kw0dB6Gk8gT1Da8Ra00';
-  var LINK_MONTHLY   = 'https://buy.stripe.com/8x25kw3pN8Os68L2He8Ra01';
+  /* ── Payment Links ── */
+  var LINK_ONETIME = 'https://buy.stripe.com/28E5kw0dB6Gk8gT1Da8Ra00';
+  var LINK_MONTHLY = 'https://buy.stripe.com/8x25kw3pN8Os68L2He8Ra01';
 
-  donateBtn.addEventListener('click', async function () {
+  donateBtn.addEventListener('click', function () {
     hideEl(errorMsg);
     hideEl(emailError);
 
-    // Validate email
     var email = emailInput.value.trim();
     if (!email || !isValidEmail(email)) {
       showMsgEl(emailError, 'A valid email address is needed to send your tax receipt.');
@@ -820,31 +726,13 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #0f2d
       return;
     }
 
-    // Show spinner
     donateBtn.disabled = true;
     spinner.style.display = 'block';
     btnArrow.style.display = 'none';
     btnText.textContent = 'Opening secure checkout…';
 
-    try {
-      var stripe = Stripe(STRIPE_PK);
-      var result = await stripe.redirectToCheckout({
-        lineItems: [{
-          price: donationMode === 'subscription' ? PRICE_MONTHLY : PRICE_ONETIME,
-          quantity: 1
-        }],
-        mode: donationMode === 'subscription' ? 'subscription' : 'payment',
-        customerEmail: email,
-        successUrl: window.location.origin + '/donate?success=true',
-        cancelUrl:  window.location.origin + '/donate',
-      });
-      if (result.error) throw new Error(result.error.message);
-    } catch (err) {
-      /* Stripe.js redirectToCheckout failed — fall back to Payment Link */
-      var link = donationMode === 'subscription' ? LINK_MONTHLY : LINK_ONETIME;
-      var params = new URLSearchParams({ prefilled_email: email });
-      window.location.href = link + '?' + params.toString();
-    }
+    var link = donationMode === 'subscription' ? LINK_MONTHLY : LINK_ONETIME;
+    window.location.href = link + '?prefilled_email=' + encodeURIComponent(email);
   });
 
   /* ── Nav: header scroll shadow ── */
