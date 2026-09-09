@@ -567,28 +567,33 @@ select:focus-visible,
       <!-- ░░ Foreground content ░░ -->
       <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-8 md:p-14 lg:p-16" style="min-height:82vh;z-index:3;">
 
-        <!-- Left: copy -->
+        <!-- Left: branded content -->
         <div class="lg:col-span-7 text-white">
-          <span class="inline-block bg-white/15 backdrop-blur-sm text-white px-4 py-2 rounded-full font-label-lg mb-8" style="font-size:0.7rem;letter-spacing:0.12em;">HERITAGE IN OUR ROOTS. FUTURE IN OUR HANDS.</span>
+          <div class="mb-8 flex items-center gap-4">
+            <div class="rounded-full border border-white/30 bg-white/10 p-2 backdrop-blur-sm shadow-lg" style="width:76px;height:76px;">
+              <img src="/logo.avif" alt="Mera Pind 360 Foundation" class="w-full h-full object-cover rounded-full" />
+            </div>
+            <div class="text-[0.7rem] uppercase tracking-[0.22em] font-semibold text-[#f6cf75]">Punjab Di Rooh Sewa Grant</div>
+          </div>
 
-          <!-- Cycling keyword -->
-          <div id="hero-cycler" style="font-size:clamp(3rem,8vw,5rem);font-family:'Lato',sans-serif;font-weight:900;color:#ffffff;letter-spacing:-0.02em;line-height:1;margin-bottom:0.35em;text-shadow:0 2px 20px rgba(0,0,0,0.3);">Education</div>
+          <div class="font-display leading-none text-[#f6cf75]" style="font-size:clamp(2.2rem,5vw,4.4rem);letter-spacing:-0.04em;line-height:0.9; margin-bottom:0.55rem;">
+            Mera Pind
+          </div>
+          <div class="font-display leading-none text-[#f6cf75]" style="font-size:clamp(4rem,9vw,9rem);letter-spacing:-0.05em;line-height:0.82; margin-bottom:1rem;">
+            360
+          </div>
+          <div class="font-display uppercase tracking-[0.12em] text-white" style="font-size:clamp(1.6rem,2.8vw,3rem);letter-spacing:0.16em;line-height:1.05; margin-bottom:1.2rem;">
+            Foundation
+          </div>
 
-          <h1 class="font-display leading-tight mb-8" style="font-size:clamp(2.2rem,5vw,4.2rem);font-weight:700;color:#ffffff;">
-            Adopt the village<br/>you came from.
-          </h1>
-          <p class="font-body-lg mb-10 max-w-xl leading-relaxed" style="color:rgba(255,255,255,0.88);font-size:1.05rem;">
-            Inspired by the Shaheedi of Guru Arjan Dev Ji and the Seva of Bhagat Puran Singh &mdash; we preserve culture, train skills, teach remotely, heal beyond distance, and deliver city services to every village. Building self-reliant communities, united in humanity. Sarbat da Bhala.
+          <p class="font-body-lg max-w-xl leading-relaxed text-white/90" style="font-size:1.05rem; margin-bottom:1.25rem;">
+            Inspired by the Shaheedi of Guru Arjan Dev Ji and the Seva of Bhagat Puran Singh — we preserve culture, train skills, teach remotely, heal beyond distance, and deliver city services to every village.
           </p>
 
-          <!-- CTA + slide dots on same row -->
           <div class="flex flex-wrap items-center gap-5">
-            <a href="/about"
-               class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-label-lg border border-white/40 text-white transition-all hover:bg-white/15"
-               style="font-size:0.82rem;letter-spacing:0.08em;color:#fff;">
-              The 360&deg; Model
+            <a href="/about" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/40 bg-white/10 text-white font-label-lg hover:bg-white/15 transition-all" style="font-size:0.8rem;letter-spacing:0.08em;">
+              The 360° Model
             </a>
-            <!-- Slide progress dots -->
             <div id="hero-dots" style="display:flex;align-items:center;gap:6px;">
               <button class="hero-dot" data-idx="0" aria-label="Slide 1" style="width:20px;height:3px;border-radius:2px;background:#fff;border:none;cursor:pointer;padding:11px 8px;transition:all 0.4s;"></button>
               <button class="hero-dot" data-idx="1" aria-label="Slide 2" style="width:8px;height:3px;border-radius:2px;background:rgba(255,255,255,0.4);border:none;cursor:pointer;padding:11px 8px;transition:all 0.4s;"></button>
@@ -598,30 +603,15 @@ select:focus-visible,
           </div>
         </div>
 
-        <!-- Right: floating info card -->
-        <div class="lg:col-span-5 lg:col-start-8">
-          <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-sm mx-auto lg:mx-0 lg:ml-auto">
-            <div class="flex items-center justify-between mb-6">
-              <div class="flex items-center gap-2">
-                <span class="w-7 h-7 rounded-full flex items-center justify-center" style="background:#173901;">
-                  <span class="material-symbols-outlined" style="font-size:1rem;color:#fcb654;">eco</span>
-                </span>
-                <span class="font-display font-bold text-primary" style="font-size:0.95rem;">Mera Pind 360</span>
-              </div>
-              <span class="font-label-lg uppercase tracking-widest text-on-surface-variant" style="font-size:0.65rem;">2024</span>
+        <!-- Right: portrait card -->
+        <div class="lg:col-span-5 lg:col-start-8 flex justify-center lg:justify-end">
+          <div class="w-full max-w-[360px] rounded-[26px] border border-[#d9d7d0] bg-[#f5f0e7]/90 p-4 shadow-[0_24px_60px_rgba(0,0,0,0.18)] backdrop-blur-sm">
+            <div class="overflow-hidden rounded-[22px] border border-[#d0cabd] bg-[#f3eee6]">
+              <img src="/images/library/img_20240722_155402.jpg" alt="Mera Pind 360 founder portrait" class="w-full h-[330px] object-cover object-center" />
             </div>
-            <div class="h-px w-full bg-outline-variant/40 mb-6"></div>
-            <h2 class="font-display text-primary mb-3 leading-snug" style="font-size:1.35rem;">The 360&deg; Centre Model</h2>
-            <p class="text-on-surface-variant leading-relaxed mb-2" style="font-size:0.88rem;">
-              Four rooms, one roof &mdash; library, IT lab, clinic, and service desk &mdash; built for every village our diaspora calls home.
-            </p>
-            <div class="flex items-center gap-2 mt-5" style="font-size:0.72rem;color:#43493d;">
-              <span class="material-symbols-outlined" style="font-size:0.9rem;color:#173901;">check_circle</span>
-              <span>100% transparent, audited annually</span>
-            </div>
-            <div class="flex items-center gap-2 mt-2" style="font-size:0.72rem;color:#43493d;">
-              <span class="material-symbols-outlined" style="font-size:0.9rem;color:#173901;">check_circle</span>
-              <span>Co-funded so no family bears it alone</span>
+            <div class="mt-4 rounded-[18px] bg-white/60 px-4 py-3 text-[#173901]">
+              <div class="font-display text-[1.05rem] font-bold leading-tight">Mera Pind 360</div>
+              <p class="mt-2 text-[0.72rem] uppercase tracking-[0.18em] text-[#5f6a5c]">Serving humanity</p>
             </div>
           </div>
         </div>
