@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/homepage_mera_pind_360_foundation/code.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/((?!fopf-home$|logo\\.avif$|images\\/|api\\/).*)",
       "has": [
         {
